@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relatório TCE-RS × CAGE — PPP CAFF</title>
+<meta name="description" content="Ponderação dos questionamentos do TCE-RS (RDI 1) e dos achados da CAGE sobre a PPP do Centro Administrativo Fernando Ferrari (CAFF), com explicações em linguagem acessível. Documento editável.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   GTSEFAZ — Padrão Visual CAGE-RS / SEFAZ-RS (tokens canônicos de comum.css + padrao-visual.css)
+   Relatório editável · v1.0
+═══════════════════════════════════════════════════════════ */
+:root{
+  --cage-navy:#0A4D44; --cage-blue:#0F6B5E; --cage-mid:#1F8B7C; --cage-sky:#2EB6A5; --cage-light:#D1F0EB;
+  --rs-vermelho:#8B1A1A; --rs-ambar:#B45309; --rs-verde:#15803D;
+  --cinza-suave:#F5F5F5; --bg-card:#FFFFFF; --rule:#D9D9D9; --rule-soft:#E8E8E8; --ink:#1A1A1A; --ink-muted:#6B7280;
+  --slab:'Roboto Slab',Georgia,serif; --sans:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'JetBrains Mono','Courier New',monospace;
+  --radius:6px; --radius-sm:4px; --shadow-md:0 4px 14px rgba(10,77,68,.08);
+  --tce:#1E3A5F; --tce-bg:#E7EEF6; --both:#0A4D44; --both-bg:#D1F0EB; --cage:#0F6B5E; --cage-bg:#E0F5F1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cinza-suave);color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--slab);color:var(--cage-navy);letter-spacing:-.005em;margin:0}
+p{margin:0 0 10px}
+a{color:var(--cage-blue)}
+code,.mono,.num{font-family:var(--mono)}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:600}
+
+/* ── Cabeçalho institucional ── */
+.app-header{background:#fff;border-bottom:3px solid var(--cage-mid);box-shadow:var(--shadow-md);position:relative;z-index:5}
+.app-header .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.app-header img{height:46px;width:auto;display:block}
+.app-header .gov{background:var(--cage-navy);border-radius:4px;padding:4px 8px}
+.app-header .gov img{height:40px}
+.header-divider{width:1px;height:42px;background:var(--rule)}
+.header-titles{flex:1;min-width:240px}
+.header-main{font-family:var(--slab);font-size:17px;font-weight:600;color:var(--cage-navy);line-height:1.25}
+.header-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cage-mid);margin-top:4px}
+
+/* ── Barra de ferramentas (não imprime) ── */
+.toolbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--rule);box-shadow:0 2px 8px rgba(10,77,68,.06)}
+.toolbar .in{max-width:1180px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn,.btn-secondary,.btn-danger{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border-radius:4px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.01em;cursor:pointer;line-height:1.3;transition:all .15s;text-decoration:none}
+.btn{border:1px solid var(--cage-mid);background:var(--cage-mid);color:#fff}
+.btn:hover{background:var(--cage-blue);border-color:var(--cage-blue);box-shadow:0 2px 6px rgba(31,139,124,.2)}
+.btn-secondary{border:1px solid var(--rule);background:#fff;color:var(--cage-navy)}
+.btn-secondary:hover{border-color:var(--cage-mid);background:var(--cage-light)}
+.btn-danger{border:1px solid rgba(139,26,26,.22);background:rgba(139,26,26,.06);color:var(--rs-vermelho)}
+.btn-danger:hover{background:rgba(139,26,26,.12);border-color:var(--rs-vermelho)}
+.btn svg,.btn-secondary svg,.btn-danger svg{width:14px;height:14px}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cage-navy);cursor:pointer;user-select:none;padding:6px 10px;border:1px solid var(--rule);border-radius:4px;background:#fff}
+.switch input{appearance:none;width:34px;height:18px;border-radius:9px;background:#C9CED6;position:relative;outline:none;cursor:pointer;transition:background .15s;margin:0}
+.switch input::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .15s}
+.switch input:checked{background:var(--cage-mid)}
+.switch input:checked::after{left:18px}
+.tb-status{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-muted);letter-spacing:.04em}
+.tb-status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cage-sky);margin-right:6px;vertical-align:middle}
+.filters{display:flex;gap:6px;flex-wrap:wrap;align-items:center;width:100%;padding-top:6px;border-top:1px dashed var(--rule-soft)}
+.filters .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-right:4px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:14px;border:1px solid var(--rule);background:#fff;color:var(--ink-muted);cursor:pointer}
+.chip.on{background:var(--cage-navy);border-color:var(--cage-navy);color:#fff}
+.chip .n{opacity:.7;margin-left:4px}
+
+/* ── Aviso de rascunho ── */
+.draft-banner{max-width:1180px;margin:12px auto 0;padding:0 20px}
+.draft-banner .box{background:#FFF7E6;border:1px solid #F3D9A4;color:#7A4B00;border-radius:6px;padding:10px 14px;font-size:13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.draft-banner a{color:#7A4B00;font-weight:600}
+
+/* ── Página ── */
+.page{max-width:1180px;margin:0 auto;padding:18px 20px 60px}
+.hero{background:linear-gradient(135deg,var(--cage-navy) 0%,var(--cage-blue) 60%,var(--cage-mid) 100%);border-radius:12px;padding:30px 34px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:22px}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 90% 20%,rgba(46,182,165,.18) 0%,transparent 50%),radial-gradient(circle at 10% 90%,rgba(46,182,165,.10) 0%,transparent 40%);pointer-events:none}
+.hero>*{position:relative}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cage-sky);display:block;margin-bottom:8px}
+.hero h1{color:#fff;font-size:26px;font-weight:700;line-height:1.2;max-width:900px}
+.hero .sub{color:rgba(255,255,255,.85);font-size:15px;margin-top:10px;max-width:900px}
+.hero .tagline{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:5px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
+.kpi{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--slab);font-size:26px;font-weight:700;line-height:1.1}
+.kpi .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:4px}
+
+/* ── Identificação (campos) ── */
+.ident{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.field label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-bottom:5px}
+.field input,.field textarea{font-family:var(--sans);font-size:13.5px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:4px;padding:8px 12px;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--cage-mid);box-shadow:0 0 0 3px rgba(31,139,124,.12)}
+.field .print-val{display:none}
+section[id],article[id],h2[id],h3[id],div[id]{scroll-margin-top:118px}
+
+/* ── Painéis ── */
+.panel{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:18px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden}
+.panel-header{font-family:var(--slab);font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--cage-navy);padding:12px 18px;display:flex;align-items:center;gap:10px;line-height:1.3}
+.panel-header .ph-dot{display:inline-block;width:8px;height:8px;background:var(--cage-sky);border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(46,182,165,.18)}
+.panel-header .ph-right{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;opacity:.8;text-transform:none}
+.panel-body{padding:18px}
+.section-eyebrow{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cage-mid);display:block;margin-bottom:4px}
+.section-title{font-family:var(--slab);font-size:20px;font-weight:600;color:var(--cage-navy);margin:34px 0 6px}
+.section-title:first-of-type{margin-top:6px}
+.section-desc{color:var(--ink-muted);font-size:13.5px;margin-bottom:14px;max-width:960px}
+.bloco-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-bottom:8px;border-bottom:2px solid var(--cage-light)}
+.bloco-head .letra{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--cage-mid);padding:3px 9px;border-radius:3px}
+.bloco-head h2{font-size:19px}
+.bloco-head .cnt{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:.08em}
+
+/* ── Badges ── */
+.badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--rule-soft);color:var(--ink-muted);line-height:1.4;white-space:nowrap}
+.badge-tce{background:var(--tce-bg);color:var(--tce)}
+.badge-both{background:var(--both-bg);color:var(--both)}
+.badge-cage{background:var(--cage-sky);color:#fff}
+.badge-alta{background:rgba(139,26,26,.10);color:var(--rs-vermelho)}
+.badge-media{background:rgba(180,83,9,.12);color:var(--rs-ambar)}
+.badge-baixa{background:var(--rule-soft);color:var(--ink-muted)}
+.badge-ok{background:rgba(21,128,61,.12);color:var(--rs-verde)}
+
+/* ── Cards de questão ── */
+.q-card{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:14px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden;break-inside:avoid;page-break-inside:avoid}
+.q-card.hidden{display:none}
+.q-head{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FBFCFC;border-bottom:1px solid var(--rule-soft);cursor:pointer}
+.q-num{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;color:#fff;background:var(--cage-navy);border-radius:4px;padding:5px 9px;white-space:nowrap;margin-top:2px}
+.q-num.c{background:var(--cage-blue)}
+.q-title{flex:1;min-width:200px}
+.q-title h3{font-size:15.5px;font-weight:600;line-height:1.3}
+.q-title .q-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.q-toggle{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:.08em;white-space:nowrap;margin-top:6px}
+.q-body{padding:6px 16px 14px}
+.q-card.collapsed .q-body{display:none}
+.q-sec{margin:12px 0 0}
+.q-label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.q-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cage-mid);display:inline-block}
+.q-simple{background:var(--cage-light);border-left:4px solid var(--cage-mid);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-simple .q-label{color:var(--cage-navy)}
+.q-simple .q-label::before{background:var(--cage-navy)}
+.q-why{background:#FFF8EC;border-left:4px solid var(--rs-ambar);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-why .q-label{color:var(--rs-ambar)}
+.q-why .q-label::before{background:var(--rs-ambar)}
+.q-ask{background:#F3FBF6;border-left:4px solid var(--rs-verde);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-ask .q-label{color:var(--rs-verde)}
+.q-ask .q-label::before{background:var(--rs-verde)}
+.q-ask ul{margin:4px 0 0}
+.q-ev{font-size:13.5px}
+.q-ev .ref{font-family:var(--mono);font-size:11px;color:var(--cage-blue);background:#F1F7F6;border-radius:3px;padding:1px 5px}
+.num-strip{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.num-strip .ns{border:1px solid var(--rule);border-radius:6px;padding:7px 10px;background:#fff;min-width:130px}
+.num-strip .ns .v{font-family:var(--slab);font-size:17px;font-weight:700;color:var(--cage-navy);line-height:1.1}
+.num-strip .ns .v.neg{color:var(--rs-vermelho)}
+.num-strip .ns .v.pos{color:var(--rs-verde)}
+.num-strip .ns .l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:3px}
+
+/* ── Glossário / primer ── */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.term{border:1px solid var(--rule);border-radius:6px;padding:12px 14px;background:#fff}
+.term h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.term p{font-size:13.2px;margin:0 0 6px}
+.term .ex{font-size:12.5px;color:var(--cage-blue);background:#F1F7F6;border-radius:4px;padding:6px 8px;margin:0}
+.term .ex b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cage-mid);display:block;margin-bottom:2px}
+.primer p{max-width:960px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.legend .lg{border:1px solid var(--rule);border-radius:6px;padding:10px 12px;font-size:13px}
+.legend .lg .badge{margin-bottom:6px}
+
+/* ── Tabelas ── */
+table.data-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px}
+table.data-table thead th{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);background:var(--cinza-suave);border-bottom:2px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:bottom}
+table.data-table tbody td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+table.data-table tbody tr:hover td{background:#FAFCFC}
+.tbl-wrap{overflow-x:auto}
+td.r,th.r{text-align:right;font-family:var(--mono);font-size:12px;white-space:nowrap}
+
+/* ── Índice ── */
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 18px;font-size:13.5px}
+.toc a{text-decoration:none;color:var(--cage-navy);padding:4px 0;border-bottom:1px dotted var(--rule)}
+.toc a:hover{color:var(--cage-mid)}
+.toc a .n{font-family:var(--mono);font-size:10px;color:var(--ink-muted);margin-right:6px}
+
+/* ── Assinaturas ── */
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:34px}
+.sign .s{border-top:1px solid var(--ink);padding-top:8px;font-size:12.5px;text-align:center;color:var(--ink-muted)}
+.sign .s b{display:block;color:var(--ink);font-weight:600}
+.footer{max-width:1180px;margin:0 auto;padding:16px 20px 30px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--rule)}
+
+/* ── Modo edição ── */
+body.editing .ed{outline:1px dashed rgba(31,139,124,.55);outline-offset:3px;border-radius:3px;min-height:1em}
+body.editing .ed:focus{outline:2px solid var(--cage-mid);background:#FBFFFE}
+body.editing .q-head{cursor:default}
+.ed.edited{box-shadow:inset 3px 0 0 var(--rs-ambar)}
+body:not(.editing) .edit-hint{display:none}
+.edit-hint{font-size:12.5px;color:var(--cage-blue);background:#F1F7F6;border:1px dashed var(--cage-sky);border-radius:6px;padding:8px 12px;margin-bottom:12px}
+.callout{border:1px solid var(--rule);border-left:4px solid var(--cage-sky);background:#fff;border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:13.5px}
+.callout.warn{border-left-color:var(--rs-ambar);background:#FFF8EC}
+.callout.red{border-left-color:var(--rs-vermelho);background:#FDF3F3}
+.small{font-size:12.5px;color:var(--ink-muted)}
+.print-only{display:none}
+
+/* ── Responsivo ── */
+@media (max-width:640px){
+  .hero{padding:22px 18px}.hero h1{font-size:21px}
+  .page{padding:14px 16px 50px}
+  .q-head{flex-wrap:wrap}
+  .tb-status{margin-left:0;width:100%}
+}
+
+/* ── Impressão (tema documento CAGE) ── */
+@media print{
+  @page{size:A4;margin:16mm 14mm 18mm;
+    @bottom-left{content:"CAGE-RS · SEFAZ-RS · GT-PPPs — Relatório TCE × CAGE · PPP CAFF · uso interno";font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+    @bottom-right{content:"Página " counter(page) " de " counter(pages);font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+  }
+  .field{break-inside:avoid}
+  html,body{background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:11.5pt}
+  .toolbar,.filters,.draft-banner,.q-toggle,.edit-hint,.no-print{display:none !important}
+  .print-only{display:block}
+  .app-header{box-shadow:none;border-bottom:2px solid var(--cage-mid)}
+  .page{padding:0;max-width:none}
+  .hero{border-radius:0;box-shadow:none;padding:22px 24px;background:var(--cage-navy) !important}
+  .panel,.q-card{box-shadow:none;border:1px solid #E3E8F0;border-radius:6px}
+  .q-card.collapsed .q-body,.q-card.hidden{display:block !important}
+  .q-card{page-break-inside:avoid}
+  .panel-header{background:var(--cage-navy) !important;color:#fff !important;border-radius:6px 6px 0 0}
+  table.data-table thead th{background:var(--cage-navy) !important;color:#fff !important;border:none}
+  table.data-table tbody tr:nth-child(even) td{background:#FAFCFF}
+  .section-title{page-break-after:avoid}
+  .bloco-head{page-break-after:avoid}
+  .ed{outline:none !important;box-shadow:none !important}
+  .field input,.field textarea{display:none !important}
+  .field .print-val{display:block;font-family:var(--sans);font-size:10.5pt;color:var(--cage-navy);white-space:pre-wrap;line-height:1.4;padding:2px 0 4px;border-bottom:1px solid #E3E8F0;min-height:1.4em}
+  .field .print-val.ph{color:#9CA3AF;font-style:italic}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ Cabeçalho institucional ═══ -->
+<header class="app-header">
+  <div class="in">
+    <div class="gov" title="Governo do Estado do Rio Grande do Sul — Secretaria da Fazenda"><img src="data:image/png;base64,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" alt="Governo do Estado do Rio Grande do Sul — Secretaria da Fazenda"></div>
+    <div class="header-divider"></div>
+    <img src="data:image/png;base64,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" alt="CAGE — Contadoria e Auditoria-Geral do Estado do RS" title="CAGE-RS">
+    <div class="header-divider"></div>
+    <div class="header-titles">
+      <div class="header-main">Relatório de Ponderação — Questionamentos do TCE-RS (RDI 1)<br>e Achados da CAGE · PPP do CAFF</div>
+      <div class="header-sub">Contadoria e Auditoria-Geral do Estado · GT-PPPs · SEFAZ-RS</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ Barra de ferramentas (interface; não imprime) ═══ -->
+<div class="toolbar" id="toolbar">
+  <div class="in">
+    <label class="switch" title="Ativa a edição direta do texto, tabelas e campos">
+      <input type="checkbox" id="chkEdit" onchange="setEdit(this.checked)"> Modo edição
+    </label>
+    <button class="btn" onclick="salvar(true)" title="Salva o rascunho neste navegador (localStorage)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      Salvar rascunho
+    </button>
+    <button class="btn-secondary" onclick="window.print()" title="Gera o PDF pelo diálogo de impressão do navegador">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Exportar PDF
+    </button>
+    <button class="btn-secondary" onclick="baixarHTML()" title="Baixa uma cópia deste arquivo já com as suas edições">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Baixar HTML editado
+    </button>
+    <button class="btn-secondary" onclick="toggleTodos()" title="Recolhe ou expande todos os cartões">Recolher / expandir</button>
+    <button class="btn-danger" onclick="restaurar()" title="Descarta o rascunho salvo e volta ao texto original">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+      Restaurar original
+    </button>
+    <span class="tb-status" id="tbStatus"><span class="dot"></span>Pronto · Relatório CAGE v1.0</span>
+    <div class="filters" id="filters">
+      <span class="lbl">Filtrar cartões</span>
+      <button class="chip on" data-f="all" onclick="filtrar(this)">Todos <span class="n" id="n-all"></span></button>
+      <button class="chip" data-f="tce" onclick="filtrar(this)">Só TCE <span class="n" id="n-tce"></span></button>
+      <button class="chip" data-f="both" onclick="filtrar(this)">TCE + CAGE <span class="n" id="n-both"></span></button>
+      <button class="chip" data-f="cage" onclick="filtrar(this)">Só CAGE <span class="n" id="n-cage"></span></button>
+      <button class="chip" data-f="alta" onclick="filtrar(this)">Pertinência alta <span class="n" id="n-alta"></span></button>
+    </div>
+  </div>
+</div>
+
+<div class="draft-banner" id="draftBanner" hidden>
+  <div class="box">✎ Conteúdo restaurado do rascunho salvo neste navegador em <b id="draftTs"></b>. <a href="#" onclick="restaurar();return false;">Descartar rascunho e voltar ao original</a></div>
+</div>
+
+
+<main class="page" id="doc">
+
+<!-- ═══ Hero ═══ -->
+<section class="hero">
+  <span class="eyebrow">Estado do Rio Grande do Sul · CAGE-RS · SEFAZ-RS · GT-PPPs</span>
+  <h1>Questionamentos do TCE-RS sobre a PPP do CAFF: o que o Tribunal perguntou, o que a CAGE confirmou e o que a CAGE identificou além</h1>
+  <div class="sub">Concessão Administrativa do Centro Administrativo Fernando Ferrari (CAFF) — Porto Alegre/RS · Estruturação BNDES (OCS 330/2024) · Consórcio RECAFF. Ponderação da RDI 1 (45 itens) frente aos Produtos 8 e 10, ao Modelo Econômico-Financeiro de 13/07/2026, à memória do WACC e à planilha de OPEX, com explicações em linguagem acessível.</div>
+  <span class="tagline">Documento editável · uso interno · não constitui manifestação oficial</span>
+  <div class="kpis">
+    <div class="kpi"><div class="v">45</div><div class="l">Questões do TCE-RS</div></div>
+    <div class="kpi"><div class="v">44</div><div class="l">Pertinentes (5 formais)</div></div>
+    <div class="kpi"><div class="v">15</div><div class="l">Convergentes com a CAGE</div></div>
+    <div class="kpi"><div class="v">30</div><div class="l">Exclusivas do TCE</div></div>
+    <div class="kpi"><div class="v">15</div><div class="l">Achados só da CAGE</div></div>
+    <div class="kpi"><div class="v">33</div><div class="l">Solicitações consolidadas</div></div>
+  </div>
+</section>
+
+<!-- ═══ Identificação ═══ -->
+<section class="panel" id="identificacao">
+  <div class="panel-header"><span class="ph-dot"></span>Identificação do documento<span class="ph-right">campos editáveis</span></div>
+  <div class="panel-body">
+    <div class="ident">
+      <div class="field"><label for="fProjeto">Projeto</label><input id="fProjeto" data-k="projeto" value="Concessão Administrativa do Centro Administrativo Fernando Ferrari (CAFF)"></div>
+      <div class="field"><label for="fOrgao">Unidade responsável</label><input id="fOrgao" data-k="orgao" value="CAGE-RS · GT-PPPs · SEFAZ-RS"></div>
+      <div class="field"><label for="fProa">Nº do processo (PROA / SEI)</label><input id="fProa" data-k="proa" value="" placeholder="a preencher"></div>
+      <div class="field"><label for="fData">Data de emissão</label><input id="fData" data-k="data" value="14/09/2026"></div>
+      <div class="field"><label for="fResp">Responsável técnico</label><input id="fResp" data-k="resp" value="" placeholder="Nome, cargo e matrícula"></div>
+      <div class="field"><label for="fVersao">Versão</label><input id="fVersao" data-k="versao" value="1.0 — rascunho para discussão"></div>
+    </div>
+    <div class="field" style="margin-top:12px"><label for="fObs">Contexto / observações</label><textarea id="fObs" data-k="obs" rows="2">Documento de origem: "Questões RDI 1 – CAFF" (TCE-RS, 7 páginas, 45 itens). Base de confronto: análise CAGE de 14/09/2026 sobre o Plano de Negócios (Produto 8), a Análise de Value for Money (Produto 10), o Modelo CAFF 2026.07.13.xlsm, a memória do WACC (data-base dez/2025) e a planilha "Relatório de Diretrizes Operacionais – OPEX".</textarea></div>
+  </div>
+</section>
+
+<div class="edit-hint ed-hint">✎ <b>Modo edição ativo.</b> Clique em qualquer texto, tabela ou cartão para alterar. As mudanças são salvas automaticamente neste navegador; use <b>Baixar HTML editado</b> para gerar uma cópia do arquivo com as suas alterações e <b>Exportar PDF</b> para o documento final.</div>
+
+<!-- ═══ Índice ═══ -->
+<section class="panel" id="indice">
+  <div class="panel-header"><span class="ph-dot"></span>Índice</div>
+  <div class="panel-body">
+    <div class="toc">
+      <a href="#como-ler"><span class="n">01</span>Como ler este relatório</a>
+      <a href="#essencial"><span class="n">02</span>O essencial para quem não é da área</a>
+      <a href="#glossario"><span class="n">03</span>Glossário em linguagem simples</a>
+      <a href="#sumario"><span class="n">04</span>Sumário da ponderação</a>
+      <a href="#bloco-a"><span class="n">A</span>Cronograma e Caderno de Encargos (TCE 1–4)</a>
+      <a href="#bloco-b"><span class="n">B</span>Serviços e dimensionamento de OPEX (TCE 5, 7, 9)</a>
+      <a href="#bloco-c"><span class="n">C</span>Documentos e imóveis (TCE 6, 10, 11)</a>
+      <a href="#bloco-d"><span class="n">D</span>IPTU e estacionamento (TCE 8, 12)</a>
+      <a href="#bloco-e"><span class="n">E</span>Orçamento de obras (TCE 13, 18–29)</a>
+      <a href="#bloco-f"><span class="n">F</span>Licenciamento urbanístico e patrimônio (TCE 14–17)</a>
+      <a href="#bloco-g"><span class="n">G</span>Estruturação, contrato, seguros e garantias (TCE 30–37)</a>
+      <a href="#bloco-h"><span class="n">H</span>Tributos, aporte e demonstrações (TCE 38–41)</a>
+      <a href="#bloco-i"><span class="n">I</span>Legalidade, affordability e custo de capital (TCE 42–45)</a>
+      <a href="#bloco-j"><span class="n">J</span>Achados exclusivos da CAGE (C1–C15)</a>
+      <a href="#consolidacao"><span class="n">05</span>Lista consolidada de solicitações aos consultores</a>
+      <a href="#documentos"><span class="n">06</span>Documentos a solicitar</a>
+      <a href="#anexo"><span class="n">07</span>Anexo — verificações no modelo</a>
+      <a href="#assinaturas"><span class="n">08</span>Assinaturas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 01 Como ler ═══ -->
+<h2 class="section-title" id="como-ler">01 · Como ler este relatório</h2>
+<p class="section-desc">Cada cartão trata de uma questão (ou grupo de questões) do TCE-RS ou de um achado da CAGE. Os cartões têm sempre a mesma estrutura: o que foi perguntado, uma explicação em linguagem simples, o que a CAGE verificou nos documentos e no modelo, por que o ponto importa para o Estado e o que deve ser solicitado aos consultores.</p>
+<section class="panel">
+  <div class="panel-body ed">
+    <div class="legend">
+      <div class="lg"><span class="badge badge-tce">[TCE]</span><br>Questão levantada <b>apenas pelo TCE-RS</b>. Em geral depende de documentos que a CAGE ainda não recebeu (Minuta de Contrato, Caderno de Encargos, Matriz de Riscos, Relatório de Diretrizes Operacionais) ou de verificação de fórmulas específicas. Onde foi possível, a CAGE corrobora com evidência do modelo.</div>
+      <div class="lg"><span class="badge badge-both">[TCE + CAGE]</span><br>Questão levantada pelo TCE <b>e também identificada pela CAGE</b> (convergente). A CAGE acrescenta números, células do modelo e desdobramentos que o TCE não trouxe.</div>
+      <div class="lg"><span class="badge badge-cage">[CAGE]</span><br>Achado identificado <b>apenas pela CAGE</b>, que não consta da RDI 1 e deve ser encaminhado aos consultores em nome da CAGE.</div>
+      <div class="lg"><span class="badge badge-alta">Pertinência alta</span> <span class="badge badge-media">Média</span> <span class="badge badge-baixa">Baixa</span><br><b>Alta</b> = afeta valor, risco ou legalidade de forma relevante. <b>Média</b> = afeta consistência ou rastreabilidade, ou tem impacto financeiro limitado. <b>Baixa</b> = formal/editorial.</div>
+    </div>
+    <p class="small" style="margin-top:12px">Valores em R$ milhões (mi), data-base dezembro/2025, em termos reais (sem inflação), salvo indicação. "VP" = valor presente. Referências a "aba" e "célula" indicam a planilha Modelo CAFF 2026.07.13.xlsm. "PN" = Plano de Negócios (Produto 8); "VfM" = Análise de Value for Money (Produto 10).</p>
+  </div>
+</section>
+
+<!-- ═══ 02 Essencial ═══ -->
+<h2 class="section-title" id="essencial">02 · O essencial para quem não é da área</h2>
+<p class="section-desc">Dez minutos de leitura para entender o projeto, os personagens, os documentos e por que os números em discussão são grandes.</p>
+<section class="panel">
+  <div class="panel-header"><span class="ph-dot"></span>O projeto em uma página</div>
+  <div class="panel-body primer ed">
+    <p><b>O que é a PPP do CAFF.</b> O Centro Administrativo Fernando Ferrari (CAFF), em Porto Alegre, é o conjunto de prédios onde funcionam 19 das 28 secretarias e órgãos do Governo do Estado. O prédio principal é de 1987 e o do DAER, incorporado ao projeto, é da década de 1970. O Estado estuda entregar a uma empresa privada, por <b>30 anos</b>, a tarefa de reformar, ampliar, construir novos prédios (inclusive a nova sede da PGE), equipar, operar e manter todo o complexo — limpeza, segurança, manutenção, energia, elevadores, jardinagem. Em troca, o Estado pagará uma parcela mensal chamada <b>contraprestação</b>. Isso é uma <b>Parceria Público-Privada na modalidade concessão administrativa</b> (Lei federal nº 11.079/2004): o Estado é o usuário do serviço e é quem paga.</p>
+    <p><b>Os números principais.</b> Investimento (CAPEX) de <b>R$ 1,74 bilhão</b> ao longo de 30 anos — R$ 1,03 bilhão nas obras iniciais (6 anos) e R$ 0,67 bilhão em reposições ao longo do contrato. Custos de operação (OPEX) de <b>R$ 77,5 milhões por ano</b>. Contraprestação máxima de <b>R$ 270,2 milhões por ano</b> (R$ 22,5 milhões por mês), que começa em 20% durante as obras e chega a 100% no 7º ano; no total, <b>R$ 7,3 bilhões</b> em 30 anos. Além disso, um <b>aporte</b> (pagamento à vista) de R$ 50 milhões no 4º ano. Hoje o Estado gasta cerca de R$ 35 milhões por ano com a operação do CAFF e com aluguéis de prédios externos.</p>
+    <p><b>Quem é quem.</b> O <b>BNDES</b> foi contratado pelo Estado para estruturar o projeto e contratou o <b>Consórcio RECAFF</b> (Radar PPP, Patrinvest, Premium Solution, ZEBL e Machado Meyer) — são os "consultores responsáveis", autores dos documentos analisados. A <b>SERG</b> (Secretaria da Reconstrução Gaúcha) conduz o projeto pelo Estado. O <b>TCE-RS</b> é o órgão de controle externo que fiscaliza a licitação e emitiu a "RDI 1" — uma lista de 45 pedidos de esclarecimento. A <b>CAGE</b> é o órgão de controle interno do Executivo (dentro da SEFAZ) e avalia, pelo lado do Estado, se os estudos são suficientes e adequados.</p>
+    <p><b>Os documentos.</b> O <b>Plano de Negócios</b> (Produto 8) descreve o projeto e detalha custos, receitas e financiamento. A <b>Análise de Value for Money</b> (Produto 10) tenta demonstrar que fazer o projeto como PPP é mais vantajoso do que o Estado fazer por conta própria. O <b>Modelo Econômico-Financeiro</b> é a planilha Excel com 51 abas que gera todos os números. A <b>memória do WACC</b> mostra como se chegou à taxa de retorno exigida pelo investidor. A planilha de <b>OPEX</b> detalha os custos de operação por posto de trabalho e por prédio. O TCE teve acesso, além disso, à <b>Minuta de Contrato</b>, ao <b>Caderno de Encargos</b> (o que a empresa é obrigada a entregar) e à <b>Matriz de Riscos</b> — documentos que a CAGE ainda não recebeu.</p>
+    <p><b>Por que tudo isso importa.</b> O contrato compromete o orçamento do Estado por 30 anos. Cada 1% a mais na contraprestação são R$ 2,7 milhões por ano. Se o orçamento das obras estiver inflado, se a taxa de retorno do investidor estiver alta demais ou se a comparação "PPP × fazer por conta própria" estiver enviesada, o Estado pagará mais do que o necessário — e, uma vez assinado, o contrato só muda por reequilíbrio, que costuma custar caro. Por isso a CAGE e o TCE fazem tantas perguntas antes da licitação.</p>
+    <div class="callout">
+      <b>A conclusão em uma frase:</b> a documentação melhorou muito desde março, mas os estudos ainda não demonstram de forma robusta que a PPP é a opção mais vantajosa — a "vantagem" de R$ 132 milhões desaparece se uma única premissa (um acréscimo de 25% sobre os custos de operação do Estado por 30 anos) for retirada — e há itens de orçamento, retorno do investidor, tributos e receitas que precisam ser justificados ou corrigidos antes do edital.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 Glossário ═══ -->
+<h2 class="section-title" id="glossario">03 · Glossário em linguagem simples</h2>
+<p class="section-desc">Os termos técnicos que aparecem nas questões, explicados com um exemplo do próprio CAFF.</p>
+<section class="panel">
+  <div class="panel-body ed">
+    <div class="gloss">
+      <div class="term"><h4>Contraprestação</h4><p>A "mensalidade" que o Estado paga à empresa concessionária pelos prédios entregues e pelos serviços prestados. É fixada na licitação (vence quem pedir a menor) e reajustada pela inflação.</p><p class="ex"><b>No CAFF</b> Máximo de R$ 22,5 mi/mês = R$ 270,2 mi/ano; R$ 7,3 bi em 30 anos.</p></div>
+      <div class="term"><h4>Aporte público</h4><p>Pagamento à vista feito pelo Estado durante as obras, permitido pela lei de PPPs, para reduzir o valor a financiar e, portanto, a contraprestação. Não entra no cálculo do limite da RCL.</p><p class="ex"><b>No CAFF</b> R$ 50 mi, previsto para o 4º ano, após a conclusão do prédio da PGE. Em março não existia.</p></div>
+      <div class="term"><h4>CAPEX e OPEX</h4><p>CAPEX é o investimento (obras, equipamentos, mobiliário); OPEX é o custo de operar e manter (pessoal, energia, limpeza, segurança, manutenção). Reinvestimento é o CAPEX repetido para repor o que se desgasta.</p><p class="ex"><b>No CAFF</b> CAPEX R$ 1,74 bi (R$ 1,03 bi inicial + R$ 0,67 bi de reposições); OPEX R$ 77,5 mi/ano.</p></div>
+      <div class="term"><h4>Value for Money (VfM) e PSC</h4><p>VfM é a comparação entre o custo de fazer o projeto como PPP e o custo de o Estado fazer por conta própria (o "PSC", comparador do setor público), com tudo trazido a valores de hoje. Se a PPP sai mais barata, diz-se que há VfM positivo.</p><p class="ex"><b>No CAFF</b> PPP R$ 1.859 mi × PSC R$ 1.991 mi → VfM de R$ 132 mi (6,6%) a favor da PPP.</p></div>
+      <div class="term"><h4>Valor presente e Taxa Social de Desconto (TSD)</h4><p>Um gasto daqui a 20 anos "vale menos" hoje. A TSD é a taxa usada para essa conversão. Quanto maior a taxa, menos pesam os gastos distantes — e a PPP, cujos pagamentos se espalham por 30 anos, fica relativamente mais barata.</p><p class="ex"><b>No CAFF</b> TSD de 8,5% ao ano (recomendação do então Ministério da Economia, 2020). Abaixo de 6,9% o VfM fica negativo.</p></div>
+      <div class="term"><h4>Sobrecusto (aditivos)</h4><p>Acréscimo aplicado ao PSC por se presumir que obras e contratos públicos estouram o orçamento. A lei de licitações limita aditivos de obras a 25%; usar esse percentual sobre custos de operação por 30 anos é uma escolha metodológica, não uma exigência legal.</p><p class="ex"><b>No CAFF</b> 25% sobre CAPEX (VP R$ 252 mi) e sobre OPEX (VP R$ 167 mi). Sem o de OPEX, o VfM vira −R$ 35 mi.</p></div>
+      <div class="term"><h4>Neutralidade competitiva</h4><p>Ajuste que retira do custo da PPP os impostos que a empresa privada paga (PIS, COFINS, ISS, IRPJ, CSLL), com o argumento de que eles voltam para a sociedade. Mas esses impostos vão para a União e para o Município — não para o caixa do Estado.</p><p class="ex"><b>No CAFF</b> Reduz o custo da PPP em R$ 421 mi. Sem esse ajuste, a PPP custa R$ 289 mi a mais que o PSC para o Tesouro estadual.</p></div>
+      <div class="term"><h4>Cenário híbrido</h4><p>Alternativa em que o Estado contrata a obra de uma construtora (licitação comum) e continua operando os prédios por conta própria.</p><p class="ex"><b>No CAFF</b> Custo de R$ 1.644 mi — mais barato que a PPP (R$ 1.859 mi). Os consultores o tratam como "complementar".</p></div>
+      <div class="term"><h4>WACC e TIR</h4><p>WACC é a taxa de retorno que o investidor exige para colocar dinheiro no projeto (média entre o custo do capital dos sócios e o custo da dívida). A contraprestação é calibrada para que a TIR (taxa interna de retorno) do projeto seja igual ao WACC. A TIR do acionista é o retorno que sobra para os sócios depois de pagar a dívida.</p><p class="ex"><b>No CAFF</b> WACC = TIR do projeto = 10,23% ao ano acima da inflação; TIR do acionista de 26,4% (caixa livre) e 16,8% (dividendos).</p></div>
+      <div class="term"><h4>Alavancagem</h4><p>Parcela do investimento financiada com dívida (bancos, debêntures) em vez de dinheiro dos sócios. Quanto mais dívida a um custo abaixo do retorno do projeto, maior o lucro dos sócios sobre o pouco capital que colocam.</p><p class="ex"><b>No CAFF</b> 79,2% de dívida (R$ 866 mi), era 69,8% em março; o WACC, porém, foi calculado como se a dívida fosse só 16,2%.</p></div>
+      <div class="term"><h4>BDI</h4><p>"Benefícios e Despesas Indiretas": percentual somado ao custo direto da obra para cobrir administração central, seguros, impostos sobre o faturamento e lucro da construtora. Fornecer mobiliário tem BDI menor do que construir.</p><p class="ex"><b>No CAFF</b> O orçamento não mostra BDI algum — não se sabe se os preços unitários já o incluem.</p></div>
+      <div class="term"><h4>RCL e affordability</h4><p>Receita Corrente Líquida é a "renda" anual do Estado. A lei de PPPs proíbe que o total pago em PPPs passe de 5% da RCL. Affordability é a análise de se o Estado consegue pagar.</p><p class="ex"><b>No CAFF</b> 0,41% da RCL (relatório) ou 0,48% (modelo, que usa outra RCL); com as PPPs já existentes, 0,50%.</p></div>
+      <div class="term"><h4>Reequilíbrio econômico-financeiro</h4><p>Revisão do contrato (mais pagamento, mais prazo) quando um risco que o contrato atribuiu ao Estado se concretiza — por exemplo, mudança de lei tributária ou um pedido de obra extra.</p><p class="ex"><b>No CAFF</b> A reforma tributária (CBS/IBS) e as mudanças de layout são gatilhos potenciais; ensaios estruturais não feitos também.</p></div>
+      <div class="term"><h4>FDISP e FID (mecanismo de pagamento)</h4><p>Fatores que reduzem a contraprestação: o FDISP porque parte dos prédios ainda não está disponível (20% → 60% → 90% → 100% conforme as fases são concluídas); o FID porque o serviço ficou abaixo do combinado, medido por indicadores (pode reduzir até 80%).</p><p class="ex"><b>No CAFF</b> Anos 1–3: R$ 54 mi/ano; ano 4: R$ 162 mi (+ aporte de R$ 50 mi); anos 5–6: R$ 243 mi; do 7º ao 30º: R$ 270 mi.</p></div>
+      <div class="term"><h4>Verificador Independente e Certificadora de Obras</h4><p>Empresas contratadas para medir, com isenção, os indicadores de desempenho (verificador) e atestar a conclusão das obras (certificadora). No CAFF são pagas pela concessionária, mas o custo entra na contraprestação.</p><p class="ex"><b>No CAFF</b> 0,4% da contraprestação cada = R$ 1,08 mi/ano (certificadora só nos 6 anos de obra).</p></div>
+      <div class="term"><h4>Lucro Real × Lucro Presumido</h4><p>Duas formas de calcular IRPJ/CSLL e PIS/COFINS. No Lucro Real o imposto incide sobre o lucro efetivo (e PIS/COFINS a 9,25% com direito a créditos); no Presumido, sobre um percentual fixo da receita (PIS/COFINS a 3,65% sem créditos), só permitido até R$ 78 mi de receita anual.</p><p class="ex"><b>No CAFF</b> O modelo adota Lucro Real, mas a fórmula que compara os regimes olha só a receita de lojas.</p></div>
+      <div class="term"><h4>Créditos de PIS/COFINS</h4><p>No regime não cumulativo, a empresa abate do imposto devido o imposto embutido nos insumos que compra. Folha de pagamento não gera crédito; serviços terceirizados só em parte.</p><p class="ex"><b>No CAFF</b> O modelo gera crédito sobre 100% do OPEX (que é majoritariamente mão de obra) e sobre uma "depreciação" de ativos que ele mesmo não registra.</p></div>
+      <div class="term"><h4>IFRIC 12 / ativo financeiro</h4><p>Regra contábil para concessões: como os prédios continuam sendo do Estado, a concessionária não os registra como seus e não os deprecia; registra um "direito a receber" (ativo financeiro) que rende juros ao longo do contrato.</p><p class="ex"><b>No CAFF</b> 100% ativo financeiro: por isso a DRE não tem depreciação; o benefício fiscal é aplicado por amortização linear "fora do balanço".</p></div>
+      <div class="term"><h4>Matriz de Riscos</h4><p>Tabela do contrato que diz quem arca com cada risco (Estado, empresa ou ambos): atraso de obra, custo maior, mudança de lei, enchente, terreno contaminado etc. Risco mal alocado vira reequilíbrio.</p><p class="ex"><b>No CAFF</b> O TCE a tem; a CAGE não recebeu. Faltam nela riscos como o do ambulatório e o da estrutura do prédio A.</p></div>
+      <div class="term"><h4>iPrazo (TCU)</h4><p>Indicador do Tribunal de Contas da União que mede quanto as obras públicas atrasam em relação ao prazo previsto.</p><p class="ex"><b>No CAFF</b> RS = 3,27: uma obra de 3 anos levaria ~10. Usado no VfM para estimar 7 anos de atraso no cenário público (custo de R$ 16 mi).</p></div>
+      <div class="term"><h4>EIV, PGT e AEII</h4><p>Termos urbanísticos de Porto Alegre: Estudo de Impacto de Vizinhança (o que a obra causa no entorno), Polo Gerador de Tráfego (empreendimento que atrai muitos veículos) e Área Especial de Interesse Institucional (zona com regras próprias, licenciada por Projeto Especial).</p><p class="ex"><b>No CAFF</b> O quarteirão é AEII, os prédios estão no inventário do patrimônio cultural e o empreendimento é PGT — e o orçamento reserva só R$ 243 mil para compensações.</p></div>
+      <div class="term"><h4>Garantia de proposta / de execução</h4><p>Seguros ou cauções exigidos dos licitantes (proposta) e do vencedor (execução) como segurança de que cumprirão o combinado. Custam um prêmio anual proporcional ao valor do contrato.</p><p class="ex"><b>No CAFF</b> Execução: 5% do contrato (R$ 2,7 mi/ano de prêmio); proposta: R$ 783 mil no ano 1, incluída indevidamente no custo do projeto.</p></div>
+      <div class="term"><h4>Ressarcimento de estudos</h4><p>Quando o BNDES ou empresas privadas fazem os estudos de uma PPP, o vencedor da licitação paga esses estudos. Como o vencedor embute o valor na proposta, quem paga no fim é o Estado, via contraprestação.</p><p class="ex"><b>No CAFF</b> R$ 30,06 mi ao BNDES (3% do CAPEX dos 5 primeiros anos) + R$ 0,61 mi à B3.</p></div>
+      <div class="term"><h4>Receitas acessórias</h4><p>Dinheiro que a concessionária ganha com outras atividades no complexo: aluguel de lojas e escritórios, estacionamento pago. Podem ser compartilhadas com o Estado para reduzir a contraprestação.</p><p class="ex"><b>No CAFF</b> R$ 1,07 bi em 30 anos, com 0% de compartilhamento com o Estado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 Sumário ═══ -->
+<h2 class="section-title" id="sumario">04 · Sumário da ponderação</h2>
+<section class="panel">
+  <div class="panel-body ed">
+    <ul>
+      <li><b>Das 45 questões do TCE, 44 são pertinentes</b> (39 de pertinência alta ou média; 5 formais ou de baixa materialidade — itens 3, 4, 12d, 12e e parte do 13). Nenhuma foi considerada impertinente.</li>
+      <li><b>Convergência com a CAGE em 15 questões</b> (itens 1–2, 19–23, 24–28 parcialmente, 29, 30–32, 33 parcialmente, 37, 41, 43, 44 e 45): sobretudo divisórias e mobiliário (43% do CAPEX), estrutura de capital × WACC (TIR do acionista de 26,4% real), janelas do prêmio de mercado, ressarcimento ao BNDES e limite da RCL.</li>
+      <li><b>30 questões são exclusivas do TCE</b>, em geral por dependerem de documentos que a CAGE não recebeu ou de verificação de fórmulas da aba de tributos. A CAGE <b>corrobora com evidência do modelo</b> 9 delas (itens 8, 9, 12, 13, 18, 34–36, 38–40) e acrescenta desdobramentos.</li>
+      <li><b>15 achados são exclusivos da CAGE</b> (bloco J): fragilidade do VfM (sobrecusto de 25% sobre OPEX, TSD, ótica orçamentária do Estado, cenário híbrido sem memória), linha nova de "Mudanças de Layouts" (R$ 256,7 mi) × remuneração complementar, reinvestimentos de R$ 670 mi, CAPEX +32% × contraprestação +3% entre versões, compartilhamento zero de receitas acessórias, base de crédito de PIS/COFINS, áreas e vagas inconsistentes, OPEX/m² abaixo do benchmark, aporte sem fonte orçamentária e erratas documentais.</li>
+      <li><b>Uma retificação da CAGE:</b> a análise de 14/09 afirmou que o crédito de PIS/COFINS estava "zerado"; a verificação da aba 11 mostra que os créditos são calculados (R$ 6,2 mi no ano 1; R$ 10,3 mi no ano 10) sobre 100% do OPEX e sobre uma base de "depreciação" — o parâmetro "0%" do painel não tem efeito. O questionamento correto está no achado C8.</li>
+    </ul>
+    <div class="callout warn"><b>Aviso sobre o acervo.</b> O TCE teve acesso a documentos que não foram disponibilizados à CAGE — Minuta de Contrato (cláusulas 7ª, 7.3, 8.3.3 e 8.7), Anexo I – Caderno de Encargos e Apêndices I–III, Anexo VII do Contrato (conta aporte), Matriz de Riscos contratual, Relatório de Diretrizes Operacionais (texto) e EVTEA. Vários itens só puderam ser avaliados pelo reflexo no modelo e no Plano de Negócios; a seção 06 lista o que pedir para equiparar o acervo.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ BLOCO A ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-a"><span class="letra">Bloco A</span><h2>Cronograma e Caderno de Encargos</h2><span class="cnt">TCE 1 · 2 · 3 · 4</span></div>
+<p class="section-desc">O Caderno de Encargos é o documento que diz exatamente o que a concessionária tem de entregar e quando. Se ele, o contrato e a planilha financeira contam prazos diferentes, o Estado corre o risco de assinar um contrato ambíguo — e ambiguidade, em PPP, vira pedido de reequilíbrio.</p>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-a1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 1 · 2</span>
+    <div class="q-title"><h3>Prazo total do Programa de Reformas (72 × 75 meses) e início das fases 2 e 3 (13º/15º e 40º/42º mês)</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>A subcláusula 8.7 da Minuta dá 72 meses para concluir o Programa de Reformas, mas a subcláusula 8.3.3 diz que a fase 3 começa no 42º mês e dura 33 meses — o que daria 75 meses. Além disso, a Minuta (subcl. 7.3) coloca o início das fases 2 e 3 nos meses 15 e 42, enquanto o Caderno de Encargos (subcl. 4.3) usa os meses 13 e 40. O TCE pede que a divergência seja esclarecida.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Há pelo menos três "relógios" diferentes contando o mesmo prazo de obras: o contrato, o caderno de encargos e a planilha financeira. Cada mês de diferença muda quando a contraprestação sobe de patamar (ela vai de 20% para 60%, 90% e 100% conforme as fases terminam) e quando a empresa pode ser multada por atraso. Se os documentos não coincidem, a empresa escolherá a interpretação que lhe for mais favorável.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE já havia registrado a inconsistência entre "72 meses" (Plano de Negócios §7.2), o cronograma de <b>21 trimestres</b> da aba MAPA e as flags de <b>24 trimestres</b> das abas Premissas e CAPEX. No Plano de Negócios, a Fase 1 vai do 1º ao 10º trimestre, a Fase 2 do 5º ao 16º (meses 13–48) e a Fase 3 do 14º ao 24º (meses 40–72) — ou seja, o modelo e o Caderno coincidem (13º e 40º mês) e é a Minuta que está deslocada em 2 meses. Há mais um ponto: o Plano prevê uma <b>transição inicial de 6 meses</b> "antes" dos 24 trimestres. Se os 72 meses contam da Ordem de Início, a transição está dentro deles; se contam do fim da transição, o prazo real é 78 meses. E o estudo de VfM assume apenas <b>3 anos</b> para o CAPEX da Fase 1 <span class="ref">aba 15, D20</span>, base para os "7 anos de atraso" atribuídos ao cenário público.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>O escalonamento da contraprestação (FDISP) e as penalidades por atraso dependem de marcos precisos. Uma diferença de 2 a 6 meses no início de uma fase pode antecipar ou atrasar dezenas de milhões em pagamentos e, pior, dar base para discussão contratual.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Um cronograma único, com marco zero explícito (Ordem de Início × fim da transição), reproduzido de forma idêntica na Minuta, no Caderno, no modelo e no VfM.</li><li>Explicar o deslocamento de 2 meses da Minuta e o papel da transição de 6 meses.</li><li>Reconciliar o prazo de "3 anos" usado no VfM com o cronograma real da Fase 1.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-a2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 3</span>
+    <div class="q-title"><h3>Edifício C (PGE) aparece na fase 1 e na fase 3 do Caderno de Encargos</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Na subcláusula 4.3.1 do Anexo I, a construção do Edifício C consta tanto na fase 1 quanto na fase 3. Pede esclarecimento.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O prédio novo da PGE é a maior obra nova do projeto (R$ 171 mi). Colocá-lo em duas fases ao mesmo tempo deixa em aberto quando ele precisa estar pronto — e é justamente a conclusão desse prédio que libera o aporte de R$ 50 mi e a segunda faixa da contraprestação.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>No modelo, tanto "C – PGE" (torre de serviço) quanto "C2 – PGE comércio e garagem" estão na <b>Fase 1</b> (cronograma S02, trimestres 2 a 9) <span class="ref">aba 04, linhas 58 e 91; aba MAPA</span>. Não há qualquer parcela do Edifício C na Fase 3. O provável é um erro de redação do Caderno.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>O aporte de R$ 50 mi está condicionado à conclusão do Edifício C. Se o Caderno permitir entregá-lo só na fase 3, o Estado pode ficar sem o prédio da PGE por anos sem que a contraprestação seja reduzida.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Corrigir o Caderno para a Fase 1, conforme o modelo, e vincular explicitamente o aporte e o FDISP a esse marco.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="baixa" id="q-a3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 4</span>
+    <div class="q-title"><h3>Item 7.6.b do Caderno de Encargos com legendas de figuras dentro da lista de obrigações</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-baixa">Pertinência baixa (formal)</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>A lista de intervenções do 1º ao 22º pavimento traz, no meio dos itens, textos como "Figura 2 – Ar-condicionado", "Fonte: Elaboração própria", "Existente projetado" e "Reforma escada aberta existente" — sobras de legendas de imagens que viraram itens numerados (ix, x, xiii–xv). Pede ajuste.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>É um erro de edição: legendas de figuras foram coladas como se fossem obrigações contratuais. Não muda valores, mas um contrato de 30 anos não pode ter obrigações sem sentido.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE não recebeu o Caderno; a imagem anexada à RDI confirma o problema. Sem impacto financeiro.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Reemitir o Anexo I com o item 7.6.b corrigido e revisar os demais itens por erros semelhantes.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO B ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-b"><span class="letra">Bloco B</span><h2>Serviços e dimensionamento de OPEX</h2><span class="cnt">TCE 5 · 7 · 9</span></div>
+<p class="section-desc">O OPEX (custo de operar) do CAFF é de R$ 77,5 mi por ano e é definido, em grande parte, pela quantidade de postos de trabalho por prédio. Cada posto a mais custa entre R$ 50 mil e R$ 300 mil por ano, por 30 anos. Dimensionar com critério é decisivo.</p>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-b1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 5 a–f</span>
+    <div class="q-title"><h3>Serviço de ambulatório e ambulância (R$ 37 mil/mês): demanda, norma, comparáveis, alternativas, escopo e riscos</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Que se demonstre a demanda que justifica enfermaria, ambulância dedicada e "área protegida" em regime permanente; se há norma (sanitária, trabalhista, de incêndio) que exija isso; se outros empreendimentos similares têm o serviço; se foram comparadas alternativas (atendimento sob demanda, SAMU, serviços privados); qual o escopo (primeiros socorros ou atendimento médico/enfermagem contínua/medicina ocupacional); e por que a Matriz de Riscos nada diz sobre erro de atendimento, guarda de prontuários e sigilo de dados de saúde.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Manter uma ambulância parada e uma enfermaria funcionando 24 horas custa R$ 444 mil por ano — cerca de <b>R$ 13 milhões ao longo do contrato</b>. Faz sentido para um hospital; para um complexo de escritórios, o usual é um posto de primeiros socorros e um contrato de "área protegida" (uma ambulância que vem quando chamada). Se a empresa presta atendimento médico, ela passa a responder por erro médico e por dados sensíveis de servidores — e o contrato precisa dizer quem responde por isso.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE <b>não localizou</b> essa rubrica no Plano de Negócios nem na planilha OPEX enviada (as 8 categorias vão de utilidades a taxas); o único registro é o "posto de atendimento à saúde e perícia médica" descrito entre as estruturas <i>já existentes</i> no complexo. O valor pode estar no Relatório de Diretrizes Operacionais (não recebido) ou embutido em outra linha (por exemplo, "bombeiro civil", a R$ 21–25 mil por posto).</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>Além do custo, define a responsabilidade civil e o tratamento de dados de saúde (LGPD). Um serviço mal definido é fonte de litígio; um serviço não previsto no PSC distorce a comparação do VfM.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Indicar onde a rubrica está no modelo e no PSC, com escopo, jornada e composição do custo.</li><li>Responder aos itens 5a–5e do TCE com evidências (estatística de atendimentos atual, norma aplicável, comparáveis).</li><li>Incluir na Matriz de Riscos os riscos de erro de atendimento, remoção, prontuários e sigilo (item 5f).</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-b2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 7 a–d</span>
+    <div class="q-title"><h3>Dimensionamento de pessoal: 49 copeiros e 49 garçons, 53 pessoas em marcenaria/mudanças, vigilância externa por posto</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>O próprio Relatório de Diretrizes Operacionais (p. 71) diz que o quadro foi definido "com base em prestações de serviços de alto padrão" e que é possível reduzir copeiros e garçons, redistribuir limpeza e marcenaria e trocar postos fixos de vigilância externa por rondas motorizadas. O TCE pergunta por que os 49 copeiros e 49 garçons (um por andar) foram mantidos, quais os critérios de dimensionamento da equipe de marcenaria (53 pessoas) por edificação, se houve dimensionamento global e se foram estudadas alternativas para a segurança externa (monitoramento remoto).</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Os consultores partiram do contrato de facilities que o CAFF tem hoje e admitiram, por escrito, que ele é "de alto padrão" e poderia ser enxugado — mas não enxugaram. Só copeiros e garçons custam cerca de <b>R$ 4,8 milhões por ano</b> (98 postos × R$ 4.080 × 12), ou <b>R$ 144 milhões em 30 anos</b>. Como esse valor entra na contraprestação, o Estado pagará por um padrão de serviço que ninguém decidiu se quer.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE já apontara que o dimensionamento de postos parte do contrato vigente sem estudo próprio. O Plano de Negócios (Tabela 53) mantém 49 copeiros e 49 garçons; a Tabela 36 (marcenaria e mudanças) soma 27 postos em CAFF+SEDUC, 11 na PGE e 6 no DAER. Há, porém, um dado que muda a leitura: o OPEX total do CAFF (<b>R$ 0,34 mil/m²/ano</b>) está <b>abaixo</b> do benchmark de centros administrativos (R$ 1,21 mil/m²/ano, Tabela 33). Ou seja, alguns postos podem estar sobredimensionados e outros ausentes — o problema é a falta de metodologia, não só o excesso.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>OPEX de 30 anos, uma vez no contrato, só cai por renegociação. E um OPEX referencial mal calibrado tem dois efeitos ruins: se estiver alto, o Estado paga demais; se estiver baixo demais, as propostas virão acima do referencial ou o serviço será degradado.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Memória de dimensionamento por serviço (produtividade, área, população, horário) e estudo das reduções que o próprio RDO sugere.</li><li>Justificar o distanciamento do benchmark de OPEX/m² e conciliar a planilha OPEX (R$ 61 mi/ano) com o modelo (R$ 66,6 mi/ano).</li><li>Alternativas para segurança externa (rondas motorizadas, CFTV com monitoramento remoto) com custo comparado.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-b3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 9</span>
+    <div class="q-title"><h3>Jardinagem: 6 postos para 18.260 m², quando a produtividade declarada (1.500–2.000 m²/profissional) exigiria 9 a 12</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>O Apêndice II do Caderno diz que a jardinagem foi dimensionada com produtividade média de 1.500 a 2.000 m² por profissional. Com 18.260 m² de área ajardinada no CAPEX, seriam 9 a 12 jardineiros — e o quadro tem 4 (externa) + 2 (rooftop/interno). Pede a metodologia.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O documento se contradiz: anuncia um critério e adota um número que não sai dele. É o caso inverso do anterior — aqui o quadro parece <i>pequeno</i>. A diferença (5 postos) custa cerca de R$ 360 mil por ano. Sozinha é pouco, mas mostra que os números de pessoal não foram calculados a partir de uma regra consistente.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado: Plano de Negócios, Tabela 53 (4 + 2 postos a R$ 6.000/mês) e Tabela 22 (paisagismo 18.260 m² na urbanização) → 3.043 m² por profissional, o dobro da produtividade declarada.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Memória do dimensionamento de jardinagem coerente com o critério declarado; corrigir Tabela 53 ou o Apêndice II.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO C ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-c"><span class="letra">Bloco C</span><h2>Documentos e imóveis</h2><span class="cnt">TCE 6 · 10 · 11</span></div>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-c1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 6 a–b</span>
+    <div class="q-title"><h3>Apresentar o PMOC (Anexo II) e o Relatório de Análise da Situação Atual</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Que sejam apresentados o Plano de Manutenção, Operação e Controle (Anexo II do contrato) e o Relatório de Análise da Situação Atual citado na p. 69 do Relatório de Diretrizes Operacionais.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O PMOC diz como os prédios serão mantidos (frequências, rotinas, indicadores); o Relatório da Situação Atual é a "fotografia" do estado dos prédios hoje. Sem a fotografia, não dá para julgar se a reforma proposta é a necessária; sem o PMOC, não dá para julgar se o OPEX cobre o que o contrato exige.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Nenhum dos dois foi recebido pela CAGE. A CAGE acrescenta à lista de faltantes: Produto 7 (anteprojeto com quantitativos), Produto 6, o texto completo do Relatório de Diretrizes Operacionais, o Relatório de Mecanismo de Pagamento, o Estudo de Vocação/Demanda (base das receitas acessórias), a memória do cenário híbrido e a Minuta com todos os anexos (ver seção 06).</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Entregar os dois documentos ao TCE e à CAGE, junto com o pacote completo listado na seção 06.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-c2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 10</span>
+    <div class="q-title"><h3>Matrículas dos imóveis que compõem o empreendimento</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Apresentar as matrículas (registros no cartório de imóveis) dos terrenos e prédios do projeto.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A matrícula prova quem é o dono, quais os limites e se há ônus (hipotecas, servidões, ações). Numa concessão de 30 anos, entregar um terreno cuja titularidade ou dimensão está mal definida é um risco que o contrato costuma deixar com o Estado.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Os documentos recebidos usam <b>três áreas de terreno diferentes</b>: o quarteirão inteiro (182.956 m²), a área do CAFF (90.953 m²) e "área do terreno 122.051 m²" na tabela de benchmarks. As matrículas resolvem a dúvida. Na Matriz de Riscos da ferramenta CAGE, o item R01.2 (título de posse e ônus) é tipicamente alocado ao Estado.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Matrículas e planta de situação; conciliar as três áreas usadas nos documentos.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-c3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 11</span>
+    <div class="q-title"><h3>Potencial construtivo segundo o novo Plano Diretor (LC 1.075/2026) e a LUOS (LC 1.076/2026); possibilidade de transferência</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Se foi avaliado quanto se pode construir no terreno pelas novas leis urbanísticas de Porto Alegre e se o potencial não utilizado poderia ser transferido (vendido) para outros terrenos.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Um terreno grande no centro da capital tem "direito de construir" que vale dinheiro. Se o projeto usa só parte desse direito, o restante é um ativo do Estado: pode ser vendido (transferência de potencial construtivo) ou negociado com a concessionária em troca de contraprestação menor. Ignorar isso é deixar valor na mesa.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Nenhum documento recebido trata do tema. A CAGE, na análise de 14/09, estimou o custo de oportunidade do terreno em R$ 175–235 mi (90.953–122.051 m² × R$ 1.921,68/m² da planta de valores), sem considerar potencial construtivo — que só aumentaria esse valor. Também não há compartilhamento das receitas acessórias (ver C6), o que reforça a assimetria: o privado explora o terreno público e o Estado não recebe nada por isso.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Estudo do potencial construtivo do quarteirão pelas LC 1.075/2026 e 1.076/2026, do saldo não utilizado e de sua monetização (transferência ou contrapartida contratual).</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO D ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-d"><span class="letra">Bloco D</span><h2>IPTU e estacionamento</h2><span class="cnt">TCE 8 · 12</span></div>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-d1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 8</span>
+    <div class="q-title"><h3>Valor venal do terreno de R$ 1.921,68/m² para o IPTU vem da planta de valores de 2019</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>A planta genérica de valores (PGV) da LC 859/2019 é atualizada anualmente; o valor usado (linha 201 da aba Tributos) é de 2019. Pede o valor correto para a data-base e certidão da Prefeitura.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O IPTU dos prédios comerciais (lojas, escritórios alugados, garagens pagas) é pago pela concessionária e repassado à contraprestação. Se a base de cálculo estiver desatualizada, o imposto projetado está errado — provavelmente para menos.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado no Plano de Negócios (Tabela 61): o terreno usa "Anexo I LC 859/19" (2019) e a construção usa "Anexo II 2026" — bases de anos diferentes na mesma apuração. O IPTU projetado é de R$ 2,6 mi/ano em operação. A estimativa da CAGE para o custo de oportunidade do terreno (TCE 11) usou o mesmo R$ 1.921,68/m² e também precisará ser atualizada.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Recalcular o IPTU com a PGV vigente (2025/2026), com certidão da PMPA, e refletir no modelo.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-d2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 12 a–f</span>
+    <div class="q-title"><h3>Vagas de estacionamento: 66 vagas elétricas, 164 de bicicletas, impacto na mobilidade (1.355 → 3.263), PCD/idosos/gestantes, item 21.2</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Critérios de uso das 66 vagas com carregador para veículos elétricos (só oficiais? cobra-se a energia?); se as 164 vagas de bicicleta estão dentro do total de 3.263; se foi avaliado o impacto de mais que dobrar as vagas sobre o trânsito da região; credenciais para vagas PCD/idosos; base legal das vagas para gestantes; localização e quantidade das vagas "em proximidade dos edifícios" (item 21.2 do Caderno).</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O projeto sai de 1.355 para 3.263 vagas — mais carros num dos cruzamentos mais carregados da cidade. Além do trânsito, há dinheiro envolvido: as vagas geram receita para a concessionária (estacionamento pago nos fins de semana e feriados) e consomem energia (carregadores). Quem paga a energia do carro particular de um servidor? Essas regras precisam estar escritas.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Há divergências de quantitativo entre documentos: o modelo e o Plano (Tabela 75) usam <b>3.243</b> vagas (o Caderno diz 3.263); a Tabela 34 do Plano (áreas para o OPEX) usa outra contagem por prédio (SEDUC 354 × 369 na aba MAPA; C 200 × 238; D 1.225 × 1.182; H 900 × 866). As receitas de estacionamento assumem ocupação de 20%, giro de 1,5, R$ 30 por vaga e repasse de 45% — parâmetros do Estudo de Vocação, não recebido. Os itens 12d e 12e são regulatórios, de baixa materialidade.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Uma única tabela de vagas por prédio, tipo e uso (institucional, público pagante, elétrica, bicicleta, PCD), replicada no Caderno, no modelo e no Plano.</li><li>Estudo de mobilidade/PGT (ver bloco F) e regras de cobrança de energia nas vagas elétricas.</li><li>Estudo de Vocação e Demanda que fundamenta as receitas de estacionamento.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO E ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-e"><span class="letra">Bloco E</span><h2>Orçamento de obras (CAPEX)</h2><span class="cnt">TCE 13 · 18 · 19–23 · 24–28 · 29</span></div>
+<p class="section-desc">O CAPEX de R$ 1,74 bilhão é o maior componente da contraprestação. As perguntas deste bloco tratam de <i>o que</i> está sendo orçado (substituição total ou parcial, divisórias de vidro, mobiliário), <i>a que preço</i> (BDI, composições) e <i>com que base técnica</i> (diagnóstico, ensaios).</p>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-e1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 13</span>
+    <div class="q-title"><h3>Orçamento da Escola sem cobertura (só rufos)</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>No orçamento do prédio da Escola (Tabela 21 do Plano) a rubrica "cobertura" contém apenas rufos (peças de arremate), sem telhado ou estrutura de cobertura. Pede justificativa.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Ou o telhado ficou de fora do orçamento (e a obra custará mais do que o previsto), ou a solução é uma laje impermeabilizada e a rubrica "cobertura" simplesmente não descreve isso. Nos dois casos o orçamento precisa dizer qual é a solução.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado na Tabela 21: "cobertura" = rufo 132,70 m (R$ 9,8 mil); há manta asfáltica de 714,20 m² (R$ 108 mil) na rubrica de impermeabilização, o que sugere laje impermeabilizada. O mesmo padrão se repete em A, B, C, D, E, F/G, H, K, L, N e O (só rufos/calhas); apenas I (praça comercial) e J/M (restaurantes) têm estrutura metálica e telha termoacústica. O ponto do TCE vale, portanto, para quase todos os edifícios.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Explicitar a solução de cobertura de cada edifício (laje impermeabilizada, telhado, cobertura verde) e confirmar que está integralmente orçada.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-e2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 18</span>
+    <div class="q-title"><h3>Ensaios e sondagens da estrutura do Edifício A (ampliação vertical) transferidos para a fase de execução</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>A Minuta e o Caderno mostram que os levantamentos de campo, ensaios e sondagens necessários para saber se a estrutura atual do prédio principal aguenta a ampliação vertical não foram feitos nos estudos (EVTEA) e ficaram para a concessionária fazer depois. O TCE pede que se indiquem e justifiquem os óbices que impediram a Administração de fazê-los antes.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O projeto prevê construir andares novos em cima de um prédio de 1987 sem ter verificado se a estrutura suporta. Se depois se descobrir que não suporta (ou que precisa de reforços caros), a concessionária dirá que o risco era do Estado — porque o Estado entregou um prédio cuja condição não conhecia — e pedirá reequilíbrio. É o tipo de risco que custa muito e que se evita com ensaios relativamente baratos antes da licitação.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>O orçamento da ampliação (R$ 104,3 mi) prevê 180 m de estaca hélice contínua (R$ 0,5 mi) e 723 t de estrutura metálica (R$ 29 mi), mas os "reforços estruturais necessários à ampliação vertical" citados no texto do Plano <b>não estão itemizados</b>. Na Matriz de Riscos da ferramenta CAGE, "condição do local e ativos existentes" (R01.6) é tipicamente <i>compartilhado</i>; sem a Matriz contratual, não se sabe como o CAFF tratou o ponto.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>É o risco técnico mais concentrado do projeto: uma surpresa estrutural no prédio A afeta a maior obra (R$ 299 mi), o cronograma de todas as fases e a ocupação de milhares de servidores.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Realizar (ou justificar por que não) sondagens e ensaios antes do edital; itemizar reforços no orçamento.</li><li>Alocar expressamente na Matriz de Riscos o risco de condição estrutural pré-existente e prever contingência.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-e3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 19–23</span>
+    <div class="q-title"><h3>Divisórias em alumínio com vidro insulado: justificativa, alternativas, diferenciação por ambiente e tratamento de solução mais barata</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Dado o montante expressivo de divisórias internas no CAPEX, e considerando que a solução (alumínio com vidro insulado) é apenas referencial: (20) por que adotar como referência uma solução com desempenho e custo de esquadria <i>externa</i> para ambientes internos; (21) se houve estudo comparativo de alternativas (custo, durabilidade, acústica, flexibilidade); (22) se houve diferenciação por tipo de ambiente (gabinetes, áreas administrativas, salas de reunião); (23) como será tratada, no CAPEX, na remuneração e na fiscalização, a adoção pela concessionária de solução equivalente mais barata.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Vidro insulado (duplo, com câmara de ar) é o que se usa em fachadas para isolar do calor e do barulho da rua. Usá-lo em todas as paredes internas de escritório, a R$ 3.725 por m², é como orçar todas as portas internas de uma casa com o preço de porta blindada. E há uma pegadinha: se a empresa vencedora depois usar divisórias comuns (a metade do preço), a economia fica com ela — porque a contraprestação foi fixada com base no orçamento caro.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Convergente com o principal achado de CAPEX da CAGE. Quantificação a partir das Tabelas 13–29: <b>56.904 m² × R$ 3.725,48 = R$ 212,0 mi</b> na implantação (A retrofit 18.271 m²; A ampliação 6.090; B 16.624; C 9.056; N 6.864); mobiliário <b>10.140 estações × R$ 8.486 = R$ 86,0 mi</b>; ambos com <b>vida útil de 10 anos</b> (duas reposições), o que faz a rubrica "serviços diversos" chegar a <b>R$ 476,4 mi em 30 anos</b>. Somada à linha "Mudanças de layouts" (R$ 256,7 mi — achado C4), essa família representa <b>43% do CAPEX</b> total.</p>
+      <div class="num-strip"><div class="ns"><div class="v">R$ 212 mi</div><div class="l">divisórias · implantação</div></div><div class="ns"><div class="v">R$ 86 mi</div><div class="l">mobiliário · implantação</div></div><div class="ns"><div class="v">R$ 476 mi</div><div class="l">"serviços diversos" · 30 anos</div></div><div class="ns"><div class="v">43%</div><div class="l">do CAPEX (com layout)</div></div></div>
+    </div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>É a maior alavanca de economia do projeto. Uma solução interna de desempenho adequado a metade do preço reduziria o CAPEX em cerca de R$ 100 mi já na implantação e outro tanto nas reposições — dezenas de milhões por ano de contraprestação. Sem mecanismo de compartilhamento, essa economia não chega ao Estado.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Estudo comparativo de divisórias (custo, acústica, durabilidade, flexibilidade) com especificação por tipo de ambiente.</li><li>Revisar o referencial ou criar mecanismo contratual de compartilhamento de economia (item 23) — inclusive nas reposições decenais.</li><li>Justificar a vida útil de 10 anos para divisórias e mobiliário.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-e4">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 24–28</span>
+    <div class="q-title"><h3>"Reforma completa": substituição integral de acabamentos, divisórias e instalações nos edifícios A, B e N sem diagnóstico que a fundamente</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE] parcial</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>O Caderno define o retrofit dos edifícios A (CAFF), B (SEDUC) e N (DAER) como "reforma completa", vedando intervenções pontuais e impondo a substituição integral de tudo nos pavimentos reformados. O TCE pergunta (25–26) se há diagnóstico técnico (laudos, levantamentos, fotos, inventário de conservação) que demonstre a necessidade da substituição integral; (27) em caso negativo, que se justifique tecnicamente a premissa e a vedação a soluções híbridas; (28) se foi avaliado o impacto disso na economicidade (risco de CAPEX superdimensionado).</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>"Reforma completa" significa arrancar tudo — janelas, pisos, forros, fiação, ar-condicionado, sanitários, móveis — e colocar tudo novo, mesmo onde o existente estiver bom. É a premissa mais cara possível. Ela pode ser correta (prédios de 1970–1987 costumam precisar), mas precisa ser provada com um laudo do estado atual. Sem laudo, o Estado está pagando por uma hipótese.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE já apontara a ausência do Produto 7 e de diagnóstico. As quantidades do retrofit do prédio A (R$ 195,1 mi) mostram o alcance da premissa: remoção de 9.652 m² de janelas, 296.896 m de cabos, 15.225 luminárias, 44.503 m² de equipamentos e 4.020 layouts; caixilhos novos de 9.484 m² × R$ 3.830 = R$ 36,3 mi. Há ainda a linha "Mudanças de layouts" (6% da área por ano — achado C4), que somada à substituição integral equivale a renovar continuamente os ambientes.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>Os três retrofits somam R$ 390 mi na implantação. Uma premissa de substituição parcial onde couber pode reduzir isso de forma relevante — e o Caderno, como está, proíbe a economia.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Relatório da situação atual (TCE 6b) com laudos e inventário de conservação por sistema e pavimento.</li><li>Avaliação técnico-econômica de reaproveitamento por sistema (esquadrias, elétrica, HVAC, forros) e revisão da vedação a soluções híbridas.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="media" id="q-e5">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 29</span>
+    <div class="q-title"><h3>BDI diferenciado para mobiliário (fornecimento) em vez do BDI de obra</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Justificar técnica e economicamente a não adoção de BDI diferenciado para o mobiliário, cuja natureza (fornecimento, logística, montagem, garantia) é distinta de obras e serviços de engenharia.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O BDI de uma construtora (20–30%) cobre canteiro, engenheiros, seguros de obra e lucro de construir. Comprar cadeiras e mesas não tem nada disso — o BDI de fornecimento costuma ser de 10–15%. Aplicar o BDI de obra sobre R$ 86 mi de mobiliário pode significar R$ 10–15 mi a mais, e o mesmo vale para as divisórias (R$ 212 mi). A Justiça e os tribunais de contas exigem BDI diferenciado para fornecimentos desde o Acórdão TCU 2.622/2013.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE apontara algo anterior a isso: o orçamento <b>não explicita BDI algum</b> — nem contingência, encargos sociais, base das composições ou ART/RRT. Os preços unitários trazem códigos de composições públicas ("AF_12/2013", "AF_07/2024"), o que sugere SINAPI, mas a base e a data-base não são declaradas. O VfM diz que "a orçamentação foi terceirizada" (preços já com margem?). Ou seja, antes de discutir BDI diferenciado é preciso saber se há BDI e onde.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Explicitar o BDI (ou sua ausência) por natureza de item — obra civil, instalações, fornecimento de mobiliário/divisórias, serviços — e a base de composições com data-base.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO F ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-f"><span class="letra">Bloco F</span><h2>Licenciamento urbanístico e patrimônio</h2><span class="cnt">TCE 14 · 15 · 16 · 17</span></div>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-f1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 14–17</span>
+    <div class="q-title"><h3>Área Especial de Interesse Institucional, patrimônio cultural, Polo Gerador de Tráfego e EIV: houve consulta prévia à Prefeitura? O EVTEA é conclusivo sem isso?</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>O quarteirão do CAFF é AEII (licenciamento por Projeto Especial); os prédios do CAFF, do DAER e do TJ estão no Inventário do Patrimônio Cultural de Porto Alegre (classificação "estruturação"); e o empreendimento é Polo Gerador de Tráfego em nó logístico crítico, sujeito a Estudo de Impacto de Vizinhança complexo. O TCE pergunta se houve consulta prévia ou diretrizes da SMAMUS/EPAHC (15), a justificativa para não ter havido (16) e como a SERG considera o EVTEA conclusivo quanto à viabilidade urbanística e às contrapartidas exigíveis (17).</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Antes de licitar uma obra desse porte no centro da cidade, o normal é perguntar à Prefeitura o que ela vai exigir: preservação de fachadas tombadas, obras viárias no entorno, medidas para o trânsito. Essas exigências ("contrapartidas") podem custar dezenas de milhões e atrasar anos. Se ninguém perguntou, o orçamento e o cronograma são um chute — e o contrato dirá que a culpa do atraso e do custo extra é do Estado, que era quem devia ter perguntado.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>O orçamento é eloquente sobre a subestimativa: na urbanização há "tramitação de aprovação/licenciamento" R$ 214,7 mil, "prováveis medidas mitigatórias e/ou compensatórias" <b>R$ 242,7 mil</b> e Termo de Compromisso Ambiental R$ 71,6 mil; restauro de fachadas de R$ 1,33 mi (A), R$ 0,13 mi (B) e R$ 0,30 mi (N). Nenhuma linha para EIV, obras viárias ou contrapartidas de PGT. Na Matriz da ferramenta CAGE, "aprovações e licenciamentos" (R01.4) e "licenciamento ambiental" (R03.2) são tipicamente compartilhados; a alocação contratual é desconhecida (Matriz não recebida).</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>Contrapartidas de PGT e exigências de patrimônio em Porto Alegre podem chegar a valores de outra ordem de grandeza que os R$ 243 mil provisionados. Sem consulta prévia, o risco fica com o Estado e vira reequilíbrio depois da assinatura.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Pareceres/diretrizes da SMAMUS e do EPAHC (ou protocolo de consulta) e o EIV preliminar.</li><li>Estimativa de contrapartidas (viárias, patrimônio, ambientais) e sua alocação na Matriz de Riscos e no orçamento.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO G ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-g"><span class="letra">Bloco G</span><h2>Estruturação, contrato, seguros e garantias</h2><span class="cnt">TCE 30–32 · 33 · 34 · 35 · 36 · 37</span></div>
+<p class="section-desc">Custos "de estruturação" — estudos, garantias, seguros, verificador — são pagos pela concessionária, mas entram na contraprestação. São valores menores que o CAPEX, porém recorrentes por 30 anos e, em alguns casos, indevidos.</p>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-g1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 30–32</span>
+    <div class="q-title"><h3>Ressarcimento de ≈ R$ 30 milhões ao BNDES pelos estudos: escopo contratado, produtos entregues e aceite formal</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Qual foi o escopo da contratação do BNDES (obrigações, estudos, produtos) e se os produtos foram formalmente recebidos, analisados e aprovados pela SERG e pelo Poder Concedente.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O vencedor da licitação pagará R$ 30 milhões ao BNDES pelos estudos — e cobrará isso do Estado dentro da contraprestação. Antes de pagar por estudos, o Estado precisa saber o que foi contratado e se recebeu tudo com qualidade. É exatamente o que este relatório e a RDI do TCE estão testando.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE localizou a memória: <b>R$ 30.058.326 = 3% × R$ 1.001,9 mi (CAPEX dos 5 primeiros anos)</b> <span class="ref">aba 04, D317 e D318</span>. Somam-se R$ 613 mil de taxa da B3 e "remuneração dos consultores" de R$ 4,08 mi citada no texto do Plano de Negócios mas <b>igual a zero no modelo</b> <span class="ref">aba 04, linha 319</span>. Tudo é pago pela SPE e precificado na contraprestação.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Contrato BNDES OCS 330/2024 (escopo, produtos, prazos) e termos de recebimento/aceite dos Produtos 1 a 10.</li><li>Conciliar a base do ressarcimento (3% do CAPEX de 5 anos) com o previsto no contrato BNDES e explicar o R$ 4,08 mi dos consultores.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="media" id="q-g2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 33</span>
+    <div class="q-title"><h3>Valor do contrato: a cláusula 7ª soma contraprestações e aporte, mas o modelo usa só as contraprestações (R$ 7.296,32 mi)</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE] parcial</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Por que o aporte foi incluído na definição contratual do valor do contrato se o modelo (e as garantias de proposta e execução) usam apenas a soma das contraprestações. Se houve erro, que se justifique, dado que despesas referenciadas ao valor do contrato (garantia de execução, seguros) aumentariam.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>"Valor do contrato" é a base para calcular garantias, seguros e multas. Contrato e planilha precisam usar o mesmo número. A diferença aqui é pequena (R$ 50 mi em R$ 7,3 bi, 0,7%), mas o descompasso é jurídico, não só numérico.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado: <span class="ref">aba 04, D349 = '03. CENARIOS'!D76 = R$ 7.296,3 mi</span> = soma das contraprestações efetivas (54,0 × 3 + 162,1 + 243,2 × 2 + 270,2 × 24). Com o aporte, R$ 7.346,3 mi (+0,7%); efeito na garantia de execução ≈ +R$ 19 mil/ano — imaterial. A CAGE já apontara que a Tabela 1 do VfM soma aporte ao VPL sem discriminar.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Uniformizar a definição de valor do contrato (com ou sem aporte) na Minuta, no edital e no modelo.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-g3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 34</span>
+    <div class="q-title"><h3>Seguro de riscos nomeados/patrimonial: critério da cobertura e da alíquota do prêmio</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Qual o critério para definir o valor segurado do seguro patrimonial/operacional e a alíquota do prêmio.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O seguro que protege os prédios contra incêndio, vendaval etc. custa um prêmio proporcional ao valor segurado. Se o valor segurado for arbitrário, o prêmio (e a contraprestação) também é.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado: a importância segurada de <b>R$ 1.177.012.800 está digitada, sem fórmula</b> <span class="ref">aba 04, D337</span>; prêmio 0,03% + IOF 7,38% = R$ 322 mil/ano. O número não coincide com nenhum agregado óbvio (CAPEX de implantação R$ 1.034,8 mi; obrigatório R$ 1.502,3 mi).</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Base de cálculo da importância segurada (valor de reposição? quais ativos?) e cotação de referência do prêmio.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-g4">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 35</span>
+    <div class="q-title"><h3>Garantia de proposta incluída no modelo — precedente da PPP do Hospital de Viamão manda excluir</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Por que a despesa com a garantia de proposta está no modelo, se na PPP do Hospital de Viamão se entendeu que ela é ônus inerente à participação no certame, suportado por todos os licitantes, e foi excluída.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Para participar da licitação, cada empresa contrata uma garantia. É um custo de competir, não um custo do projeto — quem perde também paga e não recebe nada. Colocar isso na contraprestação é fazer o Estado reembolsar o vencedor por um custo que ele teria de qualquer jeito.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Concordamos: R$ 783 mil no ano 1 (1% do valor do contrato × prêmio 1% + IOF) <span class="ref">aba 04, D348–D353</span>. Deve ser excluído do fluxo, como no precedente.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Excluir a garantia de proposta do modelo e recalcular a contraprestação.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="media" id="q-g5">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 36</span>
+    <div class="q-title"><h3>Garantia de execução: prêmio de 0,70% × média entre 0,68% e 0,71% no modelo</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Qual o critério para o prêmio de 0,70%, se o modelo traz a média de 0,68% e 0,71%.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Diferença pequena no prêmio, mas o achado da CAGE ao verificar a célula é maior: os documentos discordam também sobre o <i>tamanho</i> da garantia — o Plano diz 5% do contrato durante todo o prazo; o modelo reduz para 4% depois das obras. Se o contrato exigir 5% por 30 anos e o modelo previu 4%, o custo real será maior que o modelado (e a empresa pedirá reequilíbrio); se o contrato permitir 4%, a proteção do Estado cai.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado: <span class="ref">aba 04, D358 = (0,68% + 0,71%)/2 = 0,695%</span>. Duas inconsistências adicionais: o Plano de Negócios (Tabela 58) diz <b>0,06% ao mês</b> (0,72% ao ano) e "5% do valor do contrato — todo o contrato", mas o modelo reduz a cobertura para <b>4% após o 6º ano</b> <span class="ref">E357 = 4%</span>; o prêmio cai de R$ 2,72 mi para R$ 2,18 mi por ano.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Fixar prêmio e percentual de cobertura (5% × 4%) de forma idêntica na Minuta, no Plano e no modelo, com a cotação de referência.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="media" id="q-g6">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 37</span>
+    <div class="q-title"><h3>Verificador Independente e Certificadora de Obras a R$ 90 mil/mês cada (0,4% da contraprestação): qual o critério?</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>O critério adotado para remunerar o Verificador Independente e a Certificadora de Obras em R$ 90 mil mensais (≈ 0,4% da contraprestação mensal máxima).</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O verificador é quem mede se a empresa está cumprindo os indicadores; dele depende o desconto na contraprestação por mau serviço. O valor foi fixado como um percentual da contraprestação, sem orçamento próprio. E há um contraste: o Estado prevê para a sua própria equipe de fiscalização (5 pessoas) menos da metade do que pagará ao verificador.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Corroborado: <span class="ref">aba 04, D323 = D328 = 0,4%</span> × contraprestação anual = <b>R$ 1.080.937 por ano</b> cada (certificadora só nos 6 anos de obra); o Plano cita "benchmarks de mercado" sem apresentá-los. A CAGE acrescenta: a equipe de gestão contratual do <b>Estado</b> (5 pessoas, R$ 453 mil/ano — VfM, Tabela 2) é menor que o custo do verificador — os dois dimensionamentos precisam conversar.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Orçamento do VI e da certificadora por escopo (equipe, sistemas, frequência) e benchmarks citados.</li><li>Dimensionamento da unidade gestora do Estado compatível com o SMD (ver C13).</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO H ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-h"><span class="letra">Bloco H</span><h2>Tributos, aporte e demonstrações financeiras</h2><span class="cnt">TCE 38 · 39 · 40 · 41</span></div>
+<p class="section-desc">Os impostos pagos pela concessionária são repassados ao Estado dentro da contraprestação. Erros nas fórmulas de tributos, portanto, mudam quanto o Estado paga — e a forma como a concessionária contabiliza os prédios muda quanto imposto ela deve.</p>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-h1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 38 · 39</span>
+    <div class="q-title"><h3>Fórmulas do regime tributário: o teste do limite de R$ 78 mi olha só a receita comercial, e a base do Lucro Presumido ignora condomínio e contraprestação</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>(38) Na aba Tributos, a fórmula que decide o regime (célula I36) compara apenas a receita comercial com o limite de R$ 78 milhões do Lucro Presumido, em vez de todas as receitas (I14:I18); pede verificação e repercussões. (39) A base de IR/CSLL pelo Lucro Presumido (I47) considera só receitas comerciais, corporativas e de estacionamento, ignorando condomínio e contraprestação; pede ajuste e que se informe se o Lucro Real continua vantajoso nos três primeiros anos.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Uma empresa só pode optar pelo Lucro Presumido (imposto sobre um percentual fixo da receita) se faturar até R$ 78 mi por ano. A planilha testa esse limite olhando apenas o aluguel das lojas — que é zero nos primeiros anos — e por isso "acha" que o Presumido seria possível até o fim do contrato, quando a receita passa de R$ 300 mi/ano. É um erro de fórmula. Ele não muda o resultado (a planilha usa o Lucro Real de qualquer forma), mas invalida a comparação que deveria justificar essa escolha.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p><b>Confirmado nas duas células.</b> <span class="ref">I36 = SE(SOMA(I14:I14) > 78.000.000; "Lucro Real"; I37)</span> usa só "Receita Comercial (Locação)"; <span class="ref">I47 = SOMA(I14:I16) × 32%</span>. Consequência visível: o Painel de Controle mostra "Tributação Ótima = Lucro Presumido" do ano 2 ao 30, o que é impossível a partir do ano 4 (receita bruta &gt; R$ 78 mi). O regime <b>selecionado</b> é Lucro Real em todos os anos, então o fluxo de caixa não muda. Contribuição da CAGE ao item 39: nos anos 1–3 (receita R$ 57,7–61 mi) o Presumido seria legalmente possível; no Lucro Real o modelo paga <b>zero</b> de PIS/COFINS (créditos maiores que débitos) e zero de IR/CSLL (prejuízo fiscal), enquanto no Presumido pagaria ≈ R$ 2,1 mi de PIS/COFINS e ≈ R$ 4,4 mi de IR/CSLL por ano — logo o Lucro Real permanece vantajoso. Mas essa conclusão depende da base de créditos questionada no achado C8.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Corrigir I36 (todas as receitas) e I47 (base completa), reemitir o painel de "tributação ótima" e demonstrar a comparação de regimes nos anos 1–3.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-h2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 40</span>
+    <div class="q-title"><h3>Aporte: em quantos dias após a assinatura o Estado deposita os R$ 50 mi na conta aporte?</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Se há prazo, contado da assinatura, para o depósito do aporte na conta aporte (subcláusula 4.13 do Anexo VII do Contrato).</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Há uma diferença grande entre o Estado <i>depositar</i> R$ 50 mi logo após assinar (o dinheiro sai do caixa no ano 1 e fica numa conta vinculada) e <i>pagar</i> R$ 50 mi quando o prédio da PGE ficar pronto (ano 4). A planilha assume o segundo; o contrato parece prever o primeiro. Isso muda o impacto no orçamento e piora a comparação do VfM em cerca de R$ 14 mi.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>O modelo aloca o aporte no <b>ano 4</b> <span class="ref">aba 07, linha 42</span>, condicionado à conclusão do Edifício C ("preferencialmente mediante Termo Definitivo de Aceitação", Plano §9.3). Se o depósito for na assinatura, o valor presente sobe de R$ 36,1 mi para R$ 50 mi (a 8,5%). A CAGE acrescenta: a fonte orçamentária, a classificação e a previsão em PPA/LOA do aporte não constam; em março o aporte era "não aplicável" — é uma novidade sem explicação.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Esclarecer o momento do desembolso (assinatura × conclusão do Edifício C) e alinhar contrato e modelo.</li><li>Indicar fonte, dotação e tratamento contábil do aporte (ver C10).</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-h3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 41</span>
+    <div class="q-title"><h3>A DRE não tem depreciação/amortização: o benefício fiscal está sendo considerado? Como?</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>A base do IR/CSLL parte do LAJIR/LAIR (abas 11 e 13), mas na DRE a linha de depreciação/amortização está sem valores (aba 13, linha 70). Pergunta se o benefício fiscal da depreciação não está sendo considerado ou, se está, de que forma.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Normalmente uma empresa que constrói um prédio de R$ 1 bilhão deduz esse valor do lucro aos poucos (depreciação), pagando menos imposto. Na planilha do CAFF não há depreciação alguma. Isso não é necessariamente erro: em concessões, a empresa não é dona dos prédios e registra, em vez deles, um "direito a receber" do Estado (a regra contábil IFRIC 12). Mas então é preciso mostrar <i>onde</i> o benefício fiscal aparece — porque, se ele foi esquecido, a empresa pagaria mais imposto na planilha do que na vida real, e a contraprestação estaria inflada.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Convergente com o achado "bens reversíveis 0% / imobilizado 0%". A explicação está no modelo: adota-se o <b>modelo de ativo financeiro (IFRIC 12 / ICPC 01)</b> — <span class="ref">'13. DFs'!K70 = '10. D&amp;A'!K14 = 0</span>; o CAPEX entra como "custo de construção" contra uma "receita de construção" de igual valor (margem zero) e o retorno vem como "receita financeira" à TIR de 10,23%. Na apuração do IR/CSLL há ajustes "Exclusão AVP" e "Inclusão AVP Linear" <span class="ref">aba 11, linhas 89–90 e 128–129</span>, isto é, uma amortização linear extracontábil em 30 anos (Plano, Tabela 6: "amortização linear pelos 30 anos"), além de prejuízo fiscal compensado com trava de 30%. Ou seja, o benefício existe, mas por outro caminho — que precisa ser demonstrado e ter fundamento legal (Lei 12.973/2014, arts. 35–36; IN RFB 1.700/2017).</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>O tratamento tributário do ativo financeiro é tema de discussão com a Receita Federal; se a concessionária for autuada, pedirá reequilíbrio. E o modelo com 0% de bens reversíveis precisa explicar o que acontece na reversão dos prédios ao Estado no fim do contrato.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Demonstração do modelo contábil (IFRIC 12) e da apuração fiscal (exclusões/inclusões AVP, amortização linear, prejuízos), com fundamento legal.</li><li>Tratamento dos bens reversíveis e efeitos na reversão.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO I ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-i"><span class="letra">Bloco I</span><h2>Legalidade, affordability e custo de capital</h2><span class="cnt">TCE 42 · 43 · 44 · 45</span></div>
+
+<article class="q-card" data-tag="tce" data-pert="alta" id="q-i1">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 42</span>
+    <div class="q-title"><h3>Documentos que comprovem o cumprimento do art. 10 da Lei 11.079/2004 (incisos I a V)</h3>
+      <div class="q-badges"><span class="badge badge-tce">[TCE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Enviar os documentos que evidenciam o atendimento do art. 10 da Lei das PPPs: autorização fundamentada em estudo técnico que demonstre a conveniência e oportunidade da PPP (I, a), o impacto orçamentário-financeiro em cada exercício do contrato (I, b) e a observância da LRF (I, c); estimativa do fluxo de recursos suficiente (II); previsão no PPA (III); consulta pública (VI) e licença ambiental (VII), entre outros.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A lei exige que, antes de licitar uma PPP, o governo prove por escrito que ela é a melhor opção, que cabe no orçamento de cada ano, que está no plano plurianual e que a sociedade foi ouvida. O TCE quer ver as provas.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE acrescenta a <b>substância</b> do inciso I, "a": o estudo de conveniência (VfM) é frágil — sem o sobrecusto de 25% sobre o OPEX o VfM é negativo; o cenário híbrido é mais barato que a PPP; a única sensibilidade apresentada é a menos relevante (ver C1–C3). Quanto ao inciso I, "b", só há um percentual estático da RCL, e não o impacto por exercício.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Além dos documentos formais, reforçar o estudo de conveniência com as sensibilidades e a memória do cenário híbrido, e apresentar o impacto orçamentário ano a ano.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-i2">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 43</span>
+    <div class="q-title"><h3>Art. 28: estimativa do comprometimento da RCL com as PPPs atuais e futuras</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>Estimativa do comprometimento da Receita Corrente Líquida com as despesas de PPPs já incorridas e as decorrentes de projetos futuros, para evidenciar o cumprimento do limite de 5%.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A lei limita o total gasto com PPPs a 5% da "renda" do Estado. Sozinho, o CAFF usa menos de 0,5% — folga grande. O problema é de método: os documentos usam duas "rendas" diferentes, não projetam a RCL para 30 anos e não aplicam a regra oficial (Portaria STN 138/2023), que manda descontar o que o Estado já gasta hoje com o serviço.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>A CAGE identificara: RCL de referência diverge (<b>R$ 65.233 mi</b> no relatório × <b>R$ 56.500 mi</b> no modelo → 0,41% × 0,48%); com Erechim e Aeroportos, 0,50%; sem projeção da RCL; a Portaria 138/2023 é citada mas não aplicada (despesas já realizadas: OPEX atual R$ 30,95 mi + aluguéis R$ 4,08 mi). O <b>incremento fiscal líquido</b> é de ≈ <b>R$ 235 mi por ano</b> a partir do 7º ano (270,2 − 30,95 − 4,08) — 7,7 vezes o gasto atual.</p>
+      <div class="num-strip"><div class="ns"><div class="v">R$ 270 mi</div><div class="l">contraprestação/ano</div></div><div class="ns"><div class="v">R$ 35 mi</div><div class="l">gasto atual/ano</div></div><div class="ns"><div class="v neg">+R$ 235 mi</div><div class="l">incremento líquido/ano</div></div><div class="ns"><div class="v">0,41–0,48%</div><div class="l">da RCL (limite 5%)</div></div></div>
+    </div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>RCL oficial de referência (SEFAZ/Tesouro), projeção para o prazo do contrato, estoque de PPPs vigentes e contratadas, e aplicação numérica da Portaria STN 138/2023.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="alta" id="q-i3">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 44 a–c</span>
+    <div class="q-title"><h3>Estrutura de capital do WACC (16% de dívida) diferente da estrutura de financiamento do projeto (79% de dívida); consistência do beta realavancado</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>(a) Qual estrutura de capital foi efetivamente adotada no WACC, dada a diferença entre a participação de dívida usada na taxa de desconto e a estrutura de financiamento do capítulo de financiamento; (b) se a estrutura do WACC é uma estrutura-alvo de mercado ou pretende refletir a da futura concessionária, com fundamentação; (c) como se garantiu consistência entre a estrutura usada na realavancagem do beta/custo do capital próprio e a das projeções de captação, amortização e fluxo do acionista.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A contraprestação foi calibrada para dar ao projeto um retorno de 10,23% ao ano acima da inflação — calculado como se o investidor financiasse 84% com capital próprio (caro) e 16% com dívida (mais barata). Mas a mesma planilha mostra o investidor financiando 79% com dívida. Resultado: o sócio coloca pouco dinheiro, recebe uma contraprestação dimensionada como se tivesse colocado muito, e sua rentabilidade sobre o capital próprio chega a <b>26% ao ano acima da inflação</b>. É a pergunta mais importante do TCE sobre o custo do projeto, e a CAGE chegou à mesma conclusão de forma independente.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Convergente e central. WACC com <b>E/D = 83,8/16,2</b> (média setorial Damodaran); project finance com <b>79,2% de dívida</b> (R$ 866,4 mi; era 69,8% em março), custo real da dívida <b>11,07%, acima do próprio WACC</b> (10,23%), carência de 4 anos, ICSD mínimo 1,30; <b>TIR do acionista 26,4% real (caixa livre) / 16,8% (dividendos)</b> — em março, 17,9% / 13,6%. Beta realavancado com D/E de 0,1933. A CAGE acrescenta: para uma concessão administrativa remunerada por disponibilidade (risco de demanda baixo), o beta de construção/imobiliário e o prêmio de mercado de 6,54% tendem a superestimar o custo do capital próprio. Benchmarks citados pelos próprios consultores: 8,47% a 11,20% (média 10,08%).</p>
+      <div class="num-strip"><div class="ns"><div class="v">10,23%</div><div class="l">WACC real = TIR projeto</div></div><div class="ns"><div class="v">16,2% → 79,2%</div><div class="l">dívida no WACC × no financiamento</div></div><div class="ns"><div class="v neg">26,4%</div><div class="l">TIR acionista (caixa livre)</div></div><div class="ns"><div class="v">11,07%</div><div class="l">custo real da dívida</div></div></div>
+    </div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>Cada ponto percentual a menos no WACC reduz a contraprestação em dezenas de milhões por ano ao longo de 30 anos. Uma estrutura de capital inconsistente é a forma mais comum de contraprestação sobredimensionada em PPPs.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Recalcular o WACC com estrutura de capital coerente com o financiamento projetado (ou justificar a estrutura-alvo) e reapresentar a contraprestação.</li><li>Justificar a TIR do acionista de 26,4% frente a benchmarks de concessões administrativas.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="both" data-pert="media" id="q-i4">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num">TCE 45 a–c</span>
+    <div class="q-title"><h3>Janela do prêmio de mercado: 24 anos no simulador × "2001 a 2025" no Plano; efeitos da inclusão de 2001</h3>
+      <div class="q-badges"><span class="badge badge-both">[TCE + CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que o TCE perguntou</div><p>(a) O critério para usar 24 anos na apuração do prêmio de mercado em vez de 25, compatível com "2001 a 2025"; (b) datas inicial e final, número de observações e tratamento de 2001; (c) os efeitos da inclusão de 2001 sobre o prêmio, o custo do capital próprio e o WACC, com conciliação entre Plano, simulador e memória.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O "prêmio de mercado" é quanto a bolsa rendeu acima dos títulos do governo, em média, num período escolhido. Incluir ou excluir um ano ruim (2001 foi ruim) muda a média, o custo do capital e, no fim, a contraprestação. Os documentos dizem períodos diferentes para o mesmo número — e para outros também.</p></div>
+    <div class="q-sec q-ev"><div class="q-label">O que a CAGE verificou</div><p>Confirmado: célula <span class="ref">L19 do simulador = 24 anos</span>; o Plano diz "2001 a 2025"; o modelo (aba 05, nota b) diz "<b>1995 a 2025</b>". A CAGE acrescenta outras janelas divergentes: risco-país "CDS 1998–2025" (arquivo WACC) × "2021–2025" (modelo); betas "2022–2025, setor Real Estate" (arquivo) × "2018–2025, Hospitals/Healthcare" (modelo). O resultado (10,23%) é o mesmo em todos, o que indica que a memória escrita não corresponde ao que foi calculado.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Memória única e auditável do WACC: séries, datas, número de observações, setores e janelas — idênticas no Plano, no simulador e no modelo — com o efeito de cada escolha.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════ BLOCO J — CAGE ═══════════════════════════ -->
+<div class="bloco-head" id="bloco-j"><span class="letra">Bloco J</span><h2>Achados exclusivos da CAGE (não constam da RDI 1)</h2><span class="cnt">C1 – C15</span></div>
+<p class="section-desc">Pontos identificados pela CAGE ao reproduzir os cálculos do modelo e ao ler integralmente o Plano de Negócios e a Análise de VfM. Devem ser encaminhados aos consultores em nome da CAGE. Os três primeiros tratam do coração da decisão: a PPP é mesmo a opção mais vantajosa?</p>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c01">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C1</span>
+    <div class="q-title"><h3>O VfM só é positivo porque se aplicou um sobrecusto de 25% também aos custos de operação do Estado por 30 anos</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>No cálculo do "custo de o Estado fazer por conta própria" (PSC), os consultores acrescentaram 25% sobre os investimentos <i>e</i> 25% sobre os custos de operação de todos os 30 anos, a título de "aditivos contratuais" <span class="ref">aba 15, D16 e D17 = 25%; linhas 64 e 68</span>. A parcela sobre o OPEX vale R$ 166,7 mi em valor presente. A CAGE reproduziu o cálculo do VfM com os fluxos anuais do modelo (resultado idêntico: PSC 1.991,4 / PPP 1.859,4 / VfM 132,0) e refez as contas sem essa parcela: o VfM passa a <b>−R$ 34,8 mi</b>. O ponto de equilíbrio é um sobrecusto de OPEX de apenas <b>5,2%</b>.</p>
+      <div class="num-strip"><div class="ns"><div class="v pos">+R$ 132 mi</div><div class="l">VfM base (consultores)</div></div><div class="ns"><div class="v neg">−R$ 35 mi</div><div class="l">sem sobrecusto de OPEX</div></div><div class="ns"><div class="v neg">−R$ 287 mi</div><div class="l">sem sobrecusto algum</div></div><div class="ns"><div class="v">5,2%</div><div class="l">sobrecusto de OPEX de equilíbrio</div></div></div>
+    </div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Para dizer que a PPP é mais barata, os consultores partiram do princípio de que, se o Estado fizesse por conta própria, gastaria 25% a mais do que o orçado — nas obras (o que tem base: a lei limita aditivos a 25%, e obras públicas de fato estouram) e também na operação, todos os anos, por 30 anos (o que não tem base legal nem estatística apresentada). Esse segundo acréscimo vale R$ 167 mi, mais do que a "vantagem" da PPP (R$ 132 mi). Sem ele, a PPP é mais cara. Em outras palavras: a conclusão depende de uma premissa que não foi justificada.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>O VfM é a prova exigida pelo art. 10, I, "a", da Lei das PPPs de que a PPP é conveniente. Uma prova que se inverte ao retirar uma premissa discutível não sustenta a decisão perante o TCE nem perante a sociedade.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Justificar tecnicamente (com estatística de contratos de serviços do Estado) o sobrecusto de 25% sobre OPEX por 30 anos.</li><li>Apresentar o VfM com sobrecusto de CAPEX e de OPEX separados e em cenários (0%, 10%, 25%).</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c02">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C2</span>
+    <div class="q-title"><h3>O VfM é muito sensível à taxa de desconto (TSD): fica negativo abaixo de 6,9% — e essa sensibilidade não foi apresentada</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>Com a TSD de 8,5% o VfM é +R$ 132 mi; a 7% cai para +R$ 9 mi; a 6% vai a −R$ 95 mi; a 10% sobe para +R$ 224 mi. O ponto de equilíbrio é <b>6,90%</b>. A única sensibilidade apresentada pelos consultores (fator de eficiência do aluguel: 65/70/75% → VfM 132/123/114) é a de menor efeito.</p>
+      <div class="num-strip"><div class="ns"><div class="v neg">−R$ 95 mi</div><div class="l">TSD 6%</div></div><div class="ns"><div class="v pos">+R$ 9 mi</div><div class="l">TSD 7%</div></div><div class="ns"><div class="v pos">+R$ 132 mi</div><div class="l">TSD 8,5% (base)</div></div><div class="ns"><div class="v pos">+R$ 224 mi</div><div class="l">TSD 10%</div></div></div>
+    </div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A PPP concentra os gastos do Estado no futuro (parcelas iguais por 30 anos); fazer por conta própria concentra no presente (obras nos primeiros 6 anos). Quanto maior a taxa usada para "descontar" o futuro, menos pesam as parcelas da PPP — e mais vantajosa ela parece. A taxa de 8,5% é uma recomendação federal de 2020; não é a única defensável (o custo da dívida do Estado é outra referência possível). Um estudo sério mostra o resultado em várias taxas. O dos consultores mostra em uma só.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Sensibilidade do VfM à TSD (6% a 10%), ao sobrecusto e à neutralidade competitiva; justificar a TSD frente ao custo de captação do Estado.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c03">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C3</span>
+    <div class="q-title"><h3>Pela ótica do orçamento do Estado a PPP custa R$ 289 mi a mais; o cenário híbrido é mais barato que a PPP e não tem memória no modelo</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>O custo da PPP no VfM é reduzido em R$ 421 mi pela "neutralidade competitiva" — os tributos que a concessionária paga são devolvidos ao fluxo, porque "retornam à sociedade". Mas PIS, COFINS, IRPJ e CSLL são federais e o ISS é municipal: <b>nada retorna ao Tesouro do RS</b>. Sem esse ajuste, a PPP custa R$ 2.280,4 mi contra R$ 1.991,4 mi do PSC: <b>+R$ 289 mi</b>. Além disso, o próprio VfM apresenta um <b>cenário híbrido</b> (obra contratada de uma construtora + operação pelo Estado) de <b>R$ 1.643,8 mi</b>, R$ 215,6 mi mais barato que a PPP — e o trata como "complementar", mantendo o PSC tradicional como referência. A memória desse cenário <b>não está no modelo</b>.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Há duas perguntas diferentes: "a PPP é melhor para o país?" (aí faz sentido considerar que os impostos voltam para a sociedade) e "a PPP é melhor para o caixa do Estado do RS?" (aí não faz — os impostos vão para Brasília e para a Prefeitura). O estudo responde só à primeira. E a alternativa mais barata de todas — o Estado contrata a obra e continua operando — foi calculada, deu resultado melhor que a PPP e foi posta de lado sem que se possa conferir a conta.</p></div>
+    <div class="q-why"><div class="q-label">Por que importa para o Estado</div><p>O art. 10, I, "a", pede as "razões que justifiquem a opção pela PPP". Se existe uma alternativa mais barata nos próprios estudos, essas razões precisam ser explícitas e quantificadas.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Memória do cenário híbrido dentro do modelo, com as mesmas premissas de nível de serviço.</li><li>VfM nas duas óticas (sociedade e Tesouro estadual) e fundamentação explícita da opção pela PPP completa frente ao híbrido.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c04">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C4</span>
+    <div class="q-title"><h3>"Mudanças de Layouts e Reconfigurações": linha de R$ 256,7 mi no CAPEX (era R$ 4,4 mi em março) que o Plano diz ser paga por remuneração complementar</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>Na aba CAPEX dos prédios A, B, C e N há uma linha "Mudanças de Layouts e Reconfigurações de Espaço" = <b>6% da área privativa por ano × R$ 1.850/m²</b> <span class="ref">aba 09, linhas 77, 112, 145 e 410</span>: R$ 93,0 + 55,1 + 62,9 + 45,7 = <b>R$ 256,7 mi</b> em 30 anos. No modelo de março essa linha somava R$ 4,4 mi. Ao mesmo tempo, o Plano (§9.1) diz que "reconfigurações de layout ou adaptações de espaços" demandadas pelo Poder Concedente terão <b>remuneração complementar</b>, fora da contraprestação.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A planilha já cobra do Estado, dentro da mensalidade, a reforma de 6% dos escritórios todo ano (o equivalente a refazer todos os andares a cada 17 anos). O contrato, por sua vez, diz que quando o Estado pedir para mudar um layout vai pagar à parte. Ou o Estado paga duas vezes pela mesma coisa, ou a linha de R$ 257 mi está sobrando. Essa única linha explica boa parte do aumento de CAPEX entre março e julho.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Esclarecer o que está na contraprestação e o que é remuneração complementar; justificar 6%/ano e R$ 1.850/m²; eliminar a dupla contagem.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c05">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C5</span>
+    <div class="q-title"><h3>Reinvestimentos de R$ 670 mi (39% do CAPEX) com vida útil de 10 anos para mobiliário, divisórias, elevadores e ar-condicionado; CAPEX +32% entre versões com contraprestação +3%</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>O CAPEX de 30 anos (R$ 1.704,8 mi) = implantação R$ 1.034,8 mi + reinvestimentos <b>R$ 669,9 mi</b>. A tabela de vidas úteis do Plano (Tabela 29) manda repor pintura a cada 5 anos e "instalações especiais" (elevadores, ar-condicionado), incêndio e "serviços diversos" (mobiliário e divisórias) a cada <b>10 anos</b>. Entre o modelo de março e o de julho, o CAPEX subiu de R$ 1.291,6 mi para R$ 1.704,8 mi (<b>+32%</b>), quase todo em reinvestimento (R$ 256 mi → R$ 670 mi), mas a contraprestação subiu só de R$ 262,3 mi para R$ 270,2 mi (<b>+3%</b>) — ao mesmo tempo em que a alavancagem subiu de 70% para 79% e apareceu o aporte de R$ 50 mi. A Tabela 30 do Plano (reinvestimentos por empreendimento) está ilegível no arquivo entregue.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Elevadores e sistemas de ar-condicionado bem mantidos duram 20–25 anos; móveis de escritório de qualidade, 15 ou mais. Trocar tudo a cada 10 anos é repor três vezes em 30 anos. E há um mistério aritmético: o investimento cresceu R$ 413 mi entre versões e a mensalidade quase não mudou. Isso pode ter explicações legítimas (reinvestimentos tardios valem menos hoje; o aporte ajuda; a dívida ficou mais barata), mas precisa ser demonstrado — porque a contraprestação é o que o Estado paga.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Tabela 30 legível; justificativa das vidas úteis com referência técnica (NBR 15575, fabricantes); conciliação item a item da variação de CAPEX e de contraprestação entre as versões de março e julho.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c06">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C6</span>
+    <div class="q-title"><h3>Receitas acessórias de R$ 1,07 bilhão com 0% de compartilhamento com o Estado</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>A concessionária alugará lojas e escritórios (R$ 120 e R$ 100/m²/mês, vacância 10%, 20.301 m² de área locável) e explorará 3.243 vagas de estacionamento (ocupação 20%, giro 1,5, R$ 30, repasse 45%) — R$ 1.067,8 mi nominais em 30 anos, incluindo condomínio compensatório de R$ 424,8 mi. O parâmetro "compartilhamento de receita acessória" do modelo é <b>zero</b> <span class="ref">Painel, D41; aba 07, linhas 44–45</span>. No PSC, o Estado só conseguiria 65% desse valor de mercado.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A empresa vai ganhar dinheiro alugando prédios construídos em terreno público — e a planilha prevê que ela fique com 100% disso. O usual em concessões é dividir essas receitas com o poder público ou usá-las para abater a mensalidade. Aqui, o Estado paga a mensalidade cheia e ainda cede o terreno de graça.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Justificar a ausência de compartilhamento; simular compartilhamento (por exemplo 30–50%) ou abatimento na contraprestação; entregar o Estudo de Vocação e Demanda.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c07">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C7</span>
+    <div class="q-title"><h3>Quatro áreas construídas diferentes nos indicadores: 225.667 / 246.191 / 257.792 / 281.807 m²</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>Modelo e Plano usam 225.667 m²; a aba MAPA, 246.191 m²; o benchmark de março, 257.792 m²; e as tabelas de CAPEX/m² e OPEX/m² do Plano (Tabelas 12 e 33), <b>281.807 m²</b>. A afirmação de que o CAFF custa "R$ 7,55 mil/m², abaixo do benchmark de R$ 13,07 mil" depende da área escolhida.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Dividir o mesmo custo por uma área 25% maior faz o custo por metro quadrado parecer 20% menor. Os comparativos que "provam" que o projeto é barato usam a maior das quatro áreas.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Definir a área de referência (construída × privativa × com terraços/garagens) e recalcular todos os indicadores por m².</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c08">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C8</span>
+    <div class="q-title"><h3>Créditos de PIS/COFINS calculados sobre 100% do OPEX (majoritariamente mão de obra) e sobre uma "depreciação" de ativos que o modelo não registra</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span><span class="badge badge-ok">retifica achado de 14/09</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>Na aba 11, os créditos de PIS/COFINS são gerados a 9,25% sobre todo o OPEX (R$ 41–70 mi/ano) e sobre uma base de "depreciação" de R$ 26 a 66 mi/ano <span class="ref">linhas 20–21 e 64–75</span>: R$ 6,2 mi de crédito no ano 1 (o imposto devido, de R$ 5,3 mi, cai a zero) e R$ 10,3 mi no ano 10. O parâmetro do painel "% OPEX/CAPEX sujeito a crédito = 0%" <b>não tem efeito</b>. <i>Retificação:</i> a análise CAGE de 14/09 dizia que os créditos estavam "zerados"; estavam, na verdade, superestimados.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>No regime não cumulativo, a empresa abate do PIS/COFINS que deve o imposto embutido no que compra. Salários não dão direito a abatimento — e a maior parte do OPEX do CAFF é gente (limpeza, segurança, manutenção). A planilha abate como se tudo fosse insumo, e ainda abate sobre uma "depreciação" de prédios que, pela própria planilha, não estão no ativo da empresa (ver TCE 41). O efeito é reduzir o imposto projetado — o que, curiosamente, reduz a contraprestação referencial. Mas cria um risco: se a Receita Federal não aceitar os créditos, a empresa pedirá reequilíbrio.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Demonstrar a base legal dos créditos (quais insumos; tratamento da mão de obra terceirizada; crédito sobre ativo financeiro/depreciação) e apresentar a contraprestação com base de crédito restrita.</li><li>Corrigir ou remover o parâmetro sem efeito do painel.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c09">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C9</span>
+    <div class="q-title"><h3>OPEX de R$ 0,34 mil/m²/ano contra benchmark de R$ 1,21 mil; planilha OPEX e modelo com perímetros diferentes</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>O Plano (Tabela 33) compara o OPEX do CAFF (R$ 0,34 mil/m²/ano) com quatro centros administrativos (R$ 0,65 a 1,70 mil; média 1,21) e conclui que o CAFF é mais barato — sem explicar por quê. A planilha OPEX enviada totaliza R$ 5,08 mi/mês (≈ R$ 61 mi/ano) enquanto o modelo usa R$ 66,6 mi/ano (obrigatório + acessório); verificador e seguros estão zerados na planilha e presentes no modelo.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Ser três vezes mais barato que projetos parecidos pode ser eficiência — ou pode ser orçamento subestimado. Se for subestimado, as propostas virão acima do valor de referência (e a licitação fracassa) ou a empresa vencedora reduzirá o serviço para caber no preço. Nos dois casos o Estado perde.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Conciliar os perímetros de OPEX (planilha × modelo × Plano) e justificar o distanciamento do benchmark item a item.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c10">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C10</span>
+    <div class="q-title"><h3>Aporte de R$ 50 mi: novo desde março, sem fonte orçamentária, dotação ou classificação</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>Em março o aporte constava como "não aplicável"; em julho aparece R$ 50 mi no ano 4 <span class="ref">aba 07, linha 42</span>. Não há indicação de fonte de recursos, previsão em PPA/LOA, nem do tratamento contábil. O aporte é excluído do cálculo da RCL (Portaria STN 138/2023), mas é dinheiro que sai do caixa.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>O Estado vai pagar R$ 50 mi à vista, além da mensalidade. De onde vem esse dinheiro e em que ano ele foi previsto no orçamento? Ninguém escreveu.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Fonte, dotação, exercício e tratamento contábil do aporte; justificar sua inclusão frente à versão de março (ver também TCE 40).</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c11">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C11</span>
+    <div class="q-title"><h3>Reforma tributária (LC 214/2025) tratada como gatilho de reequilíbrio sem quantificação nem cláusula de alocação</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>O Plano (§6) reconhece que CBS e IBS substituirão PIS/COFINS/ISS entre 2026 e 2033, que as alíquotas ainda não estão definidas e que "caso haja aumento da carga tributária… a concessionária poderá pleitear reequilíbrio". Não há cenário quantificado nem proposta de alocação contratual do risco.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A empresa assina hoje sabendo que os impostos vão mudar — e o texto já a autoriza a cobrar do Estado se ficar mais caro. O Estado deveria pelo menos saber quanto isso pode custar e negociar como o risco será dividido (por exemplo, uma faixa de variação absorvida pela empresa).</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Cenários de carga tributária com CBS/IBS e proposta de cláusula de alocação (banda de risco, gatilho e método de reequilíbrio).</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c12">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C12</span>
+    <div class="q-title"><h3>Erratas: tabela duplicada com totais diferentes, painel com rateio quebrado, relatórios datados de março com números de julho</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><ul><li>Plano, Tabela 32 (OPEX por empreendimento) aparece duas vezes com "Despesas administrativas" de R$ 185,52 mi e R$ 327,93 mi e totais de R$ 2.182,36 mi e R$ 2.324,78 mi.</li><li>Painel de resultados do modelo: rateio da contraprestação mensal por ativo mostra 0 / −22,4 / +22,4 (fórmulas quebradas) <span class="ref">aba 01, E34–E37</span>.</li><li>Produtos 8 e 10 datados de 20/03/2026 trazem os números do modelo de 13/07/2026 (contraprestação 270,2; VfM 132,0), diferentes dos do modelo de 16/03 (262,3; 188,5).</li><li>"Tabela 29" numerada duas vezes; Tabela 30 ilegível; fontes "2025" em tabelas de 2026; consultores R$ 4,08 mi no texto e zero no modelo; RCL 65.233 × 56.500.</li></ul></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>São erros de edição, mas num processo de licitação eles têm consequência: qual versão vale? Um licitante pode usar a tabela que lhe convier. Os documentos precisam ser reemitidos com data e versão coerentes com a planilha.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Reemitir os Produtos 8 e 10 com controle de versão, corrigindo os itens acima.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c13">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C13</span>
+    <div class="q-title"><h3>Equipe de gestão contratual do Estado: 5 pessoas e R$ 453 mil/ano para um contrato de R$ 7,3 bilhões e 18 edificações</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>O VfM (Tabela 2) prevê para o Estado um gerente (40 h) e quatro especialistas de 20 h (jurídico, econômico-financeiro, engenharia, arquitetura): R$ 453 mil/ano, VP de R$ 4,9 mi. É menos da metade do custo do verificador independente (R$ 1,08 mi/ano) e uma fração do que unidades gestoras de PPPs semelhantes exigem. Triplicar essa equipe reduziria o VfM em apenas R$ 10 mi — o custo não é o problema; o subdimensionamento é.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Fiscalizar um contrato de 30 anos, com obras em 15 prédios e dezenas de indicadores de serviço, com quatro pessoas de meio período é receita para o contrato ser gerido pela concessionária, não pelo Estado.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Dimensionar a unidade gestora (competências, dedicação, sistemas de monitoramento de KPIs) compatível com o Sistema de Mensuração de Desempenho.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="alta" id="q-c14">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C14</span>
+    <div class="q-title"><h3>Preços unitários estruturantes sem memória: estrutura metálica a R$ 40,19/kg, caixilhos de alumínio a R$ 3.830/m², steel deck a R$ 576/m² (≈ R$ 390 mi); sem composições, base, data-base ou ART/RRT</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-alta">Pertinência alta</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>Além de divisórias e mobiliário, três itens concentram cerca de R$ 390 mi: estrutura metálica (garagem D 1.540 t; garagem H 1.191 t; ampliação A 723 t) a R$ 40,19/kg; caixilhos de alumínio com pintura eletrostática a R$ 3.829,72/m² (só no retrofit A, 9.484 m² = R$ 36,3 mi); lajes steel deck a R$ 576/m². Nenhuma composição de custo, base de referência (SINAPI/SICRO/cotações), data-base por item ou responsável técnico (ART/RRT) é apresentada; o Produto 7 (anteprojeto com quantitativos) não foi entregue.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>Um orçamento público precisa dizer de onde veio cada preço e quem assina por ele. Aqui há preços altos, quantidades grandes e nenhuma referência — não dá para auditar se R$ 40 por quilo de aço montado ou R$ 3.830 por m² de janela são razoáveis para Porto Alegre em dezembro de 2025.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Composições de preços unitários, bases e data-base por item, memória de quantitativos (Produto 7) e ART/RRT do orçamento.</li></ul></div>
+  </div>
+</article>
+
+<article class="q-card" data-tag="cage" data-pert="media" id="q-c15">
+  <div class="q-head" onclick="toggleCard(this)">
+    <span class="q-num c">CAGE C15</span>
+    <div class="q-title"><h3>O PSC não é o "status quo": assume OPEX público de R$ 70 mi/ano (2,3× o gasto atual), e o custo atual do Estado não está documentado</h3>
+      <div class="q-badges"><span class="badge badge-cage">[CAGE]</span><span class="badge badge-media">Pertinência média</span></div></div>
+    <span class="q-toggle">recolher ▾</span>
+  </div>
+  <div class="q-body ed">
+    <div class="q-sec"><div class="q-label">O que a CAGE identificou</div><p>No VfM, o cenário "Estado faz por conta própria" gasta R$ 70 mi/ano de operação <span class="ref">aba 15, linha 66</span>, contra R$ 30,95 mi/ano que o Estado gasta hoje (valor "para referência" no painel, sem fonte). A diferença é justificada pela premissa de "mesmo nível de serviço da PPP". A composição do gasto atual (pessoal, contratos, energia, água, manutenção), os 18 contratos vigentes e as receitas atuais (cessões, restaurante, estacionamento) não estão documentados.</p></div>
+    <div class="q-simple"><div class="q-label">Em termos simples</div><p>A comparação "PPP × Estado" não compara com o que o Estado faz hoje, mas com um Estado hipotético que gastaria mais que o dobro para oferecer o padrão da PPP. Isso é metodologicamente aceitável, mas exige mostrar de onde vêm os R$ 31 mi atuais e por que o padrão da PPP custaria R$ 70 mi — sem isso, o leitor não sabe o que está comprando a mais.</p></div>
+    <div class="q-ask"><div class="q-label">O que pedir aos consultores</div><ul><li>Fonte e composição do OPEX atual e dos contratos vigentes; explicação do salto de R$ 31 mi para R$ 70 mi no PSC.</li></ul></div>
+  </div>
+</article>
+
+<!-- ═══ 05 Consolidação ═══ -->
+<h2 class="section-title" id="consolidacao">05 · Lista consolidada de solicitações aos consultores responsáveis</h2>
+<p class="section-desc">Lista única, ordenada por bloco, com a marcação de origem. Sugere-se enviar os itens [TCE] e [TCE + CAGE] com a numeração original da RDI 1 e os itens [CAGE] com a numeração C1–C15.</p>
+<section class="panel">
+  <div class="panel-header"><span class="ph-dot"></span>33 solicitações<span class="ph-right">tabela editável</span></div>
+  <div class="panel-body ed">
+    <div class="tbl-wrap">
+    <table class="data-table">
+      <thead><tr><th style="width:44px">Nº</th><th>Solicitação</th><th style="width:150px">Origem</th><th style="width:130px">Referência</th></tr></thead>
+      <tbody>
+        <tr><td colspan="4"><b>4.1 Cronograma, contrato e escopo</b></td></tr>
+        <tr><td class="r">1</td><td>Cronograma único (Ordem de Início, transição de 6 meses, fases 1–3, 72/75/78 meses) conciliado entre Minuta, Caderno, modelo e VfM.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 1–2</td></tr>
+        <tr><td class="r">2</td><td>Fase do Edifício C (corrigir Caderno para a Fase 1; vincular aporte e FDISP ao marco).</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 3</td></tr>
+        <tr><td class="r">3</td><td>Corrigir o item 7.6.b do Caderno de Encargos (legendas dentro da lista de obrigações).</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 4</td></tr>
+        <tr><td class="r">4</td><td>Valor do contrato (com/sem aporte) idêntico na Minuta, no edital e no MEF; reemissão dos Produtos 8 e 10 com versão e data coerentes com o modelo.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 33 · C12</td></tr>
+        <tr><td class="r">5</td><td>Mudanças de layout: o que está na contraprestação × o que é remuneração complementar; justificar 6%/ano e R$ 1.850/m².</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C4</td></tr>
+        <tr><td colspan="4"><b>4.2 Orçamento de CAPEX</b></td></tr>
+        <tr><td class="r">6</td><td>Divisórias e mobiliário: justificativa, alternativas, quantitativos, BDI de fornecimento, vida útil, tratamento de solução mais barata; composições, bases, data-base e ART/RRT de todo o orçamento.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 19–23 · C14</td></tr>
+        <tr><td class="r">7</td><td>Diagnóstico técnico que fundamente a substituição integral (laudos, inventário de conservação); avaliação de reaproveitamento por sistema.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 24–28</td></tr>
+        <tr><td class="r">8</td><td>BDI explícito por natureza (obra × fornecimento × serviços).</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 29</td></tr>
+        <tr><td class="r">9</td><td>Ensaios e sondagens do Edifício A antes da licitação; alocação do risco de condição estrutural e provisão.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 18</td></tr>
+        <tr><td class="r">10</td><td>Solução de cobertura de todos os edifícios (não só da Escola), integralmente orçada.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 13</td></tr>
+        <tr><td class="r">11</td><td>Reinvestimentos (Tabela 30 legível), justificativa das vidas úteis, conciliação CAPEX e contraprestação entre as versões de março e julho.</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C5</td></tr>
+        <tr><td class="r">12</td><td>Área de referência única para os indicadores por m².</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C7</td></tr>
+        <tr><td colspan="4"><b>4.3 OPEX</b></td></tr>
+        <tr><td class="r">13</td><td>Metodologia de dimensionamento de postos (copeiros/garçons, marcenaria, segurança externa); conciliação OPEX planilha × modelo × benchmark.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 7 · C9</td></tr>
+        <tr><td class="r">14</td><td>Ambulatório/ambulância: localização no modelo, fundamentação, alternativas e riscos na Matriz.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 5</td></tr>
+        <tr><td class="r">15</td><td>Jardinagem: memória coerente com a produtividade declarada.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 9</td></tr>
+        <tr><td class="r">16</td><td>Fonte e composição do OPEX atual do Estado e dos 18 contratos vigentes; explicação do PSC de R$ 70 mi/ano.</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C15</td></tr>
+        <tr><td colspan="4"><b>4.4 Tributos, seguros, garantias e estruturação</b></td></tr>
+        <tr><td class="r">17</td><td>Corrigir as fórmulas de regime tributário (I36) e da base do presumido (I47); demonstrar a vantagem do Lucro Real nos anos 1–3.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 38–39</td></tr>
+        <tr><td class="r">18</td><td>Base de crédito de PIS/COFINS (mão de obra × insumos; ativo financeiro × depreciação); parâmetro sem efeito no painel.</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C8</td></tr>
+        <tr><td class="r">19</td><td>Demonstrar o tratamento IFRIC 12 / amortização linear extracontábil e os efeitos na reversão dos bens.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 41</td></tr>
+        <tr><td class="r">20</td><td>Valor venal do terreno com a PGV vigente (certidão PMPA) e recálculo do IPTU.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 8</td></tr>
+        <tr><td class="r">21</td><td>Base da importância segurada; exclusão da garantia de proposta; prêmio e cobertura (5% × 4%) da garantia de execução.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 34–36</td></tr>
+        <tr><td class="r">22</td><td>Contrato BNDES: escopo, produtos, aceite; base do ressarcimento (3% do CAPEX de 5 anos); consultores R$ 4,08 mi; critério do VI/certificadora; dimensionamento da gestão contratual do Estado.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 30–32 · 37 · C13</td></tr>
+        <tr><td class="r">23</td><td>Reforma tributária: cenários de CBS/IBS e cláusula de alocação.</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C11</td></tr>
+        <tr><td colspan="4"><b>4.5 Receitas, aporte e affordability</b></td></tr>
+        <tr><td class="r">24</td><td>Compartilhamento de receitas acessórias; Estudo de Vocação e Demanda.</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C6</td></tr>
+        <tr><td class="r">25</td><td>Momento do aporte (assinatura × conclusão do Edifício C), fonte orçamentária e tratamento na RCL.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 40 · C10</td></tr>
+        <tr><td class="r">26</td><td>RCL única, projeção, estoque de PPPs e aplicação numérica da Portaria STN 138/2023.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 43</td></tr>
+        <tr><td class="r">27</td><td>Vagas: quantitativos (3.243 × 3.263), elétricas, bicicletas, mobilidade, regras de uso e cobrança.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 12</td></tr>
+        <tr><td colspan="4"><b>4.6 VfM e custo de capital</b></td></tr>
+        <tr><td class="r">28</td><td>Sensibilidades (sobrecusto CAPEX/OPEX, TSD, neutralidade), memória do cenário híbrido no modelo, VfM na ótica orçamentária do Estado.</td><td><span class="badge badge-cage">[CAGE]</span></td><td class="mono">C1 · C2 · C3</td></tr>
+        <tr><td class="r">29</td><td>Estrutura de capital do WACC × project finance; consistência do beta; justificar a TIR do acionista de 26,4%.</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 44</td></tr>
+        <tr><td class="r">30</td><td>Memória única do prêmio de mercado, risco-país e beta (janelas, séries, observações).</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td class="mono">RDI 45</td></tr>
+        <tr><td class="r">31</td><td>Documentos de cumprimento do art. 10 da Lei 11.079/2004, com impacto orçamentário por exercício.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 42</td></tr>
+        <tr><td colspan="4"><b>4.7 Licenciamento, patrimônio e imóveis</b></td></tr>
+        <tr><td class="r">32</td><td>Consultas prévias SMAMUS/EPAHC, Projeto Especial (AEII), patrimônio cultural, PGT/EIV e provisão para contrapartidas.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 14–17</td></tr>
+        <tr><td class="r">33</td><td>Matrículas dos imóveis; potencial construtivo (LC 1.075/2026 e 1.076/2026) e sua monetização para o Estado.</td><td><span class="badge badge-tce">[TCE]</span></td><td class="mono">RDI 10–11</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 Documentos ═══ -->
+<h2 class="section-title" id="documentos">06 · Documentos a solicitar</h2>
+<p class="section-desc">Para equiparar o acervo da CAGE ao do TCE e permitir a análise completa.</p>
+<section class="panel">
+  <div class="panel-body ed">
+    <div class="tbl-wrap">
+    <table class="data-table">
+      <thead><tr><th>Documento</th><th style="width:170px">Origem do pedido</th><th>Para que serve</th></tr></thead>
+      <tbody>
+        <tr><td>Minuta de Contrato e todos os anexos (I Caderno de Encargos + Apêndices I–III; II PMOC; IV SMD; VI Mecanismo de Pagamento; VII Conta aporte/garantias; Matriz de Riscos; Penalidades; Verificador)</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td>Alocação de riscos, mecanismo de pagamento, prazos e obrigações — base dos módulos M2, M4 e M5 da ferramenta CAGE</td></tr>
+        <tr><td>Relatório de Análise da Situação Atual</td><td><span class="badge badge-tce">[TCE]</span></td><td>Fundamentar (ou não) a substituição integral no retrofit</td></tr>
+        <tr><td>Relatório de Diretrizes Operacionais (texto completo)</td><td><span class="badge badge-cage">[CAGE]</span></td><td>Dimensionamento de postos, ambulatório, jardinagem, premissas de OPEX</td></tr>
+        <tr><td>Produtos 6 e 7 (anteprojeto, quantitativos, cronograma)</td><td><span class="badge badge-cage">[CAGE]</span></td><td>Auditar quantidades, áreas e cronograma do CAPEX</td></tr>
+        <tr><td>Estudo de Vocação Complementar e Análise de Demanda</td><td><span class="badge badge-cage">[CAGE]</span></td><td>Receitas acessórias (aluguéis, estacionamento) e compartilhamento</td></tr>
+        <tr><td>Relatório de Mecanismo de Pagamento</td><td><span class="badge badge-cage">[CAGE]</span></td><td>FDISP/FID, glosas, waiver, remuneração complementar</td></tr>
+        <tr><td>EVTEA consolidado e pareceres/diretrizes da PMPA (se houver)</td><td><span class="badge badge-tce">[TCE]</span></td><td>Viabilidade urbanística e contrapartidas</td></tr>
+        <tr><td>Memória do cenário híbrido e das sensibilidades no modelo</td><td><span class="badge badge-cage">[CAGE]</span></td><td>Robustez do VfM e fundamentação da opção pela PPP</td></tr>
+        <tr><td>Memória única do WACC (séries, janelas, observações)</td><td><span class="badge badge-both">[TCE + CAGE]</span></td><td>Custo de capital auditável</td></tr>
+        <tr><td>Contrato BNDES OCS 330/2024: escopo, produtos, termos de aceite</td><td><span class="badge badge-tce">[TCE]</span></td><td>Ressarcimento de estudos e completude dos produtos</td></tr>
+        <tr><td>Matrículas dos imóveis; certidão PGV/IPTU da PMPA</td><td><span class="badge badge-tce">[TCE]</span></td><td>Titularidade, áreas e IPTU</td></tr>
+        <tr><td>Composições de preços, bases, data-base e ART/RRT do orçamento</td><td><span class="badge badge-cage">[CAGE]</span></td><td>Auditoria de preços unitários (M3 da ferramenta)</td></tr>
+        <tr><td>Fonte e composição do OPEX atual e dos 18 contratos vigentes</td><td><span class="badge badge-cage">[CAGE]</span></td><td>Linha de base do custo público (M1 da ferramenta)</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 Anexo ═══ -->
+<h2 class="section-title" id="anexo">07 · Anexo — verificações feitas no modelo para este relatório</h2>
+<section class="panel">
+  <div class="panel-body ed">
+    <ul class="small" style="font-size:13px">
+      <li><code>'11. TRIBUTOS'!I36 = IF(SUM(I14:I14)&gt;$E$36,"Lucro Real",I$37)</code>; <code>I47 = SUM(I14:I16)*I48</code>; <code>I27 = IF(I36="Lucro Presumido",I41,I62)</code>; créditos: linha 67 = 9,25% × (linhas 20 + 21); ano 1: devido 5,33 / crédito 6,21 → 0; ano 10: devido 29,0 / crédito 10,3 → 18,7 (R$ mi).</li>
+      <li><code>'13. DFs'!K70 = IF(Painel!D7="Real",'10. D&amp;A'!K14,'10. D&amp;A'!K33)</code> → 0 (bens reversíveis e imobilizado 0%); ajustes "Exclusão AVP" e "Inclusão AVP Linear" na aba 11 (linhas 89–90 e 128–129).</li>
+      <li><code>'04. PREMISSAS'!D317 = 3%</code>, <code>D318 = −SUM(OFFSET('09. CAPEX'!I22,,,,5)) = 1.001.944.201</code> → ressarcimento 30.058.326; <code>D337 = 1.177.012.800</code> (valor digitado); <code>D349 = '03. CENARIOS'!D76 = 7.296.323.600</code>; <code>D358 = (0,68%+0,71%)/2</code>; <code>E357 = 4%</code>; <code>D323 = D328 = 0,4%</code>.</li>
+      <li>Painel de Controle: alavancagem 79,2% (março: 69,8%); custo da dívida real 11,07%; TIR do acionista caixa livre 26,39% (março: 17,85%); DDM 16,82% (março: 13,57%); "Tributação Ótima" = Lucro Presumido nos anos 2–30.</li>
+      <li>Arquivo WACC: <code>L19 = 24</code> (janela do prêmio de mercado); notas (b), (c) e (d) com janelas diferentes das do modelo.</li>
+      <li>Aba 09 CAPEX: "Mudanças de Layouts" 93,03 + 55,11 + 62,89 + 45,65 = 256,7 mi (modelo de março: 4,4 mi); "serviços diversos" 476,4 mi; reinvestimentos 669,9 mi; implantação 1.034,8 mi (soma das Tabelas 13–29 do Plano).</li>
+      <li>Aba 15: reprodução do VfM com VP = Σ fluxo<sub>t</sub> / (1 + 8,5%)<sup>t</sup>, t = 1..30, sobre as linhas 57, 62, 64, 66, 68, 70, 71, 73, 85, 89 e 90 → PSC 1.991,352; PPP 1.859,378; VfM 131,974 (idêntico ao modelo).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 08 Assinaturas ═══ -->
+<h2 class="section-title" id="assinaturas">08 · Assinaturas</h2>
+<section class="panel">
+  <div class="panel-body ed">
+    <p class="small">Documento técnico de apoio à decisão, elaborado no âmbito do GT-PPPs da CAGE/SEFAZ-RS. Não constitui manifestação oficial até a assinatura dos responsáveis.</p>
+    <div class="sign">
+      <div class="s"><b>Responsável técnico</b>Nome · cargo · matrícula</div>
+      <div class="s"><b>Coordenação do GT-PPPs</b>Nome · cargo</div>
+      <div class="s"><b>Ciência — Auditoria-Geral</b>Nome · cargo</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>CAGE-RS · SEFAZ-RS · GT-PPPs · Relatório TCE × CAGE — PPP CAFF · v1.0</span>
+  <span id="footGen">Documento gerado em 14/09/2026</span>
+</footer>
+
+<script>
+(function(){
+  const KEY='cage_rel_tce_caff_v1';
+  let saveTimer=null, dirty=false;
+  const $=s=>document.querySelector(s);
+  const doc=()=>document.getElementById('doc');
+
+  function status(t){ const el=$('#tbStatus'); if(el) el.innerHTML='<span class="dot"></span>'+t; }
+
+  window.setEdit=function(on){
+    document.body.classList.toggle('editing',!!on);
+    document.querySelectorAll('#doc .ed').forEach(e=>e.setAttribute('contenteditable',on?'true':'false'));
+    const chk=$('#chkEdit'); if(chk) chk.checked=!!on;
+    status(on?'Modo edição ativo — alterações salvas automaticamente':'Pronto · Relatório CAGE v1.0');
+  };
+
+  function getFields(){ const o={}; document.querySelectorAll('#doc [data-k]').forEach(i=>o[i.dataset.k]=i.value); return o; }
+  function setFields(o){ if(!o) return; document.querySelectorAll('#doc [data-k]').forEach(i=>{ if(o[i.dataset.k]!==undefined) i.value=o[i.dataset.k]; }); }
+
+  window.salvar=function(manual){
+    try{
+      const data={html:doc().innerHTML,fields:getFields(),ts:Date.now()};
+      localStorage.setItem(KEY,JSON.stringify(data));
+      dirty=false;
+      status('Rascunho salvo — '+new Date().toLocaleTimeString('pt-BR'));
+    }catch(e){ status('Não foi possível salvar neste navegador (armazenamento indisponível)'); }
+  };
+  function agendar(){ dirty=true; clearTimeout(saveTimer); saveTimer=setTimeout(()=>salvar(false),700); }
+
+  // Espelha o valor dos campos de identificação em texto simples (usado só na impressão/PDF,
+  // para que nomes longos e observações não saiam cortados como nos controles de formulário).
+  function espelhar(){
+    document.querySelectorAll('#doc [data-k]').forEach(i=>{
+      let m=i.nextElementSibling;
+      if(!m||!m.classList.contains('print-val')){ m=document.createElement('div'); m.className='print-val'; i.insertAdjacentElement('afterend',m); }
+      const v=(i.value||'').trim();
+      m.textContent=v||('('+(i.placeholder||'a preencher')+')'); m.classList.toggle('ph',!v);
+    });
+  }
+
+  window.restaurar=function(){
+    if(!confirm('Descartar o rascunho salvo neste navegador e voltar ao texto original?')) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    location.reload();
+  };
+
+  function carregar(){
+    try{
+      const raw=localStorage.getItem(KEY); if(!raw) return;
+      const d=JSON.parse(raw); if(!d||!d.html) return;
+      doc().innerHTML=d.html; setFields(d.fields);
+      const b=$('#draftBanner'); if(b){ b.hidden=false; $('#draftTs').textContent=new Date(d.ts).toLocaleString('pt-BR'); }
+    }catch(e){}
+  }
+
+  window.toggleCard=function(head){
+    if(document.body.classList.contains('editing')) return;
+    const card=head.closest('.q-card'); card.classList.toggle('collapsed');
+    const t=head.querySelector('.q-toggle'); if(t) t.textContent=card.classList.contains('collapsed')?'expandir ▸':'recolher ▾';
+  };
+  window.toggleTodos=function(){
+    const cards=[...document.querySelectorAll('#doc .q-card')];
+    const anyOpen=cards.some(c=>!c.classList.contains('collapsed'));
+    cards.forEach(c=>{ c.classList.toggle('collapsed',anyOpen); const t=c.querySelector('.q-toggle'); if(t) t.textContent=anyOpen?'expandir ▸':'recolher ▾'; });
+  };
+
+  function contar(){
+    const cards=[...document.querySelectorAll('#doc .q-card')];
+    const n={all:cards.length,tce:0,both:0,cage:0,alta:0};
+    cards.forEach(c=>{ n[c.dataset.tag]=(n[c.dataset.tag]||0)+1; if(c.dataset.pert==='alta') n.alta++; });
+    Object.keys(n).forEach(k=>{ const el=document.getElementById('n-'+k); if(el) el.textContent='('+n[k]+')'; });
+  }
+  window.filtrar=function(btn){
+    document.querySelectorAll('#filters .chip').forEach(c=>c.classList.remove('on')); btn.classList.add('on');
+    const f=btn.dataset.f;
+    document.querySelectorAll('#doc .q-card').forEach(c=>{
+      const show = f==='all' || (f==='alta' ? c.dataset.pert==='alta' : c.dataset.tag===f);
+      c.classList.toggle('hidden',!show);
+    });
+  };
+
+  window.baixarHTML=function(){
+    const wasEdit=document.body.classList.contains('editing'); setEdit(false);
+    document.querySelectorAll('#doc input').forEach(i=>i.setAttribute('value',i.value));
+    document.querySelectorAll('#doc textarea').forEach(t=>t.textContent=t.value);
+    const clone=document.documentElement.cloneNode(true);
+    const chk=clone.querySelector('#chkEdit'); if(chk) chk.removeAttribute('checked');
+    clone.querySelector('body').classList.remove('editing');
+    const banner=clone.querySelector('#draftBanner'); if(banner) banner.setAttribute('hidden','');
+    clone.querySelectorAll('.q-card.hidden').forEach(c=>c.classList.remove('hidden'));
+    const html='<!doctype html>\n'+clone.outerHTML;
+    const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='Relatorio_TCE_x_CAGE_CAFF_editado_'+new Date().toISOString().slice(0,10)+'.html';
+    document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },600);
+    setEdit(wasEdit);
+    status('Cópia editada gerada — '+new Date().toLocaleTimeString('pt-BR'));
+  };
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    carregar(); setEdit(false); contar(); espelhar();
+    const d=doc();
+    d.addEventListener('input',e=>{ const ed=e.target.closest&&e.target.closest('.ed'); if(ed) ed.classList.add('edited'); if(e.target.dataset&&e.target.dataset.k) espelhar(); agendar(); });
+    d.addEventListener('change',e=>{ if(e.target.dataset&&e.target.dataset.k) espelhar(); agendar(); });
+    document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){ e.preventDefault(); salvar(true); } });
+    window.addEventListener('beforeunload',e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
+    window.addEventListener('beforeprint',()=>{ document.querySelectorAll('#doc .q-card').forEach(c=>c.classList.remove('collapsed','hidden')); });
+    const fg=document.getElementById('footGen'); if(fg) fg.textContent='Documento gerado em '+new Date().toLocaleDateString('pt-BR');
+  });
+})();
+</script>
+</body>
+</html>

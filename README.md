@@ -118,6 +118,9 @@ O propósito desta versão é **coletar críticas, sugestões e relatos de bugs*
 ├── comum.css                     # Base comum: fontes, tokens canônicos, reset
 ├── padrao-visual.css             # Padronização visual transversal (camada de override)
 ├── assets/                       # Imagens dos cards da home (card-01 … card-05)
+├── docs/
+│   ├── CONTRATO_SHELL.md         # Contrato de integração módulo ↔ shell (eventos gtsefaz_*)
+│   └── caff/                     # Caso de aplicação: análises da PPP do CAFF (HTML editáveis, padrão CAGE)
 └── referencias/                  # Planilhas Excel de referência (fonte canônica)
 ```
 
