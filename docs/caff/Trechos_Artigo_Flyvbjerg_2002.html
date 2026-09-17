@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trechos do artigo Flyvbjerg, Skamris Holm e Buhl (2002) — PPP CAFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   GTSEFAZ — Padrão Visual CAGE-RS / SEFAZ-RS (tokens canônicos de comum.css + padrao-visual.css)
+   Relatório editável · v1.0
+═══════════════════════════════════════════════════════════ */
+:root{
+  --cage-navy:#0A4D44; --cage-blue:#0F6B5E; --cage-mid:#1F8B7C; --cage-sky:#2EB6A5; --cage-light:#D1F0EB;
+  --rs-vermelho:#8B1A1A; --rs-ambar:#B45309; --rs-verde:#15803D;
+  --cinza-suave:#F5F5F5; --bg-card:#FFFFFF; --rule:#D9D9D9; --rule-soft:#E8E8E8; --ink:#1A1A1A; --ink-muted:#6B7280;
+  --slab:'Roboto Slab',Georgia,serif; --sans:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'JetBrains Mono','Courier New',monospace;
+  --radius:6px; --radius-sm:4px; --shadow-md:0 4px 14px rgba(10,77,68,.08);
+  --tce:#1E3A5F; --tce-bg:#E7EEF6; --both:#0A4D44; --both-bg:#D1F0EB; --cage:#0F6B5E; --cage-bg:#E0F5F1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cinza-suave);color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--slab);color:var(--cage-navy);letter-spacing:-.005em;margin:0}
+p{margin:0 0 10px}
+a{color:var(--cage-blue)}
+code,.mono,.num{font-family:var(--mono)}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:600}
+
+/* ── Cabeçalho institucional ── */
+.app-header{background:#fff;border-bottom:3px solid var(--cage-mid);box-shadow:var(--shadow-md);position:relative;z-index:5}
+.app-header .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.app-header img{height:46px;width:auto;display:block}
+.app-header .gov{background:var(--cage-navy);border-radius:4px;padding:4px 8px}
+.app-header .gov img{height:40px}
+.header-divider{width:1px;height:42px;background:var(--rule)}
+.header-titles{flex:1;min-width:240px}
+.header-main{font-family:var(--slab);font-size:17px;font-weight:600;color:var(--cage-navy);line-height:1.25}
+.header-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cage-mid);margin-top:4px}
+
+/* ── Barra de ferramentas (não imprime) ── */
+.toolbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--rule);box-shadow:0 2px 8px rgba(10,77,68,.06)}
+.toolbar .in{max-width:1180px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn,.btn-secondary,.btn-danger{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border-radius:4px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.01em;cursor:pointer;line-height:1.3;transition:all .15s;text-decoration:none}
+.btn{border:1px solid var(--cage-mid);background:var(--cage-mid);color:#fff}
+.btn:hover{background:var(--cage-blue);border-color:var(--cage-blue);box-shadow:0 2px 6px rgba(31,139,124,.2)}
+.btn-secondary{border:1px solid var(--rule);background:#fff;color:var(--cage-navy)}
+.btn-secondary:hover{border-color:var(--cage-mid);background:var(--cage-light)}
+.btn-danger{border:1px solid rgba(139,26,26,.22);background:rgba(139,26,26,.06);color:var(--rs-vermelho)}
+.btn-danger:hover{background:rgba(139,26,26,.12);border-color:var(--rs-vermelho)}
+.btn svg,.btn-secondary svg,.btn-danger svg{width:14px;height:14px}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cage-navy);cursor:pointer;user-select:none;padding:6px 10px;border:1px solid var(--rule);border-radius:4px;background:#fff}
+.switch input{appearance:none;width:34px;height:18px;border-radius:9px;background:#C9CED6;position:relative;outline:none;cursor:pointer;transition:background .15s;margin:0}
+.switch input::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .15s}
+.switch input:checked{background:var(--cage-mid)}
+.switch input:checked::after{left:18px}
+.tb-status{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-muted);letter-spacing:.04em}
+.tb-status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cage-sky);margin-right:6px;vertical-align:middle}
+.filters{display:flex;gap:6px;flex-wrap:wrap;align-items:center;width:100%;padding-top:6px;border-top:1px dashed var(--rule-soft)}
+.filters .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-right:4px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:14px;border:1px solid var(--rule);background:#fff;color:var(--ink-muted);cursor:pointer}
+.chip.on{background:var(--cage-navy);border-color:var(--cage-navy);color:#fff}
+.chip .n{opacity:.7;margin-left:4px}
+
+/* ── Aviso de rascunho ── */
+.draft-banner{max-width:1180px;margin:12px auto 0;padding:0 20px}
+.draft-banner .box{background:#FFF7E6;border:1px solid #F3D9A4;color:#7A4B00;border-radius:6px;padding:10px 14px;font-size:13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.draft-banner a{color:#7A4B00;font-weight:600}
+
+/* ── Página ── */
+.page{max-width:1180px;margin:0 auto;padding:18px 20px 60px}
+.hero{background:linear-gradient(135deg,var(--cage-navy) 0%,var(--cage-blue) 60%,var(--cage-mid) 100%);border-radius:12px;padding:30px 34px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:22px}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 90% 20%,rgba(46,182,165,.18) 0%,transparent 50%),radial-gradient(circle at 10% 90%,rgba(46,182,165,.10) 0%,transparent 40%);pointer-events:none}
+.hero>*{position:relative}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cage-sky);display:block;margin-bottom:8px}
+.hero h1{color:#fff;font-size:26px;font-weight:700;line-height:1.2;max-width:900px}
+.hero .sub{color:rgba(255,255,255,.85);font-size:15px;margin-top:10px;max-width:900px}
+.hero .tagline{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:5px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
+.kpi{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--slab);font-size:26px;font-weight:700;line-height:1.1}
+.kpi .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:4px}
+
+/* ── Identificação (campos) ── */
+.ident{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.field label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-bottom:5px}
+.field input,.field textarea{font-family:var(--sans);font-size:13.5px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:4px;padding:8px 12px;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--cage-mid);box-shadow:0 0 0 3px rgba(31,139,124,.12)}
+.field .print-val{display:none}
+section[id],article[id],h2[id],h3[id],div[id]{scroll-margin-top:118px}
+
+/* ── Painéis ── */
+.panel{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:18px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden}
+.panel-header{font-family:var(--slab);font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--cage-navy);padding:12px 18px;display:flex;align-items:center;gap:10px;line-height:1.3}
+.panel-header .ph-dot{display:inline-block;width:8px;height:8px;background:var(--cage-sky);border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(46,182,165,.18)}
+.panel-header .ph-right{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;opacity:.8;text-transform:none}
+.panel-body{padding:18px}
+.section-eyebrow{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cage-mid);display:block;margin-bottom:4px}
+.section-title{font-family:var(--slab);font-size:20px;font-weight:600;color:var(--cage-navy);margin:34px 0 6px}
+.section-title:first-of-type{margin-top:6px}
+.section-desc{color:var(--ink-muted);font-size:13.5px;margin-bottom:14px;max-width:960px}
+.bloco-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-bottom:8px;border-bottom:2px solid var(--cage-light)}
+.bloco-head .letra{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--cage-mid);padding:3px 9px;border-radius:3px}
+.bloco-head h2{font-size:19px}
+.bloco-head .cnt{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:.08em}
+
+/* ── Badges ── */
+.badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--rule-soft);color:var(--ink-muted);line-height:1.4;white-space:nowrap}
+.badge-tce{background:var(--tce-bg);color:var(--tce)}
+.badge-both{background:var(--both-bg);color:var(--both)}
+.badge-cage{background:var(--cage-sky);color:#fff}
+.badge-alta{background:rgba(139,26,26,.10);color:var(--rs-vermelho)}
+.badge-media{background:rgba(180,83,9,.12);color:var(--rs-ambar)}
+.badge-baixa{background:var(--rule-soft);color:var(--ink-muted)}
+.badge-ok{background:rgba(21,128,61,.12);color:var(--rs-verde)}
+
+/* ── Cards de questão ── */
+.q-card{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:14px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden;break-inside:avoid;page-break-inside:avoid}
+.q-card.hidden{display:none}
+.q-head{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FBFCFC;border-bottom:1px solid var(--rule-soft);cursor:pointer}
+.q-num{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;color:#fff;background:var(--cage-navy);border-radius:4px;padding:5px 9px;white-space:nowrap;margin-top:2px}
+.q-num.c{background:var(--cage-blue)}
+.q-title{flex:1;min-width:200px}
+.q-title h3{font-size:15.5px;font-weight:600;line-height:1.3}
+.q-title .q-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.q-toggle{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:.08em;white-space:nowrap;margin-top:6px}
+.q-body{padding:6px 16px 14px}
+.q-card.collapsed .q-body{display:none}
+.q-sec{margin:12px 0 0}
+.q-label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.q-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cage-mid);display:inline-block}
+.q-simple{background:var(--cage-light);border-left:4px solid var(--cage-mid);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-simple .q-label{color:var(--cage-navy)}
+.q-simple .q-label::before{background:var(--cage-navy)}
+.q-why{background:#FFF8EC;border-left:4px solid var(--rs-ambar);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-why .q-label{color:var(--rs-ambar)}
+.q-why .q-label::before{background:var(--rs-ambar)}
+.q-ask{background:#F3FBF6;border-left:4px solid var(--rs-verde);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-ask .q-label{color:var(--rs-verde)}
+.q-ask .q-label::before{background:var(--rs-verde)}
+.q-ask ul{margin:4px 0 0}
+.q-ev{font-size:13.5px}
+.q-ev .ref{font-family:var(--mono);font-size:11px;color:var(--cage-blue);background:#F1F7F6;border-radius:3px;padding:1px 5px}
+.num-strip{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.num-strip .ns{border:1px solid var(--rule);border-radius:6px;padding:7px 10px;background:#fff;min-width:130px}
+.num-strip .ns .v{font-family:var(--slab);font-size:17px;font-weight:700;color:var(--cage-navy);line-height:1.1}
+.num-strip .ns .v.neg{color:var(--rs-vermelho)}
+.num-strip .ns .v.pos{color:var(--rs-verde)}
+.num-strip .ns .l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:3px}
+
+/* ── Glossário / primer ── */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.term{border:1px solid var(--rule);border-radius:6px;padding:12px 14px;background:#fff}
+.term h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.term p{font-size:13.2px;margin:0 0 6px}
+.term .ex{font-size:12.5px;color:var(--cage-blue);background:#F1F7F6;border-radius:4px;padding:6px 8px;margin:0}
+.term .ex b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cage-mid);display:block;margin-bottom:2px}
+.primer p{max-width:960px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.legend .lg{border:1px solid var(--rule);border-radius:6px;padding:10px 12px;font-size:13px}
+.legend .lg .badge{margin-bottom:6px}
+
+/* ── Tabelas ── */
+table.data-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px}
+table.data-table thead th{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);background:var(--cinza-suave);border-bottom:2px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:bottom}
+table.data-table tbody td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+table.data-table tbody tr:hover td{background:#FAFCFC}
+.tbl-wrap{overflow-x:auto}
+td.r,th.r{text-align:right;font-family:var(--mono);font-size:12px;white-space:nowrap}
+
+/* ── Índice ── */
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 18px;font-size:13.5px}
+.toc a{text-decoration:none;color:var(--cage-navy);padding:4px 0;border-bottom:1px dotted var(--rule)}
+.toc a:hover{color:var(--cage-mid)}
+.toc a .n{font-family:var(--mono);font-size:10px;color:var(--ink-muted);margin-right:6px}
+
+/* ── Assinaturas ── */
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:34px}
+.sign .s{border-top:1px solid var(--ink);padding-top:8px;font-size:12.5px;text-align:center;color:var(--ink-muted)}
+.sign .s b{display:block;color:var(--ink);font-weight:600}
+.footer{max-width:1180px;margin:0 auto;padding:16px 20px 30px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--rule)}
+
+/* ── Modo edição ── */
+body.editing .ed{outline:1px dashed rgba(31,139,124,.55);outline-offset:3px;border-radius:3px;min-height:1em}
+body.editing .ed:focus{outline:2px solid var(--cage-mid);background:#FBFFFE}
+body.editing .q-head{cursor:default}
+.ed.edited{box-shadow:inset 3px 0 0 var(--rs-ambar)}
+body:not(.editing) .edit-hint{display:none}
+.edit-hint{font-size:12.5px;color:var(--cage-blue);background:#F1F7F6;border:1px dashed var(--cage-sky);border-radius:6px;padding:8px 12px;margin-bottom:12px}
+.callout{border:1px solid var(--rule);border-left:4px solid var(--cage-sky);background:#fff;border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:13.5px}
+.callout.warn{border-left-color:var(--rs-ambar);background:#FFF8EC}
+.callout.red{border-left-color:var(--rs-vermelho);background:#FDF3F3}
+.small{font-size:12.5px;color:var(--ink-muted)}
+.print-only{display:none}
+
+/* ── Responsivo ── */
+@media (max-width:640px){
+  .hero{padding:22px 18px}.hero h1{font-size:21px}
+  .page{padding:14px 16px 50px}
+  .q-head{flex-wrap:wrap}
+  .tb-status{margin-left:0;width:100%}
+}
+
+/* ── Impressão (tema documento CAGE) ── */
+@media print{
+  @page{size:A4;margin:16mm 14mm 18mm;
+    @bottom-left{content:"CAGE-RS · SEFAZ-RS · GT-PPPs — Relatório TCE × CAGE · PPP CAFF · uso interno";font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+    @bottom-right{content:"Página " counter(page) " de " counter(pages);font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+  }
+  .field{break-inside:avoid}
+  html,body{background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:11.5pt}
+  .toolbar,.filters,.draft-banner,.q-toggle,.edit-hint,.no-print{display:none !important}
+  .print-only{display:block}
+  .app-header{box-shadow:none;border-bottom:2px solid var(--cage-mid)}
+  .page{padding:0;max-width:none}
+  .hero{border-radius:0;box-shadow:none;padding:22px 24px;background:var(--cage-navy) !important}
+  .panel,.q-card{box-shadow:none;border:1px solid #E3E8F0;border-radius:6px}
+  .q-card.collapsed .q-body,.q-card.hidden{display:block !important}
+  .q-card{page-break-inside:avoid}
+  .panel-header{background:var(--cage-navy) !important;color:#fff !important;border-radius:6px 6px 0 0}
+  table.data-table thead th{background:var(--cage-navy) !important;color:#fff !important;border:none}
+  table.data-table tbody tr:nth-child(even) td{background:#FAFCFF}
+  .section-title{page-break-after:avoid}
+  .bloco-head{page-break-after:avoid}
+  .ed{outline:none !important;box-shadow:none !important}
+  .field input,.field textarea{display:none !important}
+  .field .print-val{display:block;font-family:var(--sans);font-size:10.5pt;color:var(--cage-navy);white-space:pre-wrap;line-height:1.4;padding:2px 0 4px;border-bottom:1px solid #E3E8F0;min-height:1.4em}
+  .field .print-val.ph{color:#9CA3AF;font-style:italic}
+  a{color:inherit;text-decoration:none}
+}
+
+.q-card{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:14px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden}
+.q-head{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FBFCFC;border-bottom:1px solid var(--rule-soft)}
+.q-num{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;color:#fff;background:var(--cage-navy);border-radius:4px;padding:5px 9px;white-space:nowrap;margin-top:2px}
+.q-title{flex:1;min-width:200px}.q-title h3{font-size:15px;font-weight:600;line-height:1.3}
+.q-title .q-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.q-body{padding:8px 16px 14px}.q-sec{margin:12px 0 0}
+.q-label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.q-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cage-mid);display:inline-block}
+.q-simple{background:var(--cage-light);border-left:4px solid var(--cage-mid);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-simple .q-label{color:var(--cage-navy)}.q-simple .q-label::before{background:var(--cage-navy)}
+.q-ask{background:#F3FBF6;border-left:4px solid var(--rs-verde);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-ask .q-label{color:var(--rs-verde)}.q-ask .q-label::before{background:var(--rs-verde)}
+.en{font-style:italic;color:#374151;border-left:2px solid var(--rule);padding-left:12px;margin:0}
+.badge{display:inline-flex;align-items:center;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--rule-soft);color:var(--ink-muted)}
+.badge-alta{background:rgba(139,26,26,.10);color:var(--rs-vermelho)}
+.badge-ok{background:rgba(21,128,61,.12);color:var(--rs-verde)}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{background:var(--cage-navy);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;text-align:left}
+.data-table td{padding:7px 10px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+.data-table tr:nth-child(even) td{background:#FBFCFC}
+.small{font-size:12px}.num{font-family:var(--mono);font-size:12.5px}
+.ctx{background:#F5FAF9;border-left:4px solid var(--cage-sky);border-radius:0 6px 6px 0;padding:10px 16px;margin:10px 0 14px;font-size:14.5px;line-height:1.6}
+.ctx p{margin:8px 0}
+.callout{background:#FFF7E6;border:1px solid #F3D9A4;border-left:4px solid var(--rs-ambar);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0;font-size:13.5px;line-height:1.55}
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:26px}
+.sign .s{border-top:1px solid var(--ink);padding-top:6px;font-size:12.5px;text-align:center;color:var(--ink-muted)}
+.sign .s b{display:block;color:var(--ink);font-family:var(--slab);font-weight:600;font-size:13px}
+.footer{max-width:1180px;margin:0 auto;padding:14px 20px 30px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink-muted);flex-wrap:wrap;gap:8px}
+.edit-hint{max-width:1180px;margin:0 auto 14px;font-size:13px;color:var(--ink-muted);background:#fff;border:1px dashed var(--rule);border-radius:6px;padding:8px 14px}
+body.editing #doc .ed{outline:1px dashed rgba(31,139,124,.5);outline-offset:2px;border-radius:2px}
+body.editing #doc .ed:focus{outline:2px solid var(--cage-mid);background:#F5FBFA}
+section[id],h2[id],div[id],article[id]{scroll-margin-top:110px}
+@media print{
+  .toolbar,.edit-hint,.draft-banner{display:none !important}
+  .q-card{break-inside:auto}.q-head{break-inside:avoid;break-after:avoid}
+  .q-sec,.q-simple,.q-ask,.ctx,.callout{break-inside:avoid}
+  .q-body{padding-bottom:10px}
+  .field input,.field textarea{display:none !important}.field .print-val{display:block;font-size:13px;color:var(--ink);padding:2px 0;border-bottom:1px solid #D5DDE8}
+  .field .print-val.ph{color:#9CA3AF;font-style:italic}.field{break-inside:avoid}
+  @page{size:A4;margin:16mm 14mm 18mm;
+    @bottom-left{content:"CAGE-RS · GT-PPPs — Trechos de Flyvbjerg et al. (2002) · PPP do CAFF · uso interno";font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+    @bottom-right{content:"Página " counter(page) " de " counter(pages);font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}}
+}
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div class="in">
+    <div class="gov" title="Governo do Estado do Rio Grande do Sul — Secretaria da Fazenda"><img src="data:image/png;base64,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" alt="Governo do Estado do Rio Grande do Sul — Secretaria da Fazenda"></div>
+    <div class="header-divider"></div>
+    <img src="data:image/png;base64,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" alt="CAGE — Contadoria e Auditoria-Geral do Estado do RS" title="CAGE-RS">
+    <div class="header-divider"></div>
+    <div class="header-titles">
+      <div class="header-main">Relatório de Trechos — artigo invocado na Análise de Value for Money<br>Flyvbjerg, Skamris Holm e Buhl (2002) · PPP do CAFF</div>
+      <div class="header-sub">Contadoria e Auditoria-Geral do Estado · GT-PPPs · SEFAZ-RS</div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="in">
+    <label class="switch" title="Libera a edição direta do texto"><input type="checkbox" id="chkEdit" onchange="setEdit(this.checked)"><span class="track"></span><span class="lbl">Modo edição</span></label>
+    <button class="btn" onclick="salvar()">Salvar rascunho</button>
+    <button class="btn-secondary" onclick="window.print()">Exportar PDF</button>
+    <button class="btn-secondary" onclick="baixarHTML()">Baixar HTML editado</button>
+    <button class="btn-danger" onclick="restaurar()">Restaurar original</button>
+    <div class="tb-status" id="tbStatus"><span class="dot"></span>Pronto · Relatório de trechos v1.0</div>
+  </div>
+</div>
+
+<div class="draft-banner" id="draftBanner" hidden>
+  <div class="box"><span>Este navegador contém um <strong>rascunho editado</strong> (salvo em <span id="draftTs"></span>). Use <em>Restaurar original</em> para descartá-lo.</span></div>
+</div>
+
+<main class="page" id="doc">
+
+<section class="hero">
+  <span class="eyebrow">Estado do Rio Grande do Sul · CAGE-RS · SEFAZ-RS · GT-PPPs</span>
+  <h1 class="ed">Trechos do artigo invocado na Análise de Value for Money da PPP do CAFF</h1>
+  <div class="sub ed">FLYVBJERG, B.; SKAMRIS HOLM, M.; BUHL, S. <i>Underestimating Costs in Public Works Projects: Error or Lie?</i> Journal of the American Planning Association, v. 68, n. 3, Summer 2002, p. 279–295. Doze trechos utilizados no apontamento sobre o ajuste de risco de 25% e seis trechos complementares, reproduzidos em inglês, traduzidos para o português e localizados por seção e página.</div>
+  <span class="tagline">Documento de apoio · uso interno · anexo ao Apontamento nº [●]/2026</span>
+  <div class="kpis">
+    <div class="kpi"><div class="v">12 + 6</div><div class="l">trechos citados e complementares</div></div>
+    <div class="kpi"><div class="v">258</div><div class="l">projetos na amostra do artigo</div></div>
+    <div class="kpi"><div class="v">27,6%</div><div class="l">escalada média (dp 38,7)</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">edificações na amostra</div></div>
+  </div>
+</section>
+
+<section class="panel" id="identificacao">
+  <div class="panel-header"><span class="ph-dot"></span>Identificação da fonte<span class="ph-right">campos editáveis</span></div>
+  <div class="panel-body">
+    <div class="ident">
+      <div class="field"><label for="fArt">Artigo</label><input id="fArt" data-k="art" value="Underestimating Costs in Public Works Projects: Error or Lie?"></div>
+      <div class="field"><label for="fAut">Autores</label><input id="fAut" data-k="aut" value="Bent Flyvbjerg, Mette Skamris Holm e Søren Buhl"></div>
+      <div class="field"><label for="fPub">Publicação</label><input id="fPub" data-k="pub" value="Journal of the American Planning Association, v. 68, n. 3, Summer 2002, p. 279–295"></div>
+      <div class="field"><label for="fVer">Versão examinada</label><input id="fVer" data-k="ver" value="Manuscrito do autor (AAM), arXiv:1303.6604, intitulado 'Cost Underestimation in Public Works Projects: Error or Lie?'"></div>
+      <div class="field"><label for="fObt">Obtenção</label><input id="fObt" data-k="obt" value="Texto integral fornecido ao GT-PPPs em 17/09/2026"></div>
+      <div class="field"><label for="fCit">Citado em</label><input id="fCit" data-k="cit" value="Análise de Value for Money (Produto 10), item 3.3.2, como exemplo de estudos que apontariam superação média de 28% do custo inicial"></div>
+      <div class="field"><label for="fData">Data deste relatório</label><input id="fData" data-k="data" value="17/09/2026"></div>
+      <div class="field"><label for="fResp">Responsável técnico</label><input id="fResp" data-k="resp" value="" placeholder="Nome, cargo e matrícula"></div>
+    </div>
+  </div>
+</section>
+
+<div class="edit-hint no-print">✎ Ative <b>Modo edição</b> para ajustar qualquer texto, inclusive as traduções. <b>Exportar PDF</b> imprime em A4 com numeração de páginas.</div>
+
+<h2 class="section-title" id="nota">Nota sobre a paginação e a tradução</h2>
+<div class="ctx ed">
+<p><b>Páginas.</b> A paginação indicada é a do <b>manuscrito do autor</b> (<i>author accepted manuscript</i>) depositado em arXiv:1303.6604, cujo cabeçalho numera as páginas de 1 a 40 com a marca <span class="mono">Cost, 5.1 AAM</span>. É essa a versão referida na Análise de VfM, que reproduz o título do manuscrito. A versão publicada no <i>Journal of the American Planning Association</i> ocupa as páginas 279 a 295 do volume 68, número 3; a correspondência exata entre as duas paginações não foi verificada e, por isso, não é indicada aqui. Cada trecho traz também a <b>seção do artigo</b> em que se encontra, o que permite localizá-lo em qualquer das versões.</p>
+<p><b>Tradução.</b> As traduções são livres, feitas por esta Controladoria para uso interno; em caso de divergência, prevalece o texto original em inglês, reproduzido integralmente ao lado. As reticências entre colchetes […] indicam supressão de trecho intermediário, sem alteração de sentido.</p>
+<p><b>Marcação.</b> Os trechos assinalados como <span class="badge badge-alta">decisivo</span> são aqueles em que o artigo contraria diretamente o uso que lhe foi dado no estudo; os assinalados como <span class="badge badge-ok">em favor da modelagem</span> são registros que militam a favor das premissas adotadas e constam deste relatório por dever de imparcialidade.</p>
+</div>
+
+<h2 class="section-title" id="quadro">Quadro-síntese</h2>
+<p class="section-desc">Clique no código para ir ao trecho completo.</p>
+<div class="panel"><div class="panel-body" style="overflow-x:auto">
+<table class="data-table"><thead><tr><th>Cód.</th><th>Seção do artigo</th><th style="text-align:right">Página</th><th>Início do trecho</th><th>Peso</th></tr></thead>
+<tbody><tr><td class='num'><a href='#c1'>C1</a></td><td>Summary and Conclusions</td><td class='num' style='text-align:right'>p. 23</td><td class='small'>We emphasize that these conclusions should not be interpreted as an attack on public (vs. priva…</td><td class='small'>decisivo</td></tr><tr><td class='num'><a href='#c2'>C2</a></td><td>Four Steps To Understanding Deceptive Cost Estimation</td><td class='num' style='text-align:right'>p. 5</td><td class='small'>As to project types, data for more private projects would be particularly useful in allowing st…</td><td class='small'>decisivo</td></tr><tr><td class='num'><a href='#c3'>C3</a></td><td>Measuring Cost Inaccuracy</td><td class='num' style='text-align:right'>p. 5</td><td class='small'>The methods used in our study are described in the Appendix. All costs are construction costs. …</td><td class='small'>decisivo</td></tr><tr><td class='num'><a href='#c4'>C4</a></td><td>Measuring Cost Inaccuracy</td><td class='num' style='text-align:right'>p. 6</td><td class='small'>Various cost estimates are made at different stages of the process: project planning, decision …</td><td class='small'>—</td></tr><tr><td class='num'><a href='#c5'>C5</a></td><td>Measuring Cost Inaccuracy</td><td class='num' style='text-align:right'>p. 6</td><td class='small'>We defend this method, however, because when the focus is on decision making, and hence on the …</td><td class='small'>—</td></tr><tr><td class='num'><a href='#c6'>C6</a></td><td>Appendix</td><td class='num' style='text-align:right'>p. 30</td><td class='small'>The project types are bridges, tunnels, highways, freeways, high-speed rail, urban rail, and co…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#c7'>C7</a></td><td>Cost Underestimation in Other Infrastructure Projects</td><td class='num' style='text-align:right'>p. 13</td><td class='small'>The data indicate that other types of projects are at least as, if not more, prone to cost unde…</td><td class='small'>em favor da modelagem</td></tr><tr><td class='num'><a href='#c8'>C8</a></td><td>Abstract</td><td class='num' style='text-align:right'>p. 1</td><td class='small'>The policy implications are clear: In debates and decision making on whether important transpor…</td><td class='small'>decisivo</td></tr><tr><td class='num'><a href='#c9'>C9</a></td><td>Summary and Conclusions</td><td class='num' style='text-align:right'>p. 23–24</td><td class='small'>Another important implication is that institutional checks and balances--including financial, p…</td><td class='small'>em favor da modelagem</td></tr><tr><td class='num'><a href='#c10'>C10</a></td><td>Measuring Cost Inaccuracy</td><td class='num' style='text-align:right'>p. 7</td><td class='small'>A problem with this argument is that existing research indicates that project promoters routine…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#c11'>C11</a></td><td>Appendix</td><td class='num' style='text-align:right'>p. 34</td><td class='small'>We conclude, for the reasons given above, that most likely the sample is biased and the bias is…</td><td class='small'>em favor da modelagem</td></tr><tr><td class='num'><a href='#c12'>C12</a></td><td>Four Steps To Understanding Deceptive Cost Estimation</td><td class='num' style='text-align:right'>p. 4</td><td class='small'>Votes are cast more often for large rail, bridge, and tunnel projects than for road projects. F…</td><td class='small'>—</td></tr>
+<tr><td colspan="5" class="small" style="background:var(--cage-light);font-weight:600">Trechos complementares, não citados no apontamento</td></tr>
+<tr><td class='num'><a href='#a1'>A1</a></td><td>Inaccuracy of Cost Estimates</td><td class='num' style='text-align:right'>p. 8</td><td class='small'>Costs are underestimated in almost 9 out of 10 projects. For a randomly selected project, the l…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#a2'>A2</a></td><td>Table 1 (p. 39) e Table 2 (p. 40)</td><td class='num' style='text-align:right'>p. 39–40</td><td class='small'>Rail: N=58, average cost escalation 44.7%, sd 38.4 · Fixed links: N=33, 33.8%, sd 62.4 · Roads:…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#a3'>A3</a></td><td>Economic Explanations</td><td class='num' style='text-align:right'>p. 16–17</td><td class='small'>Underestimating the costs of a given project leads to a falsely high benefit-cost ratio for tha…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#a4'>A4</a></td><td>Summary and Conclusions</td><td class='num' style='text-align:right'>p. 23</td><td class='small'>We conclude that the cost estimates used in public debates, media coverage, and decision making…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#a5'>A5</a></td><td>Have Forecasters Improved Over Time?</td><td class='num' style='text-align:right'>p. 12</td><td class='small'>We therefore conclude that cost underestimation has not decreased over time. Underestimation to…</td><td class='small'>—</td></tr><tr><td class='num'><a href='#a6'>A6</a></td><td>Political Explanations</td><td class='num' style='text-align:right'>p. 20</td><td class='small'>Cost estimation following the EGAP-principle simply disregards the risk of cost escalation resu…</td><td class='small'>—</td></tr></tbody></table>
+</div></div>
+
+<h2 class="section-title" id="trechos">Trechos citados no apontamento</h2>
+<p class="section-desc">Cada trecho traz o original em inglês, a tradução livre e a indicação do ponto do apontamento que nele se apoia.</p>
+<article class="q-card" id="c1">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C1</span>
+    <div class="q-title"><h3 class="ed">Summary and Conclusions</h3>
+      <div class="q-badges"><span class="badge">p. 23</span><span class='badge badge-alta'>decisivo</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;We emphasize that these conclusions should not be interpreted as an attack on public (vs. private) spending on infrastructure, since the data are insufficient to decide whether private projects perform better or worse than public ones as regards cost underestimation. Nor do the conclusions warrant an attack on spending on transportation vs. spending on other projects, since other projects appear to be as liable to cost underestimation and escalation as are transportation projects.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Sublinhamos que estas conclusões não devem ser interpretadas como um ataque ao gasto público (em oposição ao privado) em infraestrutura, uma vez que os dados são insuficientes para decidir se projetos privados têm desempenho melhor ou pior do que os públicos no que se refere à subestimativa de custos. Tampouco as conclusões autorizam um ataque ao gasto em transporte em oposição ao gasto em outros projetos, já que outros projetos parecem tão sujeitos à subestimativa e à escalada de custos quanto os de transporte.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 1 do apontamento. É a ressalva expressa que torna inadmissível usar o artigo para onerar apenas a alternativa pública no comparador (PSC), isentando a PPP.</p></div>
+  </div>
+</article><article class="q-card" id="c2">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C2</span>
+    <div class="q-title"><h3 class="ed">Four Steps To Understanding Deceptive Cost Estimation</h3>
+      <div class="q-badges"><span class="badge">p. 5</span><span class='badge badge-alta'>decisivo</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;As to project types, data for more private projects would be particularly useful in allowing statistically valid comparisons between public and private sector projects. Such comparisons do not exist today, and nobody knows whether private projects perform better or worse than public ones regarding cost underestimation.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Quanto aos tipos de projeto, dados sobre mais projetos privados seriam particularmente úteis para permitir comparações estatisticamente válidas entre projetos do setor público e do setor privado. Tais comparações não existem hoje, e ninguém sabe se os projetos privados têm desempenho melhor ou pior do que os públicos quanto à subestimativa de custos.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 1 do apontamento. Confirma, em outra seção do artigo, que a comparação público × privado não é sustentada pelos dados.</p></div>
+  </div>
+</article><article class="q-card" id="c3">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C3</span>
+    <div class="q-title"><h3 class="ed">Measuring Cost Inaccuracy</h3>
+      <div class="q-badges"><span class="badge">p. 5</span><span class='badge badge-alta'>decisivo</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;The methods used in our study are described in the Appendix. All costs are construction costs. We follow international convention and measure the inaccuracy of cost estimates as so-called “cost escalation” (often also called “cost overrun”; i.e., actual costs minus estimated costs in percent of estimated costs). Actual costs are defined as real, accounted construction costs determined at the time of project completion. Estimated costs are defined as budgeted, or forecasted, construction costs at the time of decision to build.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Os métodos utilizados no estudo estão descritos no Apêndice. Todos os custos são custos de construção. Seguimos a convenção internacional e medimos a imprecisão das estimativas de custo como a chamada “escalada de custos” (também chamada de “sobrecusto”; isto é, custos reais menos custos estimados, em percentual dos custos estimados). Custos reais são definidos como os custos de construção efetivamente contabilizados, apurados na conclusão do projeto. Custos estimados são definidos como os custos de construção orçados, ou previstos, no momento da decisão de construir.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Pontos 2 e 3 do apontamento. Duas consequências: (i) o artigo não alcança custeio, o que retira amparo aos R$ 166,7 milhões aplicados ao OPEX de trinta anos; (ii) a régua é a estimativa da decisão de construir, não o valor contratado.</p></div>
+  </div>
+</article><article class="q-card" id="c4">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C4</span>
+    <div class="q-title"><h3 class="ed">Measuring Cost Inaccuracy</h3>
+      <div class="q-badges"><span class="badge">p. 6</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Various cost estimates are made at different stages of the process: project planning, decision to build, tendering, contracting, and later renegotiations. Cost estimates at each successive stage typically progress toward a smaller number of options, greater detail of designs, greater accuracy of quantities, and better information about unit price. Thus, cost estimates become more accurate over time, and the cost estimate at the time of making the decision to build is far from final.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Diversas estimativas de custo são feitas em diferentes estágios do processo: planejamento do projeto, decisão de construir, licitação, contratação e renegociações posteriores. As estimativas de custo, a cada estágio sucessivo, avançam para um número menor de alternativas, maior detalhamento dos projetos, maior precisão dos quantitativos e melhor informação sobre preços unitários. Assim, as estimativas de custo tornam-se mais precisas ao longo do tempo, e a estimativa no momento da decisão de construir está longe de ser final.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 3 do apontamento e fundamento da regra do Green Book de reduzir a majoração conforme o projeto amadurece. O CAFF tem anteprojeto, programa de necessidades e planilhas de CAPEX por edificação.</p></div>
+  </div>
+</article><article class="q-card" id="c5">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C5</span>
+    <div class="q-title"><h3 class="ed">Measuring Cost Inaccuracy</h3>
+      <div class="q-badges"><span class="badge">p. 6</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;We defend this method, however, because when the focus is on decision making, and hence on the accuracy of the information available to decision makers, then it is exactly the cost estimate at the time of making the decision to build that is of primary interest. Otherwise it would be impossible to evaluate whether decisions are informed or not.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Defendemos, contudo, este método, porque quando o foco está na tomada de decisão — e, portanto, na precisão da informação disponível aos decisores — é exatamente a estimativa de custo no momento da decisão de construir que interessa. De outro modo seria impossível avaliar se as decisões são ou não informadas.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 3 do apontamento. Delimita a finalidade da métrica: avaliar a qualidade da informação dada ao decisor, e não calibrar um comparador de custos em análise de Value for Money.</p></div>
+  </div>
+</article><article class="q-card" id="c6">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C6</span>
+    <div class="q-title"><h3 class="ed">Appendix</h3>
+      <div class="q-badges"><span class="badge">p. 30</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;The project types are bridges, tunnels, highways, freeways, high-speed rail, urban rail, and conventional (interurban) rail. The projects are located in 20 countries on 5 continents, including both developed and developing nations. The projects were completed between 1927 and 1998.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Os tipos de projeto são pontes, túneis, rodovias, vias expressas, ferrovias de alta velocidade, metrôs e ferrovias convencionais (interurbanas). Os projetos localizam-se em 20 países de 5 continentes, incluindo nações desenvolvidas e em desenvolvimento. Foram concluídos entre 1927 e 1998.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 4 do apontamento. Não há edificações na amostra; o subgrupo mais próximo do objeto do CAFF é o de rodovias, com 20,4%.</p></div>
+  </div>
+</article><article class="q-card" id="c7">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C7</span>
+    <div class="q-title"><h3 class="ed">Cost Underestimation in Other Infrastructure Projects</h3>
+      <div class="q-badges"><span class="badge">p. 13</span><span class='badge badge-ok'>em favor da modelagem</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;The data indicate that other types of projects are at least as, if not more, prone to cost underestimation as are transportation infrastructure projects.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Os dados indicam que outros tipos de projeto são, no mínimo, tão propensos à subestimativa de custos quanto os projetos de infraestrutura de transporte, se não mais.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 4 do apontamento, em favor da modelagem: o fenômeno não é exclusivo do setor de transportes. Note-se, porém, que se trata de afirmação qualitativa — o artigo não mede percentual para edificações.</p></div>
+  </div>
+</article><article class="q-card" id="c8">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C8</span>
+    <div class="q-title"><h3 class="ed">Abstract</h3>
+      <div class="q-badges"><span class="badge">p. 1</span><span class='badge badge-alta'>decisivo</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;The policy implications are clear: In debates and decision making on whether important transportation infrastructure should be built, those legislators, administrators, investors, media representatives, and members of the public who value honest numbers should not trust the cost estimates and cost-benefit analyses produced by project promoters and their analysts.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;As implicações de política são claras: nos debates e nas decisões sobre construir ou não infraestrutura de transporte relevante, os legisladores, administradores, investidores, representantes da imprensa e cidadãos que valorizam números honestos não devem confiar nas estimativas de custo e nas análises de custo-benefício produzidas pelos promotores dos projetos e por seus analistas.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 6 do apontamento. Variante nas conclusões (p. 23): “should not trust the cost estimates presented by infrastructure promoters and forecasters”. A Análise de VfM é uma análise comparativa de custos produzida pelo estruturador do projeto.</p></div>
+  </div>
+</article><article class="q-card" id="c9">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C9</span>
+    <div class="q-title"><h3 class="ed">Summary and Conclusions</h3>
+      <div class="q-badges"><span class="badge">p. 23–24</span><span class='badge badge-ok'>em favor da modelagem</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Another important implication is that institutional checks and balances--including financial, professional, or even criminal penalties for consistent or foreseeable estimation errors--should be developed to ensure the production of less deceptive cost estimates. The work of designing such checks and balances has been begun elsewhere, with a focus on four basic instruments of accountability: (1) increased transparency, (2) the use of performance specifications, (3) explicit formulation of the regulatory regimes that apply to project development and implementation, and (4) the involvement of private risk capital, even in public projects.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Outra implicação importante é que devem ser desenvolvidos freios e contrapesos institucionais — inclusive penalidades financeiras, profissionais ou mesmo criminais por erros de estimativa reiterados ou previsíveis — para assegurar a produção de estimativas de custo menos enganosas. O trabalho de desenhar esses freios e contrapesos já foi iniciado em outros estudos, com foco em quatro instrumentos básicos de responsabilização: (1) mais transparência, (2) uso de especificações de desempenho, (3) formulação explícita dos regimes regulatórios aplicáveis ao desenvolvimento e à implantação do projeto e (4) participação de capital privado de risco, mesmo em projetos públicos.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 8 do apontamento. Os remédios propostos são institucionais; nenhum deles é majorar percentualmente o comparador. O quarto instrumento é argumento qualitativo em favor de arranjos com capital privado em risco.</p></div>
+  </div>
+</article><article class="q-card" id="c10">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C10</span>
+    <div class="q-title"><h3 class="ed">Measuring Cost Inaccuracy</h3>
+      <div class="q-badges"><span class="badge">p. 7</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;A problem with this argument is that existing research indicates that project promoters routinely ignore, hide, or otherwise leave out important project costs and risks in order to make total costs appear low. For instance, environmental and safety concerns may initially be ignored, even though they will have to be taken into account later in the project cycle if the project lives on… Similarly, ignoring or underplaying geological risk may be helpful in getting projects approved, and no other risk is more likely to boomerang back and haunt projects during construction. “Salami tactics,” is the popular name used to describe the practice of introducing project components and risks one slice at a time in order to make costs appear low as long as possible.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Um problema desse argumento é que a pesquisa existente indica que os promotores de projeto rotineiramente ignoram, escondem ou deixam de fora custos e riscos relevantes, para fazer o custo total parecer baixo. Por exemplo, questões ambientais e de segurança podem ser inicialmente ignoradas, ainda que tenham de ser consideradas mais adiante no ciclo do projeto, se ele sobreviver… De modo semelhante, ignorar ou minimizar o risco geológico pode ajudar a aprovar projetos, e nenhum outro risco é mais propenso a voltar como bumerangue durante a construção. “Táticas de salame” é o nome popular da prática de introduzir componentes e riscos do projeto uma fatia por vez, para manter os custos aparentemente baixos o máximo de tempo possível.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 7 do apontamento. Descreve o mecanismo que deve ser procurado neste projeto: ampliação vertical sem laudo estrutural, EIV sem alocação, ambulatório sem linha de custo e áreas comuns ausentes do OPEX dos anos 1 a 4.</p></div>
+  </div>
+</article><article class="q-card" id="c11">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C11</span>
+    <div class="q-title"><h3 class="ed">Appendix</h3>
+      <div class="q-badges"><span class="badge">p. 34</span><span class='badge badge-ok'>em favor da modelagem</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;We conclude, for the reasons given above, that most likely the sample is biased and the bias is conservative. In other words, the difference between actual and estimated costs estimated from the sample is likely to be lower than the difference in the project population.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Concluímos, pelas razões acima, que muito provavelmente a amostra é enviesada, e o viés é conservador. Em outras palavras, a diferença entre custos reais e estimados apurada na amostra é provavelmente menor do que a diferença existente na população de projetos.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 9 do apontamento, em favor da modelagem: os próprios autores consideram seus números conservadores, o que reforça que algum ajuste é devido — em magnitude a ser calibrada com dados locais.</p></div>
+  </div>
+</article><article class="q-card" id="c12">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">C12</span>
+    <div class="q-title"><h3 class="ed">Four Steps To Understanding Deceptive Cost Estimation</h3>
+      <div class="q-badges"><span class="badge">p. 4</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Votes are cast more often for large rail, bridge, and tunnel projects than for road projects. For example, most U.S. highway funds are distributed to states based on a formula (i.e., there is no competitive process). A state department of transportation (DOT) is likely to have a fixed annual budget for construction. The DOT leadership would presumably want fairly accurate cost estimates before allocating the budget. One may speculate that large cost underestimation is less likely in this situation.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Votações ocorrem com mais frequência para grandes projetos ferroviários, de pontes e de túneis do que para projetos rodoviários. Por exemplo, a maior parte dos recursos rodoviários federais nos Estados Unidos é distribuída aos estados por fórmula (isto é, não há processo competitivo). Um departamento estadual de transportes costuma ter orçamento anual fixo para construção, e sua direção presumivelmente deseja estimativas razoavelmente precisas antes de alocá-lo. Pode-se especular que grandes subestimativas de custo sejam menos prováveis nessa situação.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Uso no apontamento</div><p class="ed">Ponto 9 do apontamento. O mecanismo explicativo do artigo é a disputa por aprovação; onde o órgão trabalha com orçamento fixo, a subestimativa tende a ser menor — situação mais próxima de um retrofit administrativo estadual.</p></div>
+  </div>
+</article>
+
+<h2 class="section-title" id="complementares">Trechos complementares</h2>
+<p class="section-desc">Passagens não citadas no apontamento, reunidas por serem pertinentes ao exame da premissa de 25% e à conferência dos números reproduzidos no estudo.</p>
+<article class="q-card" id="a1">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">A1</span>
+    <div class="q-title"><h3 class="ed">Inaccuracy of Cost Estimates</h3>
+      <div class="q-badges"><span class="badge">p. 8</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Costs are underestimated in almost 9 out of 10 projects. For a randomly selected project, the likelihood of actual costs being larger than estimated costs is 86%. The likelihood of actual costs being lower than or equal to estimated costs is 14%. […] Actual costs are on average 28% higher than estimated costs (sd=39).&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Os custos são subestimados em quase 9 de cada 10 projetos. Para um projeto escolhido ao acaso, a probabilidade de os custos reais superarem os estimados é de 86%; a de serem menores ou iguais aos estimados, 14%. […] Os custos reais são, em média, 28% mais altos que os estimados (desvio-padrão 39).&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Interesse para a análise</div><p class="ed">Origem do “28%” citado na Análise de VfM. O desvio-padrão de 39 pontos, maior que a própria média, não foi mencionado no relatório.</p></div>
+  </div>
+</article><article class="q-card" id="a2">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">A2</span>
+    <div class="q-title"><h3 class="ed">Table 1 (p. 39) e Table 2 (p. 40)</h3>
+      <div class="q-badges"><span class="badge">p. 39–40</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Rail: N=58, average cost escalation 44.7%, sd 38.4 · Fixed links: N=33, 33.8%, sd 62.4 · Roads: N=167, 20.4%, sd 29.9 · All projects: N=258, 27.6%, sd 38.7. Roads by location: Europe N=143, 22.4%, sd 24.9; North America N=24, 8.4%, sd 49.4.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Ferrovias: N=58, escalada média 44,7%, dp 38,4 · Pontes e túneis: N=33, 33,8%, dp 62,4 · Rodovias: N=167, 20,4%, dp 29,9 · Todos os projetos: N=258, 27,6%, dp 38,7. Rodovias por localização: Europa N=143, 22,4%, dp 24,9; América do Norte N=24, 8,4%, dp 49,4.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Interesse para a análise</div><p class="ed">Base do ponto 5 do apontamento (dispersão) e do ponto 4 (o subgrupo aderente seria o de rodovias).</p></div>
+  </div>
+</article><article class="q-card" id="a3">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">A3</span>
+    <div class="q-title"><h3 class="ed">Economic Explanations</h3>
+      <div class="q-badges"><span class="badge">p. 16–17</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Underestimating the costs of a given project leads to a falsely high benefit-cost ratio for that project, which in turn leads to two problems. First, the project may be started despite the fact that it is not economically viable. Or, second, it may be started instead of another project that would have yielded higher returns had the actual costs of both projects been known. Both cases result in the inefficient use of resources and therefore in waste of taxpayers&#x27; money.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Subestimar os custos de um projeto leva a uma relação benefício-custo falsamente alta, o que gera dois problemas. Primeiro, o projeto pode ser iniciado mesmo não sendo economicamente viável. Segundo, pode ser iniciado no lugar de outro projeto que teria dado retorno maior, se os custos reais de ambos fossem conhecidos. Nos dois casos há uso ineficiente de recursos e, portanto, desperdício do dinheiro do contribuinte.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Interesse para a análise</div><p class="ed">Passagem útil para a finalidade do controle interno: é exatamente o risco que a CAGE precisa afastar ao examinar a mensuração do comparador.</p></div>
+  </div>
+</article><article class="q-card" id="a4">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">A4</span>
+    <div class="q-title"><h3 class="ed">Summary and Conclusions</h3>
+      <div class="q-badges"><span class="badge">p. 23</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;We conclude that the cost estimates used in public debates, media coverage, and decision making for transportation infrastructure development are highly, systematically, and significantly deceptive. So are the cost-benefit analyses into which cost estimates are routinely fed to calculate the viability and ranking of projects.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Concluímos que as estimativas de custo usadas no debate público, na cobertura da imprensa e na tomada de decisão sobre infraestrutura de transporte são altamente, sistematicamente e significativamente enganosas. E o mesmo vale para as análises de custo-benefício nas quais essas estimativas são rotineiramente inseridas para calcular a viabilidade e a hierarquização dos projetos.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Interesse para a análise</div><p class="ed">Complementa o ponto 6: a advertência alcança também as análises comparativas que se alimentam dessas estimativas.</p></div>
+  </div>
+</article><article class="q-card" id="a5">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">A5</span>
+    <div class="q-title"><h3 class="ed">Have Forecasters Improved Over Time?</h3>
+      <div class="q-badges"><span class="badge">p. 12</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;We therefore conclude that cost underestimation has not decreased over time. Underestimation today is in the same order of magnitude as it was 10, 30, and 70 years ago. If techniques and skills for estimating and forecasting costs of transportation infrastructure projects have improved over time, this does not show in the data.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;Concluímos, portanto, que a subestimativa de custos não diminuiu ao longo do tempo. A subestimativa hoje é da mesma ordem de grandeza que era há 10, 30 e 70 anos. Se as técnicas e as competências para estimar e prever custos de projetos de infraestrutura de transporte melhoraram com o tempo, isso não aparece nos dados.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Interesse para a análise</div><p class="ed">Origem da expressão “nos últimos 70 anos” empregada na Análise de VfM.</p></div>
+  </div>
+</article><article class="q-card" id="a6">
+  <div class="q-head" style="cursor:default">
+    <span class="q-num">A6</span>
+    <div class="q-title"><h3 class="ed">Political Explanations</h3>
+      <div class="q-badges"><span class="badge">p. 20</span></div></div>
+  </div>
+  <div class="q-body">
+    <div class="q-sec"><div class="q-label">Trecho original (inglês)</div><p class="en ed">&ldquo;Cost estimation following the EGAP-principle simply disregards the risk of cost escalation resulting from delays, accidents, project changes, etc. This is a major problem in project development and appraisal, according to the World Bank.&rdquo;</p></div>
+    <div class="q-simple"><div class="q-label">Tradução livre (português)</div><p class="ed">&ldquo;A estimativa de custos que segue o princípio EGAP (“Everything Goes According to Plan” — tudo ocorre conforme o planejado) simplesmente desconsidera o risco de escalada de custos decorrente de atrasos, acidentes, alterações de projeto etc. Segundo o Banco Mundial, esse é um problema central no desenvolvimento e na avaliação de projetos.&rdquo;</p></div>
+    <div class="q-ask"><div class="q-label">Interesse para a análise</div><p class="ed">Critério objetivo para examinar o CAPEX de referência do CAFF: verificar se os riscos conhecidos e ainda não resolvidos estão precificados em alguma das alternativas.</p></div>
+  </div>
+</article>
+
+<h2 class="section-title" id="fecho">Observação final</h2>
+<div class="callout ed">Este relatório reproduz trechos de obra protegida por direito autoral, em extensão limitada ao necessário para o exercício do controle interno, com indicação de autoria e fonte, nos termos do art. 46, inciso III, da Lei nº 9.610/1998. Destina-se a uso interno da CAGE-RS e à instrução do processo administrativo relativo à PPP do CAFF. Recomenda-se anexar o texto integral do artigo ao processo.</div>
+
+<h2 class="section-title" id="assinaturas">Assinaturas</h2>
+<section class="panel"><div class="panel-body">
+  <div class="sign ed">
+    <div class="s"><b>Responsável técnico</b>Nome · cargo · matrícula</div>
+    <div class="s"><b>Coordenação do GT-PPPs</b>Nome · cargo</div>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="footer">
+  <span>CAGE-RS · SEFAZ-RS · GT-PPPs — Trechos do artigo Flyvbjerg, Skamris Holm e Buhl (2002) · PPP CAFF</span>
+  <span id="footGen">Documento gerado em 17/09/2026</span>
+</footer>
+
+<script>
+(function(){
+  const KEY='cage_trechos_flyvbjerg_v1'; let saveTimer=null, dirty=false;
+  const $=s=>document.querySelector(s); const doc=()=>document.getElementById('doc');
+  function status(t){ const el=$('#tbStatus'); if(el) el.innerHTML='<span class="dot"></span>'+t; }
+  window.setEdit=function(on){ document.body.classList.toggle('editing',!!on);
+    document.querySelectorAll('#doc .ed').forEach(e=>e.setAttribute('contenteditable',on?'true':'false'));
+    const chk=$('#chkEdit'); if(chk) chk.checked=!!on; status(on?'Modo edição ativo — alterações salvas automaticamente':'Pronto · Relatório de trechos v1.0'); };
+  function getFields(){ const o={}; document.querySelectorAll('#doc [data-k]').forEach(i=>o[i.dataset.k]=i.value); return o; }
+  function setFields(o){ if(!o) return; document.querySelectorAll('#doc [data-k]').forEach(i=>{ if(o[i.dataset.k]!==undefined) i.value=o[i.dataset.k]; }); }
+  window.salvar=function(){ try{ localStorage.setItem(KEY,JSON.stringify({html:doc().innerHTML,fields:getFields(),ts:Date.now()})); dirty=false;
+      status('Rascunho salvo — '+new Date().toLocaleTimeString('pt-BR')); }catch(e){ status('Não foi possível salvar neste navegador'); } };
+  function agendar(){ dirty=true; clearTimeout(saveTimer); saveTimer=setTimeout(()=>salvar(),700); }
+  window.restaurar=function(){ if(!confirm('Descartar o rascunho salvo neste navegador e voltar ao texto original?')) return; try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); };
+  function carregar(){ try{ const raw=localStorage.getItem(KEY); if(!raw) return; const d=JSON.parse(raw); if(!d||!d.html) return;
+      doc().innerHTML=d.html; setFields(d.fields); const b=$('#draftBanner'); if(b){ b.hidden=false; $('#draftTs').textContent=new Date(d.ts).toLocaleString('pt-BR'); } }catch(e){} }
+  function espelhar(){ document.querySelectorAll('#doc [data-k]').forEach(i=>{ let m=i.nextElementSibling;
+      if(!m||!m.classList.contains('print-val')){ m=document.createElement('div'); m.className='print-val'; i.insertAdjacentElement('afterend',m); }
+      const v=(i.value||'').trim(); m.textContent=v||('('+(i.placeholder||'a preencher')+')'); m.classList.toggle('ph',!v); }); }
+  window.baixarHTML=function(){ const wasEdit=document.body.classList.contains('editing'); setEdit(false);
+    document.querySelectorAll('#doc input').forEach(i=>i.setAttribute('value',i.value));
+    const clone=document.documentElement.cloneNode(true); const chk=clone.querySelector('#chkEdit'); if(chk) chk.removeAttribute('checked');
+    clone.querySelector('body').classList.remove('editing'); const banner=clone.querySelector('#draftBanner'); if(banner) banner.setAttribute('hidden','');
+    const blob=new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='Trechos_Artigo_Flyvbjerg_2002_editado_'+new Date().toISOString().slice(0,10)+'.html';
+    document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },600); setEdit(wasEdit); status('Cópia editada gerada'); };
+  document.addEventListener('DOMContentLoaded',()=>{ carregar(); setEdit(false); espelhar();
+    const d=doc(); d.addEventListener('input',e=>{ if(e.target.dataset&&e.target.dataset.k) espelhar(); agendar(); });
+    d.addEventListener('change',e=>{ if(e.target.dataset&&e.target.dataset.k) espelhar(); agendar(); });
+    document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){ e.preventDefault(); salvar(); } });
+    window.addEventListener('beforeunload',e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
+    const fg=document.getElementById('footGen'); if(fg) fg.textContent='Documento gerado em '+new Date().toLocaleDateString('pt-BR'); });
+})();
+</script>
+
+</body>
+</html>
