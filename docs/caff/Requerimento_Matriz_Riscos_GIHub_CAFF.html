@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Requerimento — matriz de risco do CAFF × matriz do GI Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   GTSEFAZ — Padrão Visual CAGE-RS / SEFAZ-RS (tokens canônicos de comum.css + padrao-visual.css)
+   Relatório editável · v1.0
+═══════════════════════════════════════════════════════════ */
+:root{
+  --cage-navy:#0A4D44; --cage-blue:#0F6B5E; --cage-mid:#1F8B7C; --cage-sky:#2EB6A5; --cage-light:#D1F0EB;
+  --rs-vermelho:#8B1A1A; --rs-ambar:#B45309; --rs-verde:#15803D;
+  --cinza-suave:#F5F5F5; --bg-card:#FFFFFF; --rule:#D9D9D9; --rule-soft:#E8E8E8; --ink:#1A1A1A; --ink-muted:#6B7280;
+  --slab:'Roboto Slab',Georgia,serif; --sans:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'JetBrains Mono','Courier New',monospace;
+  --radius:6px; --radius-sm:4px; --shadow-md:0 4px 14px rgba(10,77,68,.08);
+  --tce:#1E3A5F; --tce-bg:#E7EEF6; --both:#0A4D44; --both-bg:#D1F0EB; --cage:#0F6B5E; --cage-bg:#E0F5F1;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cinza-suave);color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--slab);color:var(--cage-navy);letter-spacing:-.005em;margin:0}
+p{margin:0 0 10px}
+a{color:var(--cage-blue)}
+code,.mono,.num{font-family:var(--mono)}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:3px 0}
+strong{font-weight:600}
+
+/* ── Cabeçalho institucional ── */
+.app-header{background:#fff;border-bottom:3px solid var(--cage-mid);box-shadow:var(--shadow-md);position:relative;z-index:5}
+.app-header .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.app-header img{height:46px;width:auto;display:block}
+.app-header .gov{background:var(--cage-navy);border-radius:4px;padding:4px 8px}
+.app-header .gov img{height:40px}
+.header-divider{width:1px;height:42px;background:var(--rule)}
+.header-titles{flex:1;min-width:240px}
+.header-main{font-family:var(--slab);font-size:17px;font-weight:600;color:var(--cage-navy);line-height:1.25}
+.header-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cage-mid);margin-top:4px}
+
+/* ── Barra de ferramentas (não imprime) ── */
+.toolbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--rule);box-shadow:0 2px 8px rgba(10,77,68,.06)}
+.toolbar .in{max-width:1180px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn,.btn-secondary,.btn-danger{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 14px;border-radius:4px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.01em;cursor:pointer;line-height:1.3;transition:all .15s;text-decoration:none}
+.btn{border:1px solid var(--cage-mid);background:var(--cage-mid);color:#fff}
+.btn:hover{background:var(--cage-blue);border-color:var(--cage-blue);box-shadow:0 2px 6px rgba(31,139,124,.2)}
+.btn-secondary{border:1px solid var(--rule);background:#fff;color:var(--cage-navy)}
+.btn-secondary:hover{border-color:var(--cage-mid);background:var(--cage-light)}
+.btn-danger{border:1px solid rgba(139,26,26,.22);background:rgba(139,26,26,.06);color:var(--rs-vermelho)}
+.btn-danger:hover{background:rgba(139,26,26,.12);border-color:var(--rs-vermelho)}
+.btn svg,.btn-secondary svg,.btn-danger svg{width:14px;height:14px}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cage-navy);cursor:pointer;user-select:none;padding:6px 10px;border:1px solid var(--rule);border-radius:4px;background:#fff}
+.switch input{appearance:none;width:34px;height:18px;border-radius:9px;background:#C9CED6;position:relative;outline:none;cursor:pointer;transition:background .15s;margin:0}
+.switch input::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .15s}
+.switch input:checked{background:var(--cage-mid)}
+.switch input:checked::after{left:18px}
+.tb-status{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-muted);letter-spacing:.04em}
+.tb-status .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cage-sky);margin-right:6px;vertical-align:middle}
+.filters{display:flex;gap:6px;flex-wrap:wrap;align-items:center;width:100%;padding-top:6px;border-top:1px dashed var(--rule-soft)}
+.filters .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-right:4px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:14px;border:1px solid var(--rule);background:#fff;color:var(--ink-muted);cursor:pointer}
+.chip.on{background:var(--cage-navy);border-color:var(--cage-navy);color:#fff}
+.chip .n{opacity:.7;margin-left:4px}
+
+/* ── Aviso de rascunho ── */
+.draft-banner{max-width:1180px;margin:12px auto 0;padding:0 20px}
+.draft-banner .box{background:#FFF7E6;border:1px solid #F3D9A4;color:#7A4B00;border-radius:6px;padding:10px 14px;font-size:13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.draft-banner a{color:#7A4B00;font-weight:600}
+
+/* ── Página ── */
+.page{max-width:1180px;margin:0 auto;padding:18px 20px 60px}
+.hero{background:linear-gradient(135deg,var(--cage-navy) 0%,var(--cage-blue) 60%,var(--cage-mid) 100%);border-radius:12px;padding:30px 34px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:22px}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 90% 20%,rgba(46,182,165,.18) 0%,transparent 50%),radial-gradient(circle at 10% 90%,rgba(46,182,165,.10) 0%,transparent 40%);pointer-events:none}
+.hero>*{position:relative}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cage-sky);display:block;margin-bottom:8px}
+.hero h1{color:#fff;font-size:26px;font-weight:700;line-height:1.2;max-width:900px}
+.hero .sub{color:rgba(255,255,255,.85);font-size:15px;margin-top:10px;max-width:900px}
+.hero .tagline{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:5px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
+.kpi{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--slab);font-size:26px;font-weight:700;line-height:1.1}
+.kpi .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:4px}
+
+/* ── Identificação (campos) ── */
+.ident{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.field label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-bottom:5px}
+.field input,.field textarea{font-family:var(--sans);font-size:13.5px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:4px;padding:8px 12px;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--cage-mid);box-shadow:0 0 0 3px rgba(31,139,124,.12)}
+.field .print-val{display:none}
+section[id],article[id],h2[id],h3[id],div[id]{scroll-margin-top:118px}
+
+/* ── Painéis ── */
+.panel{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:18px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden}
+.panel-header{font-family:var(--slab);font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--cage-navy);padding:12px 18px;display:flex;align-items:center;gap:10px;line-height:1.3}
+.panel-header .ph-dot{display:inline-block;width:8px;height:8px;background:var(--cage-sky);border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(46,182,165,.18)}
+.panel-header .ph-right{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;opacity:.8;text-transform:none}
+.panel-body{padding:18px}
+.section-eyebrow{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cage-mid);display:block;margin-bottom:4px}
+.section-title{font-family:var(--slab);font-size:20px;font-weight:600;color:var(--cage-navy);margin:34px 0 6px}
+.section-title:first-of-type{margin-top:6px}
+.section-desc{color:var(--ink-muted);font-size:13.5px;margin-bottom:14px;max-width:960px}
+.bloco-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:30px 0 10px;padding-bottom:8px;border-bottom:2px solid var(--cage-light)}
+.bloco-head .letra{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--cage-mid);padding:3px 9px;border-radius:3px}
+.bloco-head h2{font-size:19px}
+.bloco-head .cnt{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:.08em}
+
+/* ── Badges ── */
+.badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--rule-soft);color:var(--ink-muted);line-height:1.4;white-space:nowrap}
+.badge-tce{background:var(--tce-bg);color:var(--tce)}
+.badge-both{background:var(--both-bg);color:var(--both)}
+.badge-cage{background:var(--cage-sky);color:#fff}
+.badge-alta{background:rgba(139,26,26,.10);color:var(--rs-vermelho)}
+.badge-media{background:rgba(180,83,9,.12);color:var(--rs-ambar)}
+.badge-baixa{background:var(--rule-soft);color:var(--ink-muted)}
+.badge-ok{background:rgba(21,128,61,.12);color:var(--rs-verde)}
+
+/* ── Cards de questão ── */
+.q-card{background:#fff;border:1px solid var(--rule);border-radius:6px;margin-bottom:14px;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden;break-inside:avoid;page-break-inside:avoid}
+.q-card.hidden{display:none}
+.q-head{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FBFCFC;border-bottom:1px solid var(--rule-soft);cursor:pointer}
+.q-num{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;color:#fff;background:var(--cage-navy);border-radius:4px;padding:5px 9px;white-space:nowrap;margin-top:2px}
+.q-num.c{background:var(--cage-blue)}
+.q-title{flex:1;min-width:200px}
+.q-title h3{font-size:15.5px;font-weight:600;line-height:1.3}
+.q-title .q-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.q-toggle{font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:.08em;white-space:nowrap;margin-top:6px}
+.q-body{padding:6px 16px 14px}
+.q-card.collapsed .q-body{display:none}
+.q-sec{margin:12px 0 0}
+.q-label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.q-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cage-mid);display:inline-block}
+.q-simple{background:var(--cage-light);border-left:4px solid var(--cage-mid);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-simple .q-label{color:var(--cage-navy)}
+.q-simple .q-label::before{background:var(--cage-navy)}
+.q-why{background:#FFF8EC;border-left:4px solid var(--rs-ambar);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-why .q-label{color:var(--rs-ambar)}
+.q-why .q-label::before{background:var(--rs-ambar)}
+.q-ask{background:#F3FBF6;border-left:4px solid var(--rs-verde);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0}
+.q-ask .q-label{color:var(--rs-verde)}
+.q-ask .q-label::before{background:var(--rs-verde)}
+.q-ask ul{margin:4px 0 0}
+.q-ev{font-size:13.5px}
+.q-ev .ref{font-family:var(--mono);font-size:11px;color:var(--cage-blue);background:#F1F7F6;border-radius:3px;padding:1px 5px}
+.num-strip{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.num-strip .ns{border:1px solid var(--rule);border-radius:6px;padding:7px 10px;background:#fff;min-width:130px}
+.num-strip .ns .v{font-family:var(--slab);font-size:17px;font-weight:700;color:var(--cage-navy);line-height:1.1}
+.num-strip .ns .v.neg{color:var(--rs-vermelho)}
+.num-strip .ns .v.pos{color:var(--rs-verde)}
+.num-strip .ns .l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:3px}
+
+/* ── Glossário / primer ── */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.term{border:1px solid var(--rule);border-radius:6px;padding:12px 14px;background:#fff}
+.term h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.term p{font-size:13.2px;margin:0 0 6px}
+.term .ex{font-size:12.5px;color:var(--cage-blue);background:#F1F7F6;border-radius:4px;padding:6px 8px;margin:0}
+.term .ex b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cage-mid);display:block;margin-bottom:2px}
+.primer p{max-width:960px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.legend .lg{border:1px solid var(--rule);border-radius:6px;padding:10px 12px;font-size:13px}
+.legend .lg .badge{margin-bottom:6px}
+
+/* ── Tabelas ── */
+table.data-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px}
+table.data-table thead th{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);background:var(--cinza-suave);border-bottom:2px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:bottom}
+table.data-table tbody td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+table.data-table tbody tr:hover td{background:#FAFCFC}
+.tbl-wrap{overflow-x:auto}
+td.r,th.r{text-align:right;font-family:var(--mono);font-size:12px;white-space:nowrap}
+
+/* ── Índice ── */
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 18px;font-size:13.5px}
+.toc a{text-decoration:none;color:var(--cage-navy);padding:4px 0;border-bottom:1px dotted var(--rule)}
+.toc a:hover{color:var(--cage-mid)}
+.toc a .n{font-family:var(--mono);font-size:10px;color:var(--ink-muted);margin-right:6px}
+
+/* ── Assinaturas ── */
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:34px}
+.sign .s{border-top:1px solid var(--ink);padding-top:8px;font-size:12.5px;text-align:center;color:var(--ink-muted)}
+.sign .s b{display:block;color:var(--ink);font-weight:600}
+.footer{max-width:1180px;margin:0 auto;padding:16px 20px 30px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--rule)}
+
+/* ── Modo edição ── */
+body.editing .ed{outline:1px dashed rgba(31,139,124,.55);outline-offset:3px;border-radius:3px;min-height:1em}
+body.editing .ed:focus{outline:2px solid var(--cage-mid);background:#FBFFFE}
+body.editing .q-head{cursor:default}
+.ed.edited{box-shadow:inset 3px 0 0 var(--rs-ambar)}
+body:not(.editing) .edit-hint{display:none}
+.edit-hint{font-size:12.5px;color:var(--cage-blue);background:#F1F7F6;border:1px dashed var(--cage-sky);border-radius:6px;padding:8px 12px;margin-bottom:12px}
+.callout{border:1px solid var(--rule);border-left:4px solid var(--cage-sky);background:#fff;border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:13.5px}
+.callout.warn{border-left-color:var(--rs-ambar);background:#FFF8EC}
+.callout.red{border-left-color:var(--rs-vermelho);background:#FDF3F3}
+.small{font-size:12.5px;color:var(--ink-muted)}
+.print-only{display:none}
+
+/* ── Responsivo ── */
+@media (max-width:640px){
+  .hero{padding:22px 18px}.hero h1{font-size:21px}
+  .page{padding:14px 16px 50px}
+  .q-head{flex-wrap:wrap}
+  .tb-status{margin-left:0;width:100%}
+}
+
+/* ── Impressão (tema documento CAGE) ── */
+@media print{
+  @page{size:A4;margin:16mm 14mm 18mm;
+    @bottom-left{content:"CAGE-RS · SEFAZ-RS · GT-PPPs — Relatório TCE × CAGE · PPP CAFF · uso interno";font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+    @bottom-right{content:"Página " counter(page) " de " counter(pages);font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+  }
+  .field{break-inside:avoid}
+  html,body{background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:11.5pt}
+  .toolbar,.filters,.draft-banner,.q-toggle,.edit-hint,.no-print{display:none !important}
+  .print-only{display:block}
+  .app-header{box-shadow:none;border-bottom:2px solid var(--cage-mid)}
+  .page{padding:0;max-width:none}
+  .hero{border-radius:0;box-shadow:none;padding:22px 24px;background:var(--cage-navy) !important}
+  .panel,.q-card{box-shadow:none;border:1px solid #E3E8F0;border-radius:6px}
+  .q-card.collapsed .q-body,.q-card.hidden{display:block !important}
+  .q-card{page-break-inside:avoid}
+  .panel-header{background:var(--cage-navy) !important;color:#fff !important;border-radius:6px 6px 0 0}
+  table.data-table thead th{background:var(--cage-navy) !important;color:#fff !important;border:none}
+  table.data-table tbody tr:nth-child(even) td{background:#FAFCFF}
+  .section-title{page-break-after:avoid}
+  .bloco-head{page-break-after:avoid}
+  .ed{outline:none !important;box-shadow:none !important}
+  .field input,.field textarea{display:none !important}
+  .field .print-val{display:block;font-family:var(--sans);font-size:10.5pt;color:var(--cage-navy);white-space:pre-wrap;line-height:1.4;padding:2px 0 4px;border-bottom:1px solid #E3E8F0;min-height:1.4em}
+  .field .print-val.ph{color:#9CA3AF;font-style:italic}
+  a{color:inherit;text-decoration:none}
+}
+
+.rdi-sub{margin:6px 0 0 4px;padding-left:22px;font-size:14px}.rdi-sub li{margin:5px 0}
+.ctx{background:#F5FAF9;border-left:4px solid var(--cage-sky);border-radius:0 6px 6px 0;padding:10px 16px;margin:10px 0 14px;font-size:14.5px;line-height:1.6}
+.ctx p{margin:8px 0}
+.pts{font-size:14.5px;line-height:1.6;margin:10px 0 14px}
+.pts p{margin:10px 0;padding-left:14px;border-left:2px solid var(--rule-soft)}
+.callout{background:#FFF7E6;border:1px solid #F3D9A4;border-left:4px solid var(--rs-ambar);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0;font-size:13.5px;line-height:1.55}
+.raz{background:#fff;border:1px solid var(--rule);border-radius:6px;margin:12px 0;box-shadow:0 1px 2px rgba(10,77,68,.04);overflow:hidden}
+.raz-h{display:flex;align-items:flex-start;gap:12px;padding:11px 16px;background:#FBFCFC;border-bottom:1px solid var(--rule-soft)}
+.raz-n{font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;background:var(--cage-navy);border-radius:4px;padding:4px 9px;white-space:nowrap;margin-top:1px}
+.raz-h h3{flex:1;font-size:15px;font-weight:600;line-height:1.35;color:var(--cage-navy)}
+.raz-b{padding:10px 16px 14px;font-size:14.5px;line-height:1.6}
+.par{background:#F7FAFA;border-left:4px solid var(--cage-sky);border-radius:0 6px 6px 0;padding:9px 14px;margin:10px 0}
+.par:first-child{background:var(--cage-light);border-left-color:var(--cage-mid)}
+.q-label{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.q-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cage-mid);display:inline-block}
+.q-label.gh{color:var(--cage-navy)}
+.q-ask{background:#F3FBF6;border-left:4px solid var(--rs-verde);border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0 2px}
+.q-ask .q-label{color:var(--rs-verde)}.q-ask .q-label::before{background:var(--rs-verde)}
+sup.fn{font-family:var(--mono);font-size:9.5px;font-weight:600}sup.fn a{color:var(--cage-mid);text-decoration:none}
+sup.fn.gh a{color:var(--cage-navy)}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{background:var(--cage-navy);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:8px 10px;text-align:left}
+.data-table td{padding:7px 10px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+.data-table tr:nth-child(even) td{background:#FBFCFC}
+.data-table a{color:var(--cage-navy);font-weight:600;text-decoration:none}
+.sit{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap}
+.sit.div{background:rgba(139,26,26,.10);color:var(--rs-vermelho)}
+.sit.esc{background:#FEF3C7;color:#92400E}
+.sit.ali{background:rgba(21,128,61,.12);color:var(--rs-verde)}
+.small{font-size:12px}.num{font-family:var(--mono);font-size:12.5px}
+.notas,.refs{font-size:12.5px}.notas td,.refs td{vertical-align:top}
+.notas .n,.refs .n{font-family:var(--mono);font-weight:700;color:var(--cage-navy);white-space:nowrap}
+.notas .d{font-family:var(--mono);font-size:11px;text-transform:uppercase;color:var(--cage-navy);font-weight:700}
+.notas .r{font-family:var(--mono);font-size:11px;color:#374151}
+.notas .p{font-family:var(--mono);font-size:11px;color:#fff;background:var(--cage-mid);border-radius:3px;padding:1px 6px;white-space:nowrap}
+.notas .p.na{background:#9CA3AF}
+.notas .x{font-style:italic;color:#374151}.notas mark{background:#FDF0B0;padding:0 2px;font-style:normal}
+.refs .k{font-weight:600;color:var(--cage-navy)}.refs .x{font-style:italic;color:#374151}
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;margin-top:26px}
+.sign .s{border-top:1px solid var(--ink);padding-top:6px;font-size:12.5px;text-align:center;color:var(--ink-muted)}
+.sign .s b{display:block;color:var(--ink);font-family:var(--slab);font-weight:600;font-size:13px}
+.footer{max-width:1180px;margin:0 auto;padding:14px 20px 30px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink-muted);flex-wrap:wrap;gap:8px}
+.edit-hint{max-width:1180px;margin:0 auto 14px;font-size:13px;color:var(--ink-muted);background:#fff;border:1px dashed var(--rule);border-radius:6px;padding:8px 14px}
+body.editing #doc .ed{outline:1px dashed rgba(31,139,124,.5);outline-offset:2px;border-radius:2px}
+body.editing #doc .ed:focus{outline:2px solid var(--cage-mid);background:#F5FBFA}
+section[id],h2[id],div[id],tr[id],article[id]{scroll-margin-top:110px}
+@media print{
+  .toolbar,.edit-hint,.draft-banner{display:none !important}
+  .raz{break-inside:auto}.raz-h{break-inside:avoid;break-after:avoid}
+  .ctx,.callout,.pts p,.par,.q-ask{break-inside:avoid}.notas tr,.refs tr{break-inside:avoid}
+  .field input,.field textarea{display:none !important}.field .print-val{display:block;font-size:13px;color:var(--ink);padding:2px 0;border-bottom:1px solid #D5DDE8}
+  .field .print-val.ph{color:#9CA3AF;font-style:italic}.field{break-inside:avoid}
+  .notas .p{color:#000;background:#E8E8E8}
+  @page{size:A4;margin:16mm 14mm 18mm;
+    @bottom-left{content:"CAGE-RS · GT-PPPs — Matriz de riscos do CAFF × matriz do GI Hub · uso interno";font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}
+    @bottom-right{content:"Página " counter(page) " de " counter(pages);font-family:"JetBrains Mono",monospace;font-size:7pt;color:#6B7280;vertical-align:top;padding-top:3mm}}
+}
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div class="in">
+    <div class="gov" title="Governo do Estado do Rio Grande do Sul — Secretaria da Fazenda"><img src="data:image/png;base64,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" alt="Governo do Estado do Rio Grande do Sul — Secretaria da Fazenda"></div>
+    <div class="header-divider"></div>
+    <img src="data:image/png;base64,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" alt="CAGE — Contadoria e Auditoria-Geral do Estado do RS" title="CAGE-RS">
+    <div class="header-divider"></div>
+    <div class="header-titles">
+      <div class="header-main">Requerimento — Matriz de risco do CAFF confrontada com a matriz<br>de referência do Global Infrastructure Hub · PPP do CAFF</div>
+      <div class="header-sub">Contadoria e Auditoria-Geral do Estado · GT-PPPs · SEFAZ-RS</div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="in">
+    <label class="switch" title="Libera a edição direta do texto"><input type="checkbox" id="chkEdit" onchange="setEdit(this.checked)"><span class="track"></span><span class="lbl">Modo edição</span></label>
+    <button class="btn" onclick="salvar()">Salvar rascunho</button>
+    <button class="btn-secondary" onclick="window.print()">Exportar PDF</button>
+    <button class="btn-secondary" onclick="baixarHTML()">Baixar HTML editado</button>
+    <button class="btn-danger" onclick="restaurar()">Restaurar original</button>
+    <div class="tb-status" id="tbStatus"><span class="dot"></span>Pronto · Requerimento CAGE v1.0</div>
+  </div>
+</div>
+
+<div class="draft-banner" id="draftBanner" hidden>
+  <div class="box"><span>Este navegador contém um <strong>rascunho editado</strong> (salvo em <span id="draftTs"></span>). Use <em>Restaurar original</em> para descartá-lo.</span></div>
+</div>
+
+<main class="page" id="doc">
+
+<section class="hero">
+  <span class="eyebrow">Estado do Rio Grande do Sul · CAGE-RS · SEFAZ-RS · GT-PPPs</span>
+  <h1 class="ed">Requerimento de esclarecimento — matriz de risco do CAFF confrontada com a matriz de referência do Global Infrastructure Hub</h1>
+  <div class="sub ed">Concessão Administrativa do Centro Administrativo Fernando Ferrari (CAFF) — Anexo V do Contrato, lido com o Contrato, o Caderno de Encargos e os Apêndices, comparado com a <i>Matriz de Alocação de Riscos de PPP de Reabilitação de Prédio de Escritórios Governamentais</i> (Global Infrastructure Hub e Allen &amp; Overy, Ferramenta de Alocação de Riscos de PPP, edição 2019).</div>
+  <span class="tagline">Uso interno · não constitui manifestação oficial da CAGE-RS enquanto não assinado</span>
+  <div class="kpis">
+    <div class="kpi"><div class="v">81</div><div class="l">subcategorias avaliadas</div></div>
+    <div class="kpi"><div class="v">16</div><div class="l">categorias comuns às duas matrizes</div></div>
+    <div class="kpi"><div class="v">7</div><div class="l">pontos a esclarecer</div></div>
+    <div class="kpi"><div class="v">3</div><div class="l">alinhamentos registrados</div></div>
+  </div>
+</section>
+
+<section class="panel" id="identificacao">
+  <div class="panel-header"><span class="ph-dot"></span>Identificação<span class="ph-right">campos editáveis</span></div>
+  <div class="panel-body">
+    <div class="ident">
+      <div class="field"><label for="fNum">Requerimento nº</label><input id="fNum" data-k="num" value="" placeholder="[●]/2026 — CAGE/GT-PPPs"></div>
+      <div class="field"><label for="fProc">Processo administrativo</label><input id="fProc" data-k="proc" value="" placeholder="PROA nº [●]"></div>
+      <div class="field"><label for="fReq">Requerente</label><input id="fReq" data-k="req" value="Contadoria e Auditoria-Geral do Estado (CAGE/SEFAZ-RS) — Grupo de Trabalho de PPPs"></div>
+      <div class="field"><label for="fDest">Destinatário</label><input id="fDest" data-k="dest" value="Secretaria de Planejamento, Governança e Gestão (SPGG) — Subsecretaria de Parcerias (SERG)"></div>
+      <div class="field"><label for="fCopia">Com cópia</label><input id="fCopia" data-k="copia" value="BNDES (estruturador — OCS nº 330/2024) e Consórcio RECAFF"></div>
+      <div class="field"><label for="fAss">Assunto</label><input id="fAss" data-k="ass" value="Matriz de risco (Anexo V) — divergências e lacunas frente à matriz de referência do Global Infrastructure Hub para PPP de prédio de escritórios governamentais"></div>
+      <div class="field"><label for="fRef">Documentos de referência</label><input id="fRef" data-k="ref" value="Anexo V – Matriz de Risco; Contrato; Anexo I – Caderno de Encargos; Apêndice III; GI Hub/Allen &amp; Overy (2019)"></div>
+      <div class="field"><label for="fFund">Fundamento</label><input id="fFund" data-k="fund" value="LC nº 13.451/2010, art. 2º; Lei nº 11.079/2004, art. 4º, VI, e art. 5º, III"></div>
+      <div class="field"><label for="fPrazo">Prazo solicitado</label><input id="fPrazo" data-k="prazo" value="" placeholder="[●] dias úteis"></div>
+      <div class="field"><label for="fData">Data</label><input id="fData" data-k="data" value="18/09/2026"></div>
+      <div class="field"><label for="fResp">Responsável técnico</label><input id="fResp" data-k="resp" value="" placeholder="Nome, cargo e matrícula"></div>
+      <div class="field"><label for="fRel">Peças relacionadas</label><input id="fRel" data-k="rel" value="Matriz de riscos do CAFF preenchida no Módulo 02 do GT-PPPs; requerimento sobre o ajuste de 25%; solicitação sobre o cenário híbrido"></div>
+    </div>
+  </div>
+</section>
+
+<div class="edit-hint no-print">✎ Ative <b>Modo edição</b> para ajustar qualquer texto, inclusive os pedidos de cada item. As citações dos anexos ficam protegidas. <b>Exportar PDF</b> imprime em A4 com numeração de páginas.</div>
+
+
+<h2 class="section-title" id="s1">I · Objeto e método</h2>
+<div class="ctx ed">
+<p>Esta Controladoria avaliou a matriz de risco da Concessão Administrativa do CAFF — Anexo V do Contrato, lida em conjunto com o Contrato, o Caderno de Encargos e os Apêndices — e a confrontou com a <b>matriz de alocação de riscos de PPP de reabilitação de prédio de escritórios governamentais</b> publicada pelo <b>Global Infrastructure Hub</b> em conjunto com o escritório <b>Allen &amp; Overy</b> (Ferramenta de Alocação de Riscos de PPP, edição 2019, infraestrutura social), documento de 41 páginas que reúne, para <b>este mesmo tipo de projeto</b>, a alocação típica de cada risco, sua fundamentação, as medidas de mitigação e o resumo da prática de mercado.</p>
+<p>O confronto é pertinente por três razões: a matriz de referência trata especificamente de <b>reabilitação de edifício de escritórios governamentais</b>, que é o objeto desta parceria; adota a mesma taxonomia de dezesseis categorias de risco utilizada no módulo de matriz de riscos do GT-PPPs, o que permite comparação item a item; e é fonte neutra, de organização multilateral apoiada pelo G20, sem interesse na modelagem em exame.</p>
+<p>Foram avaliadas <b>81 subcategorias</b> — 73 do núcleo comum e 8 riscos específicos do CAFF —, com o preenchimento integral da matriz e o registro da alocação contratual de cada uma. Deste exame resultaram <b>sete pontos</b> em que a alocação do CAFF se afasta da referência ou carece de critério objetivo, e <b>três alinhamentos</b> que se registram por dever de imparcialidade. Não se questiona a validade das alocações adotadas: a matriz de referência é expressamente indicativa e admite que as circunstâncias do projeto e da jurisdição justifiquem soluções diversas. Solicita-se a <b>justificativa técnica</b> de cada divergência e o esclarecimento dos pontos sem critério definido, antes da publicação do edital.</p>
+</div>
+<div class="callout ed"><b>Fonte de referência.</b> GLOBAL INFRASTRUCTURE HUB; ALLEN &amp; OVERY. <i>Ferramenta de Alocação de Riscos de PPP — Edição 2019. Infraestrutura Social: Matriz de Alocação de Riscos de PPP de Reabilitação de Prédio de Escritórios Governamentais</i>. Versão em português, 41 p. O Global Infrastructure Hub é iniciativa do G20 dedicada a boas práticas de infraestrutura; a ferramenta cobre dezenas de tipos de projeto e é de uso público. As citações deste requerimento indicam a página do documento examinado e estão reproduzidas na íntegra no Anexo II.</div>
+
+
+<h2 class="section-title" id="s2">II · Quadro comparativo</h2>
+<p class="section-desc">Clique no tema para ir ao item correspondente. As páginas entre parênteses são as da matriz de referência.</p>
+<div class="panel"><div class="panel-body" style="overflow-x:auto">
+<table class="data-table"><thead><tr><th>Tema</th><th>Matriz de referência (GI Hub)</th><th>Matriz do CAFF</th><th>Situação</th></tr></thead><tbody><tr><td><a href='#d1'>Condição do ativo existente</a></td><td class='small'>Privado, condicionado ao levantamento prévio pela Autoridade (p. 11–12)</td><td class='small'>Poder Concedente até 30% do CAPEX da ampliação; laudo só após a assinatura</td><td><span class='sit div'>Divergência</span></td></tr><tr><td><a href='#d1'>Defeitos latentes em estruturas existentes</a></td><td class='small'>Pode permanecer com a Autoridade (p. 20)</td><td class='small'>Sem previsão específica no Anexo V</td><td><span class='sit esc'>A esclarecer</span></td></tr><tr><td><a href='#d2'>Mudança de legislação</a></td><td class='small'>Público, com carve-out do risco geral de negócio e cláusula recíproca (p. 35–36)</td><td class='small'>Poder Concedente, sem distinção nem reciprocidade (Anexo V, o e p)</td><td><span class='sit div'>Divergência</span></td></tr><tr><td><a href='#d2'>Alteração tributária</a></td><td class='small'>Tributação que afete o mercado igualmente é risco privado (p. 36)</td><td class='small'>Poder Concedente, exceto impostos sobre a renda (Anexo V, k)</td><td><span class='sit div'>Divergência</span></td></tr><tr><td><a href='#d3'>Refinanciamento</a></td><td class='small'>Compartilhado; ganho partilhado, p. ex. 50% (p. 27–28)</td><td class='small'>Sem cláusula de compartilhamento de ganho</td><td><span class='sit div'>Divergência</span></td></tr><tr><td><a href='#d4'>Receitas de terceiros</a></td><td class='small'>Contrato deve definir parâmetros, alocação e impacto no preço (p. 1 e 24)</td><td class='small'>Até 5% da receita bruta; pré-autorizadas sem compartilhamento (cl. 28.20 e 28.21)</td><td><span class='sit div'>Divergência</span></td></tr><tr><td><a href='#d5'>Vandalismo e depredação</a></td><td class='small'>Privado, salvo falha da Autoridade ou de sua equipe (p. 24)</td><td class='small'>Compartilhado em qualquer fase, sem critério de rateio</td><td><span class='sit div'>Divergência</span></td></tr><tr><td><a href='#d6'>Evento de mudança climática</a></td><td class='small'>Compartilhado; seguro como mitigante central (p. 15 e 34)</td><td class='small'>Sublimite de R$ 6 mi para alagamento e inundação</td><td><span class='sit esc'>A esclarecer</span></td></tr><tr><td><a href='#d7'>Aprovações subsequentes e atos de outros entes</a></td><td class='small'>Aprovações subsequentes: privado; MAGA: público (p. 9 e 34)</td><td class='small'>Poder Concedente, inclusive por atos de órgãos municipais (Anexo V, v)</td><td><span class='sit esc'>A esclarecer</span></td></tr><tr><td><a href='#alinhamentos'>Consumo de energia acima do volume de referência</a></td><td class='small'>Limite acima do qual o custo é da Autoridade (p. 22)</td><td class='small'>Compartilhado (Anexo V, r.1)</td><td><span class='sit ali'>Alinhado</span></td></tr><tr><td><a href='#alinhamentos'>Realocação temporária dos usuários</a></td><td class='small'>Programa de obras deve considerar uso parcial e acomodação (p. 2)</td><td class='small'>Custeada pela concessionária; obras fracionadas (Anexo I)</td><td><span class='sit ali'>Alinhado</span></td></tr><tr><td><a href='#alinhamentos'>Risco de demanda</a></td><td class='small'>Raramente se aplica: pagamento por disponibilidade (p. 24)</td><td class='small'>Integralmente privado; remuneração por disponibilidade</td><td><span class='sit ali'>Alinhado</span></td></tr><tr><td><a href='#alinhamentos'>Força do acordo de pagamento</a></td><td class='small'>Público; garantias estruturadas (p. 40)</td><td class='small'>Sistema de garantia com receitas vinculadas do FPE (cl. 29ª)</td><td><span class='sit ali'>Alinhado</span></td></tr></tbody></table>
+</div></div>
+
+
+<h2 class="section-title" id="s3">III · Pontos a esclarecer</h2>
+<p class="section-desc">Cada item traz a orientação da matriz de referência, a disposição correspondente do CAFF, a razão da relevância e o que se solicita.</p>
+<article class="raz" id="d1">
+  <div class="raz-h"><span class="raz-n">1</span><h3 class="ed">Condição do ativo existente: o levantamento estrutural do Edifício A ficará para depois da assinatura</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">A matriz do GI Hub aloca a <b>condição do ativo existente ao parceiro privado</b>, mas <b>condicionada</b> a que a Autoridade Contratante levante integralmente o ativo antes da licitação e compartilhe dados confiáveis com os licitantes<sup class='fn gh'><a href='#g1'>[G1]</a></sup>; a condição das estruturas é &ldquo;parte fundamental da devida diligência do Parceiro Privado&rdquo;<sup class='fn gh'><a href='#g2'>[G2]</a></sup>. Quando os dados se mostram imprecisos ou insuficientes, o risco volta à Autoridade Contratante.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">A ampliação do Edifício A apoia-se no projeto original da década de 1970<sup class='fn'><a href='#n20'>[20]</a></sup>, que o Apêndice III descreve como concebido para trinta pavimentos<sup class='fn'><a href='#n17'>[17]</a></sup>. A reavaliação da integridade dos elementos estruturais só ocorrerá quando da elaboração dos projetos de engenharia, isto é, <b>após a assinatura do contrato</b><sup class='fn'><a href='#n14'>[14]</a></sup>. O acréscimo de CAPEX daí decorrente é risco do Poder Concedente até 30% de R$ 104.254.314,03<sup class='fn'><a href='#n10'>[10]</a></sup>, e, superado o limite, a concessão prossegue sem a ampliação<sup class='fn'><a href='#n11'>[11]</a></sup>. O Edital exige declaração de pleno conhecimento da área<sup class='fn'><a href='#n18'>[18]</a></sup>.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> A alocação do CAFF é a exceção prevista pelo GI Hub — a Autoridade retém o risco porque não levantou o ativo —, e não a regra. O Estado paga duas vezes: assume até R$ 31,3 milhões de acréscimo e ainda remunera, na proposta, a contingência que o licitante precificará pela incerteza remanescente — efeito que a própria matriz de referência adverte: &ldquo;qualquer risco que for transferido para o Parceiro Privado é passível de se refletir na precificação de contingência em sua proposta, o que pode resultar em a Autoridade Contratante pagar por algo que nunca acontece&rdquo;<sup class='fn gh'><a href='#g6'>[G6]</a></sup>. É a mesma lógica que a Análise de VfM invoca ao aplicar 25% de sobrecusto ao comparador público<sup class='fn'><a href='#n19'>[19]</a></sup>. O desfecho alternativo, a supressão da ampliação, elimina 13.256 m² e 1.346 postos de trabalho do programa.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>informar se há laudo de inspeção estrutural do Edifício A e, havendo, disponibilizá-lo aos licitantes antes da abertura das propostas; não havendo, justificar tecnicamente a decisão de licitar sem ele, à luz da orientação de que o ativo existente deve ser levantado pela Autoridade Contratante antes da licitação;</li><li>estimar o custo que a incerteza estrutural agrega à proposta, comparando-o ao custo de realizar o laudo antes da licitação;</li><li>informar o tratamento contratual dos <b>defeitos latentes</b> das estruturas existentes, que a matriz de referência admite permanecerem com a Autoridade Contratante<sup class='fn gh'><a href='#g3'>[G3]</a></sup>, e indicar em que alínea do Anexo V estão alocados.</li></ol></div>
+  </div>
+</article><article class="raz" id="d2">
+  <div class="raz-h"><span class="raz-n">2</span><h3 class="ed">Mudança de legislação e de tributação: o Estado retém o risco geral de negócio, sem reciprocidade</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">O GI Hub confirma que a Autoridade Contratante assume, em regra, as alterações legislativas inesperadas posteriores a uma <b>data de corte</b>, e registra que as cláusulas de mudança de legislação <b>&ldquo;muitas vezes são recíprocas&rdquo;</b>, para que a Autoridade se beneficie das consequências financeiras positivas<sup class='fn gh'><a href='#g4'>[G4]</a></sup>. A abordagem detalhada que recomenda mantém íntegro o parceiro privado apenas quanto a alterações <b>discriminatórias</b>, <b>específicas do setor</b> ou que exijam <b>capital após a conclusão da reabilitação</b>, cabendo a ele o <b>risco geral de negócio</b> — incluindo despesas operacionais e tributação que afetem o mercado igualmente<sup class='fn gh'><a href='#g5'>[G5]</a></sup>.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">O Anexo V aloca ao Poder Concedente <b>toda</b> alteração superveniente de legislação relacionada à execução do objeto<sup class='fn'><a href='#n3'>[3]</a></sup> e <b>toda</b> alteração de legislação ou regulação com impacto direto nas receitas ou despesas da concessionária<sup class='fn'><a href='#n4'>[4]</a></sup>, além da criação, extinção ou alteração de quaisquer tributos, exceto os impostos sobre a renda<sup class='fn'><a href='#n2'>[2]</a></sup>. Há data de corte — a data de entrega dos documentos —, mas não há distinção entre mudança geral e mudança discriminatória ou setorial, nem cláusula que assegure ao Estado o efeito das alterações favoráveis.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> Em contrato de trinta anos, a diferença não é conceitual. A transição da reforma tributária (IBS e CBS), as alterações de alíquotas e as mudanças de entendimento fiscal são, na classificação da matriz de referência, risco geral de negócio — e, no CAFF, correm integralmente por conta do Estado, sem que este capture as reduções de carga que a mesma transição pode produzir.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>justificar a não adoção da distinção entre alterações gerais e alterações discriminatórias ou específicas do setor, indicando o efeito dessa escolha sobre o preço da proposta;</li><li>informar se o mecanismo de recomposição é <b>bidirecional</b> — isto é, se alteração legislativa ou tributária favorável à concessionária enseja recomposição em favor do Poder Concedente — e, não sendo, justificar;</li><li>apresentar o tratamento específico previsto para a reforma tributária (Emenda Constitucional nº 132/2023 e legislação complementar) ao longo do período de transição, com estimativa do impacto sobre a contraprestação em cenários de aumento e de redução de carga.</li></ol></div>
+  </div>
+</article><article class="raz" id="d3">
+  <div class="raz-h"><span class="raz-n">3</span><h3 class="ed">Refinanciamento: não há cláusula de compartilhamento do ganho</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">O GI Hub trata o refinanciamento como risco <b>compartilhado</b> e é explícito quanto ao ganho: &ldquo;pode ser adequado que o ganho seja compartilhado entre as partes […] A Autoridade Contratante pode esperar compartilhar uma porcentagem do ganho de refinanciamento (p. ex., 50 %), e isso é particularmente importante <b>dado o uso de fundos públicos</b> para pagar o projeto de PPP&rdquo;<sup class='fn gh'><a href='#g7'>[G7]</a></sup>.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">Não foi localizada, na minuta do Contrato nem no Anexo V, cláusula que assegure ao Poder Concedente participação em ganho de refinanciamento. O risco de não obtenção ou de encarecimento do financiamento está alocado à concessionária, sem contrapartida quanto ao ganho.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> Trata-se de concessão administrativa: 100% da remuneração vem de recursos públicos. A estrutura é altamente alavancada e o refinanciamento, após a conclusão das obras e a eliminação do risco de construção, é evento provável — e o ganho correspondente, na ausência de cláusula, permanece integralmente com a concessionária.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>informar se a ausência de cláusula de compartilhamento de ganho de refinanciamento foi decisão deliberada e, em caso positivo, apresentar a justificativa técnica e o efeito considerado sobre o preço;</li><li>avaliar a inclusão de cláusula de compartilhamento — inclusive quanto ao percentual, à definição de ganho, à forma de apuração e ao momento do pagamento — antes da publicação do edital;</li><li>estimar o valor presente do ganho de refinanciamento esperado no modelo, se considerado, e indicar em que linha do fluxo de caixa ele foi tratado.</li></ol></div>
+  </div>
+</article><article class="raz" id="d4">
+  <div class="raz-h"><span class="raz-n">4</span><h3 class="ed">Receitas acessórias pré-autorizadas: investimento público, receita integralmente privada</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">O GI Hub registra que, em prédios de escritórios governamentais, as receitas de terceiros são limitadas e que <b>o contrato deve definir os parâmetros permitidos, a alocação de risco acordada e o impacto de custo e preço dessas atividades</b> — em especial quando o parceiro privado se baseia nessa receita para oferecer um preço mais baixo<sup class='fn gh'><a href='#g8'>[G8]</a></sup>.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">O Contrato prevê compartilhamento de <b>até 5%</b> da receita bruta de cada tipo de receita acessória, a ser fixado na autorização<sup class='fn'><a href='#n8'>[8]</a></sup>; contudo, as <b>receitas acessórias pré-autorizadas não são objeto de compartilhamento</b><sup class='fn'><a href='#n9'>[9]</a></sup>. São justamente as exploradas nas unidades prediais objeto dos investimentos obrigatórios associados a receitas acessórias — construídas com recursos da contraprestação.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> A assimetria é de titularidade: o Estado financia o ativo e não participa do resultado que ele gera acima do projetado. Se a receita efetiva superar a projeção que reduziu a contraprestação, todo o excedente permanece com a concessionária; se ficar abaixo, o Contrato veda a recomposição — o que é coerente —, mas a simetria inversa não foi prevista.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>justificar a exclusão das receitas acessórias pré-autorizadas do compartilhamento, demonstrando como a projeção dessas receitas foi refletida na redução da contraprestação;</li><li>informar o valor presente das receitas acessórias consideradas no modelo, por tipo e por unidade predial, e a sensibilidade da contraprestação a variações dessa projeção;</li><li>avaliar a adoção de compartilhamento do excedente sobre a projeção (<i>upside sharing</i>), preservada a alocação do risco de frustração à concessionária.</li></ol></div>
+  </div>
+</article><article class="raz" id="d5">
+  <div class="raz-h"><span class="raz-n">5</span><h3 class="ed">Vandalismo e depredação: compartilhamento sem critério de repartição</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">Na matriz de referência, o vandalismo é tratado dentro do <b>risco de interface</b>: o parceiro privado gerencia os riscos operacionais, mas a Autoridade Contratante assume o risco <b>quando o descumprimento decorre de ações ou falhas de sua equipe, fornecedores ou contratados</b>, inclusive do pessoal de segurança por ela fornecido<sup class='fn gh'><a href='#g9'>[G9]</a></sup>.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">O Anexo V aloca como <b>compartilhado</b> o perecimento, destruição, roubo, furto, depredação, vandalismo, perda ou quaisquer outros danos aos bens vinculados, em qualquer fase, sem definir a proporção, o critério de rateio ou o fato gerador que separa as responsabilidades<sup class='fn'><a href='#n1'>[1]</a></sup>.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> Compartilhamento sem critério é fonte previsível de pleito de reequilíbrio. No CAFF a segurança patrimonial é da concessionária, mas o controle de acesso convive com pessoal público e com o fluxo de usuários de dezenove órgãos — exatamente a hipótese em que a matriz de referência exige regra clara.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>explicitar o critério de repartição do risco (proporção, franquia, limite anual ou fato gerador) e a forma de apuração;</li><li>informar como o risco se relaciona com as coberturas e franquias das apólices exigidas e com o limite de R$ 10.000.000,00 previsto para tumultos, greves e atos de vandalismo;</li><li>esclarecer a repartição nos casos em que o dano decorra de ação ou omissão de agentes públicos ou de usuários dos órgãos ocupantes.</li></ol></div>
+  </div>
+</article><article class="raz" id="d6">
+  <div class="raz-h"><span class="raz-n">6</span><h3 class="ed">Eventos climáticos: sublimite de R$ 6 milhões para alagamento e inundação</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">O GI Hub classifica o <b>evento de mudança climática</b> como risco <b>compartilhado</b><sup class='fn gh'><a href='#g10'>[G10]</a></sup>, e destaca a resiliência do projeto e o seguro como fatores mitigantes centrais, observando que, destruído o edifício por força maior antes da reversão, o parceiro privado normalmente reconstrói por sua conta <b>na medida em que o risco for segurável</b>.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">O Contrato fixa, no quadro de sublimites das apólices de danos materiais, <b>R$ 6.000.000,00 para alagamento e inundação</b><sup class='fn'><a href='#n12'>[12]</a></sup>. O complexo situa-se na Praia de Belas, área atingida pela cheia de 2024, e o valor dos bens vinculados supera R$ 1,5 bilhão.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> O sublimite define, na prática, onde termina a cobertura e começa o risco não segurado — e, portanto, a discussão sobre força maior, reequilíbrio e continuidade do serviço. Sem demonstração de suficiência, o Estado pode vir a arcar com a diferença por via indireta.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>apresentar o estudo que fundamentou o sublimite de R$ 6.000.000,00 para alagamento e inundação, com a estimativa de perda máxima provável para a área do CAFF;</li><li>informar a quem cabe o risco não segurado ou não segurável decorrente de evento climático e em que alínea do Anexo V ele está alocado;</li><li>indicar as exigências de resiliência incorporadas ao projeto referencial (cotas, impermeabilização, localização de subestações, casas de máquinas e geradores) e seu custo.</li></ol></div>
+  </div>
+</article><article class="raz" id="d7">
+  <div class="raz-h"><span class="raz-n">7</span><h3 class="ed">Atos de outros entes públicos: alcance da alínea v) frente às aprovações subsequentes</h3></div>
+  <div class="raz-b">
+    <div class="par"><div class="q-label gh">Matriz de referência — Global Infrastructure Hub</div><div class="ed">A matriz de referência aloca ao <b>parceiro privado</b> as <b>aprovações subsequentes de planejamento</b>, reservando à Autoridade Contratante as principais anuências de projeto<sup class='fn gh'><a href='#g11'>[G11]</a></sup>; e reserva a assunção pública para ações <b>&ldquo;políticas&rdquo; específicas</b> com efeito material adverso, na figura do risco de MAGA<sup class='fn gh'><a href='#g12'>[G12]</a></sup>.</div></div>
+    <div class="par"><div class="q-label">Matriz do CAFF — Anexo V e Contrato</div><div class="ed">O Anexo V aloca ao Poder Concedente a restrição operacional decorrente de omissão ou decisão de órgãos ou entidades públicas <b>municipais ou estaduais</b> tomada fora de sua competência fiscalizatória ou regulatória<sup class='fn'><a href='#n6'>[6]</a></sup>, e também a demora na obtenção de licenças por fato imputável ao Poder Público em qualquer nível<sup class='fn'><a href='#n7'>[7]</a></sup>.</div></div>
+    <div class="ed" style="margin:10px 0"><b>Por que importa.</b> A redação é ampla e o critério — &ldquo;fora de sua competência&rdquo; — é de difícil aferição objetiva. O Estado do Rio Grande do Sul responde, assim, por atos de ente federativo diverso, inclusive municipal, em hipóteses que a prática internacional trata como risco privado de obtenção de aprovações.</div>
+    <div class="q-ask"><div class="q-label">Solicita-se</div><ol class="rdi-sub ed" type="a"><li>esclarecer o alcance da alínea v), com exemplos do que se considera ato praticado fora da competência do órgão e do que permanece como risco da concessionária;</li><li>informar se a alocação abrange atos de ente federativo diverso do Poder Concedente e, em caso positivo, justificar a assunção desse risco pelo Estado;</li><li>indicar o procedimento de comprovação do nexo entre o ato do órgão e o efeito econômico alegado, para fins de recomposição.</li></ol></div>
+  </div>
+</article>
+
+
+<h2 class="section-title" id="alinhamentos">IV · Alinhamentos registrados</h2>
+<p class="section-desc">Pontos em que a modelagem do CAFF acompanha a prática de referência, registrados por dever de imparcialidade.</p>
+
+<div class="pts ed">
+<p><b>1. Consumo de energia acima do volume de referência.</b> O Anexo V compartilha entre as partes a variação do consumo de energia elétrica acima do volume de referência anual<sup class='fn'><a href='#n5'>[5]</a></sup>, desde que não decorra de ineficiência ou falha de gestão da concessionária. É exatamente a solução recomendada pela matriz de referência, que admite limite acima do qual a Autoridade Contratante responde pelo custo, dado o controle limitado do parceiro privado sobre o comportamento dos usuários<sup class='fn gh'><a href='#g13'>[G13]</a></sup>.</p>
+<p><b>2. Realocação temporária dos usuários durante as obras.</b> O Caderno de Encargos obriga a concessionária a prever e custear a realocação temporária dos servidores, tanto nas áreas de retrofit quanto nas de ampliação<sup class='fn'><a href='#n15'>[15]</a></sup>, e determina execução fracionada que preserve o uso das demais áreas<sup class='fn'><a href='#n16'>[16]</a></sup> — na linha da orientação de que o programa de reabilitação deve considerar a utilização parcial e a acomodação alternativa<sup class='fn gh'><a href='#g14'>[G14]</a></sup>. <b>Registre-se, porém, a inconsistência com a Análise de VfM</b>, que monetiza o atraso do comparador público pela manutenção de aluguéis externos, premissa que não corresponde à sistemática contratual da PPP — matéria de requerimento próprio desta Controladoria.</p>
+<p><b>3. Ausência de risco de demanda e sistema de garantia.</b> A remuneração por disponibilidade afasta o risco de demanda, como é típico do setor<sup class='fn gh'><a href='#g15'>[G15]</a></sup>; e a vinculação de receitas do FPE em sistema de garantia<sup class='fn'><a href='#n13'>[13]</a></sup> atende à preocupação da matriz de referência com a força do acordo de pagamento da Autoridade Contratante<sup class='fn gh'><a href='#g16'>[G16]</a></sup>.</p>
+</div>
+
+
+
+<h2 class="section-title" id="s5">V · Forma, prazo e efeitos</h2>
+<div class="ctx ed">
+<p><b>Prazo.</b> Solicita-se o atendimento no prazo de <b>[●] dias úteis</b>, contado do recebimento, previamente à publicação do edital, com justificativa no mesmo prazo para eventual item que não possa ser atendido.</p>
+<p><b>Forma.</b> Respostas item a item, com indicação do dispositivo contratual correspondente e, quando houver alteração, a redação proposta para o Anexo V ou para o Contrato. Eventuais estudos, laudos e apólices referidos deverão ser juntados.</p>
+<p><b>Efeitos.</b> Este requerimento não imputa irregularidade à matriz de risco adotada nem propõe, por si, a alteração de qualquer alocação: a matriz de referência é indicativa e a alocação adequada depende das circunstâncias do projeto e da jurisdição. Destina-se a que as escolhas que se afastam da prática internacional para este mesmo tipo de projeto estejam justificadas nos autos e que os compartilhamentos sem critério sejam objetivados antes da licitação, reduzindo litígio e pleitos de reequilíbrio na execução. Não prejudica a RDI nº 827487 do TCE-RS nem as demais peças desta Controladoria.</p>
+</div>
+
+
+<h2 class="section-title" id="fecho">VI · Encerramento</h2>
+<div class="ctx ed">
+<p>Nestes termos, solicita-se o atendimento.</p>
+<p>Porto Alegre, <span class="mono">[●]</span> de <span class="mono">[●]</span> de 2026.</p>
+</div>
+
+
+<h2 class="section-title" id="assinaturas">Assinaturas</h2>
+<section class="panel"><div class="panel-body">
+  <div class="sign ed">
+    <div class="s"><b>Responsável técnico</b>Nome · cargo · matrícula</div>
+    <div class="s"><b>Coordenação do GT-PPPs</b>Nome · cargo</div>
+  </div>
+</div></section>
+
+<h2 class="section-title" id="anexo1">Anexo I · Notas dos documentos do CAFF</h2>
+<p class="section-desc">Documento, item, página e trecho literal, com a passagem pertinente destacada. As páginas dos arquivos em Word correspondem às quebras gravadas no arquivo recebido, com margem de uma ou duas páginas.</p>
+<div class="panel"><div class="panel-body" style="overflow-x:auto">
+<table class="data-table notas"><thead><tr><th>Nota</th><th>Documento e item</th><th>Página</th><th>Trecho</th></tr></thead><tbody><tr id='n1'><td class='n'>[1]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Danos a BENS VINCULADOS À CONCESSÃO</span></td><td><span class='p'>p. 40</span></td><td class='x'>Danos a BENS VINCULADOS À CONCESSÃO | <mark>Perecimento, destruição, roubo, furto, depredação, vandalismo, perda ou quaisquer outros tipos de danos causados aos BENS VINCULADOS</mark> À CONCESSÃO, incluindo os custos relacionados à sua reposição e/ou reparo, considerando também o quanto disposto no CONTRATO. | COMPARTILHADO | A CONCESSIONÁRIA deve auxiliar na coibição de atos de vandalismo e depredações, acionando os órgãos competentes nos casos em que se fizer necessária a intervenção direta em re…</td></tr><tr id='n2'><td class='n'>[2]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Riscos Jurídicos, k) – Alteração tributária</span></td><td><span class='p'>p. 62</span></td><td class='x'>Alteração tributária | k) <mark>Criação, extinção ou alteração de tributos ou encargos legais, excetuados os impostos sobre a renda</mark>, que incidam diretamente sobre o OBJETO ou sobre os serviços prestados pela CONCESSIONÁRIA, e cuja criação, alteração ou extinção ocorra após a DATA DE ENTREGA DOS DOCUMENTOS, com comprovada repercussão direta sobre o equilíbrio econômico-financeiro do CONTRATO. | PODER CONCEDENTE | As PARTES deverão observar todas as…</td></tr><tr id='n3'><td class='n'>[3]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Risco Regulatório e Legislativo, o)</span></td><td><span class='p'>p. 70</span></td><td class='x'>Risco Regulatório e Legislativo | o) <mark>Alteração superveniente na legislação que ocorra após a DATA DE ENTREGA DOS DOCUMENTOS</mark>, desde que relacionada à execução do OBJETO e que altere o equilíbrio econômico-financeiro do CONTRATO. | PODER CONCEDENTE | As PARTES devem observar eventuais alterações normativas durante as revisões ordinárias do CONTRATO. | As PARTES devem buscar compatibilizar a execução do OBJETO com eventuais alterações na legi…</td></tr><tr id='n4'><td class='n'>[4]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Risco Regulatório e Legislativo, p)</span></td><td><span class='p'>p. 70</span></td><td class='x'>Risco Regulatório e Legislativo | p) <mark>Alteração na legislação ou na regulação, que tenham impacto direto nas receitas ou despesas da CONCESSIONÁRIA</mark>, relacionados especificamente com a execução das atividades | objeto da CONCESSÃO. | PODER CONCEDENTE | As PARTES devem observar eventuais alterações normativas durante as revisões ordinárias do CONTRATO. | As PARTES devem buscar compatibilizar a execução do OBJETO com eventuais alterações na legislação que impactem a…</td></tr><tr id='n5'><td class='n'>[5]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Riscos de Engenharia, r.1)</span></td><td><span class='p'>p. 25</span></td><td class='x'>Variação do consumo de energia elétrica nas UNIDADES PREDIAIS | r.1) <mark>Variação do consumo de energia elétrica acima do volume de referência anual</mark> previsto na Cláusula 32.3 e seguintes do CONTRATO, desde que não decorra de ineficiência, falha de gestão, manutenção inadequada ou descumprimento de obrigações da CONCESSIONÁRIA. | COMPARTILHADO | O risco de variação do consumo de energia elétrica será compartilhado entre as PARTES na forma prevista na Cláusula 32.3…</td></tr><tr id='n6'><td class='n'>[6]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Stakeholders da CONCESSÃO, v)</span></td><td><span class='p'>p. 29</span></td><td class='x'>Stakeholders da CONCESSÃO | v) <mark>Restrição operacional decorrente de omissão ou decisão de órgãos ou entidades públicas municipais ou estaduais, quando tomada fora de sua competência</mark> fiscalizatória ou regulatória legalmente prevista, exceto se decorrente de fato | imputável à CONCESSIONÁRIA. | PODER CONCEDENTE | O PODER CONCEDENTE deve colaborar, dentro da sua esfera de competências e observados os termos da legislação pertinente, com a obtenção das licenças e autorizações eventualmente necessária…</td></tr><tr id='n7'><td class='n'>[7]</td><td><span class='d'>Anexo V – Matriz de Risco</span><br><span class='r'>Obtenção de autorizações, licenças e/ou permissões, a)</span></td><td><span class='p'>p. 47</span></td><td class='x'>Obtenção de autorizações, licenças e/ou permissões | a) <mark>Demora na obtenção, pela CONCESSIONÁRIA, de licenças, permissões e autorizações exigidas para a plena execução do PROGRAMA DE REFORMAS</mark> e/ou do PROGRAMA DE CONSTRUÇÃO, por fato imputável ao Poder Público, em nível municipal, estadual ou federal, assim entendida como a demora decorrente de fato não imputável à CONCESSIONÁRIA por prazo superior a | 6 (seis) meses do protocolo do pedido regularmente instruído. | Na hipótese de materialização do risco aci…</td></tr><tr id='n8'><td class='n'>[8]</td><td><span class='d'>Minuta do Contrato</span><br><span class='r'>cl. 28.20</span></td><td><span class='p'>p. 60</span></td><td class='x'>O PODER CONCEDENTE fará jus ao <mark>compartilhamento da receita bruta obtida com a exploração de cada tipo de RECEITAS ACESSÓRIAS, no percentual de até 5</mark> % (cinco por cento) da receita bruta auferida com a atividade, a ser determinado na manifestação que autorizar a sua exploração.</td></tr><tr id='n9'><td class='n'>[9]</td><td><span class='d'>Minuta do Contrato</span><br><span class='r'>cl. 28.21</span></td><td><span class='p'>p. 60</span></td><td class='x'><mark>As RECEITAS ACESSÓRIAS PRÉ-AUTORIZADAS não serão objeto de compartilhamento com o PODER CONCEDENTE</mark>.</td></tr><tr id='n10'><td class='n'>[10]</td><td><span class='d'>Minuta do Contrato</span><br><span class='r'>cl. 31.5</span></td><td><span class='p'>p. 70</span></td><td class='x'>…duzentos e cinquenta e quatro mil, trezentos e quatorze reais e três centavos), <mark>exclusivamente até o limite de 30%</mark> (trinta por cento) desse valor, correspondente a R$ 31.276.294,21 (trinta e um milhões, duzentos e setenta e seis mil, duzentos e noventa e quatro reais e vinte e um centavos), ensejando reequilíbrio econômico-financeiro à CONCESSIONÁRIA por meio do procedimento de revisão extraordinária previsto na CLÁUSULA 34ª e, ai…</td></tr><tr id='n11'><td class='n'>[11]</td><td><span class='d'>Minuta do Contrato</span><br><span class='r'>cl. 31.5.2</span></td><td><span class='p'>p. 70</span></td><td class='x'>…e setenta e seis mil, duzentos e noventa e quatro reais e vinte e um centavos), <mark>a CONCESSÃO deverá prosseguir sem a execução da referida intervenção</mark>, salvo determinação expressa e formal do PODER CONCEDENTE em sentido diverso, hipótese na qual a execução da ampliação dependerá de prévio aditamento do CONTRATO e da recomposição de seu equilíbrio econômico-financeiro, nos termos da CLÁUSULA 34ª, da CLÁUSULA 35ª e da CLÁUSULA 36ª .</td></tr><tr id='n12'><td class='n'>[12]</td><td><span class='d'>Minuta do Contrato</span><br><span class='r'>cl. 26 – seguros, quadro de sublimites</span></td><td><span class='p'>p. 35</span></td><td class='x'><mark>Alagamento e inundação</mark> | R$ 6.000.000,00 (seis milhões de reais)</td></tr><tr id='n13'><td class='n'>[13]</td><td><span class='d'>Minuta do Contrato</span><br><span class='r'>cl. 29ª</span></td><td><span class='p'>p. 61</span></td><td class='x'>…obrigações pecuniárias do PODER CONCEDENTE previstas na subcláusula 28.1. será <mark>assegurado durante toda a CONCESSÃO, por meio de SISTEMA DE GARANTIA composto pelas RECEITAS VINCULADAS</mark>, provenientes dos recursos financeiros destinados ao ESTADO a título de transferência obrigatória da União ao Fundo de Participação dos Estados (FPE), nos termos da Lei Estadual nº 16.245, de 25 de dezembro de 2024, e pela garantia prestada pela CADIP, consistente na constituição de penhor sobre o SALDO GARANTIA, a se…</td></tr><tr id='n14'><td class='n'>[14]</td><td><span class='d'>Anexo I – Caderno de Encargos</span><br><span class='r'>item 7.5 (ampliação do Edifício A)</span></td><td><span class='p'>p. 22</span></td><td class='x'>…ARIA E ARQUITETURA relativos à ampliação do Edifício A – CAFF, a CONCESSIONÁRIA <mark>deverá reavaliar a integridade dos elementos estruturais</mark> e submeter tal avaliação ao PODER CONCEDENTE, com o respectivo demonstrativo técnico-econômico acerca de eventuais intervenções não previstas originalmente que sejam necessárias para garantir a viabilidade da ampliação. A execução das obras de ampliação ficará condicionada à aprovação de referido demonstrativo pelo PO…</td></tr><tr id='n15'><td class='n'>[15]</td><td><span class='d'>Anexo I – Caderno de Encargos</span><br><span class='r'>Diretrizes gerais de obras</span></td><td><span class='p'>p. 10</span></td><td class='x'>A CONCESSIONÁRIA deverá <mark>prever e custear a realocação temporária dos servidores durante o período de obras</mark> tanto para as áreas de retrofit quanto as áreas de ampliação, remetendo o detalhamento caso a caso ao PLANO DE OBRAS;</td></tr><tr id='n16'><td class='n'>[16]</td><td><span class='d'>Anexo I – Caderno de Encargos</span><br><span class='r'>item 7.5</span></td><td><span class='p'>p. 23</span></td><td class='x'><mark>A reforma e a ampliação deverão ocorrer de maneira fracionada</mark>, permitindo o uso da edificação nos demais setores</td></tr><tr id='n17'><td class='n'>[17]</td><td><span class='d'>Apêndice III – Projeto Referencial</span><br><span class='r'>Subcondomínio 01 – CAFF</span></td><td><span class='p'>p. 39</span></td><td class='x'><mark>Originalmente o prédio do CAFF foi concebido para comportar 30 andares</mark>, com essa carga e dimensionamento dos elementos já contemplados na estrutura executada. Propõe-se a construção dos andares que estavam previstos no projeto inicial e que não foram executados até o momento. Esses pavimentos devem ser construídos de acordo com o projeto conceitual desenvolvido, acima dos reservatórios e…</td></tr><tr id='n18'><td class='n'>[18]</td><td><span class='d'>Edital de Concorrência</span><br><span class='r'>item 2.15 (conhecimento da área)</span></td><td><span class='p'>p. 7</span></td><td class='x'>…rfeito conhecimento da ÁREA DA CONCESSÃO, nos termos do Modelo de Declaração de <mark>Pleno Conhecimento</mark> da ÁREA DA CONCESSÃO, constante no ANEXO III.</td></tr><tr id='n19'><td class='n'>[19]</td><td><span class='d'>Análise de Value for Money (Produto 10)</span><br><span class='r'>item 3.3.2</span></td><td><span class='p'>p. 27</span></td><td class='x'>Com isso, <mark>foi considerado um ajuste do risco de variação dos custos e investimentos da ordem de 25%</mark>, observando o limite legal para a contratação de obras e serviços. Apesar de estudos apontarem para valores ainda superiores, como exemplo pode-se citar o estudo de Flyvbjerg, Holm e Buhl, 2002; 2003 (Cost Underestimation in Public Works Projects: Error or Lie?), que aponta para uma superação média do custo inicial de…</td></tr><tr id='n20'><td class='n'>[20]</td><td><span class='d'>Nota Técnica DCPPP-SERG nº 34/2026</span><br><span class='r'>Pergunta 11</span></td><td><span class='p'>p. 14 (PDF)</span></td><td class='x'><mark>previsto no projeto original da década de 1970</mark>, com os elementos excedentes (heliponto, casa de</td></tr></tbody></table>
+</div></div>
+
+<h2 class="section-title" id="anexo2">Anexo II · Trechos da matriz de referência (Global Infrastructure Hub)</h2>
+<p class="section-desc">GLOBAL INFRASTRUCTURE HUB; ALLEN &amp; OVERY. <i>Ferramenta de Alocação de Riscos de PPP — Edição 2019. Infraestrutura Social: Matriz de Alocação de Riscos de PPP de Reabilitação de Prédio de Escritórios Governamentais</i>. Versão em português, 41 páginas. As páginas indicadas são as do documento examinado; os trechos são reproduzidos literalmente, com reticências entre colchetes indicando supressão.</p>
+<div class="panel"><div class="panel-body" style="overflow-x:auto">
+<table class="data-table notas refs"><thead><tr><th>Ref.</th><th>Página e local na matriz</th><th>Trecho</th></tr></thead><tbody><tr id='g1'><td class='n'>[G1]</td><td><span class='p'>p. 11–12</span><br><span class='k small'>Risco de disponibilidade de terras, de acesso e de local — Condição de ativo existente (alocação típica: privado)</span></td><td class='x'>&ldquo;Quando o projeto tiver de reabilitar ativos existentes, estes devem ser completamente levantados (e potencialmente garantidos) pela Autoridade Contratante. Na medida em que dados confiáveis relativos à condição dos ativos existentes forem compartilhados pela Autoridade Contratante durante o processo de licitação e puderem ser utilizados com confiança durante a execução, o Parceiro Privado pode precificar o risco de utilizá-los, incluindo a interface com outros aspectos do projeto e riscos de defeitos latentes. O Parceiro Privado irá então arcar com o risco correspondente. A Autoridade Contratante arcará com o risco na medida em que tais dados se mostrarem imprecisos ou insuficientes e na medida de quaisquer garantias que ela fornecer.&rdquo;</td></tr><tr id='g2'><td class='n'>[G2]</td><td><span class='p'>p. 1</span><br><span class='k small'>Riscos principais — Condição de ativo existente</span></td><td class='x'>&ldquo;Na medida em que o Parceiro Privado estiver reabilitando estruturas existentes (e em alguns casos talvez integrando-as a um novo projeto de edifício), a condição das estruturas existentes será uma parte fundamental da devida diligência do Parceiro Privado.&rdquo;</td></tr><tr id='g3'><td class='n'>[G3]</td><td><span class='p'>p. 20</span><br><span class='k small'>Risco de construção — Defeitos e materiais defeituosos</span></td><td class='x'>&ldquo;A Autoridade Contratante pode ficar com o risco de defeitos latentes em estruturas existentes.&rdquo;</td></tr><tr id='g4'><td class='n'>[G4]</td><td><span class='p'>p. 35</span><br><span class='k small'>Risco de mudança da legislação — Mudança da legislação (e tributação)</span></td><td class='x'>&ldquo;A Autoridade Contratante basicamente assume o risco de alterações inesperadas na legislação que não eram de domínio público antes de uma data de corte especificada na fase de licitação […] Como a mudança de legislação pode também beneficiar o Parceiro Privado, as cláusulas de mudança de legislação muitas vezes são recíprocas, para garantir que a Autoridade Contratante se beneficie das consequências financeiras &ldquo;positivas&rdquo; de uma mudança legislativa.&rdquo;</td></tr><tr id='g5'><td class='n'>[G5]</td><td><span class='p'>p. 36</span><br><span class='k small'>Risco de mudança da legislação — abordagem detalhada de alocação</span></td><td class='x'>&ldquo;[…] mantido íntegro em relação a mudanças inesperadas na legislação que forem: (i) discriminatórias (por exemplo, ao projeto ou ao Parceiro Privado); ou (ii) específicas (por exemplo, ao setor de escritórios governamentais ou aos investidores em edifícios de escritórios governamentais); ou (iii) exigir gastos de capital após a conclusão da reabilitação […] Com essa abordagem mais detalhada, o Parceiro Privado assume (parcialmente) o risco geral de negócios que se aplica a todas as empresas (incluindo despesas operacionais ou tributação que afetem o mercado igualmente).&rdquo;</td></tr><tr id='g6'><td class='n'>[G6]</td><td><span class='p'>p. 36</span><br><span class='k small'>Risco de mudança da legislação — fundamentação</span></td><td class='x'>&ldquo;Qualquer risco que for transferido para o Parceiro Privado é passível de se refletir na precificação de contingência em sua proposta, o que pode resultar em a Autoridade Contratante pagar por algo que nunca acontece. A Autoridade Contratante deve levar em conta como financiará as mudanças na legislação que estão sob seu risco caso ocorram.&rdquo;</td></tr><tr id='g7'><td class='n'>[G7]</td><td><span class='p'>p. 27–28</span><br><span class='k small'>Risco de mercados financeiros — Refinanciamento (alocação típica: compartilhado)</span></td><td class='x'>&ldquo;Quando um refinanciamento resultar em ganho para o Parceiro Privado (&ldquo;ganho de refinanciamento&rdquo;), pode ser adequado que o ganho seja compartilhado entre as partes […] A Autoridade Contratante pode esperar compartilhar uma porcentagem do ganho de refinanciamento (p. ex., 50 %), e isso é particularmente importante dado o uso de fundos públicos para pagar o projeto de PPP.&rdquo;</td></tr><tr id='g8'><td class='n'>[G8]</td><td><span class='p'>p. 1 e 24</span><br><span class='k small'>Tipo de projeto e considerações de escopo; Risco de demanda</span></td><td class='x'>&ldquo;Pode haver oportunidades limitadas de receitas de terceiros em alguns casos (por exemplo, através de sublocação de unidades de varejo/café dentro do edifício). O contrato terá de definir os parâmetros permitidos e a alocação de risco acordada e o impacto dos custos/preços de tais atividades (por exemplo, em especial se o Parceiro Privado tiver se baseado na receita de terceiros para lhe permitir oferecer um preço de contrato mais baixo).&rdquo;</td></tr><tr id='g9'><td class='n'>[G9]</td><td><span class='p'>p. 24</span><br><span class='k small'>Risco operacional — Interface (alocação típica: compartilhado)</span></td><td class='x'>&ldquo;Embora o Parceiro Privado esteja normalmente mais bem posicionado para gerenciar muitos dos riscos de interface na fase operacional, pode haver casos em que esse risco precise ser compartilhado com a Autoridade Contratante ou por ela assumido. […] Quando determinados critérios de disponibilidade ou indicadores de desempenho não puderem ser cumpridos pelo Parceiro Privado devido a ações/falhas por parte da Autoridade Contratante (ou outras entidades governamentais), inclusive sua equipe, fornecedores ou (sub)contratados, a Autoridade Contratante assumirá o risco correspondente.&rdquo;</td></tr><tr id='g10'><td class='n'>[G10]</td><td><span class='p'>p. 15</span><br><span class='k small'>Risco ambiental — Evento de mudança climática</span></td><td class='x'>&ldquo;Evento de mudança climática — alocação típica: compartilhado.&rdquo;</td></tr><tr id='g11'><td class='n'>[G11]</td><td><span class='p'>p. 9</span><br><span class='k small'>Risco de disponibilidade de terras, de acesso e de local</span></td><td class='x'>&ldquo;Aprovações subsequentes de planejamento — alocação típica: privado; Principais anuências de projeto — alocação típica: público.&rdquo;</td></tr><tr id='g12'><td class='n'>[G12]</td><td><span class='p'>p. 34</span><br><span class='k small'>Risco de ação governamental material adversa (MAGA)</span></td><td class='x'>&ldquo;Nos projetos em que for apropriada uma provisão de MAGA, a Autoridade Contratante assume o risco de ações &ldquo;políticas&rdquo; específicas terem um efeito material adverso sobre a capacidade do Parceiro Privado de cumprir suas obrigações contratuais ou sobre seus direitos ou status financeiro.&rdquo;</td></tr><tr id='g13'><td class='n'>[G13]</td><td><span class='p'>p. 22</span><br><span class='k small'>Risco operacional — Risco de insumo ou de recursos operacionais</span></td><td class='x'>&ldquo;No que diz respeito à provisão e ao custo de serviços públicos, normalmente esse é um risco da Autoridade Contratante […] Para abordar o controle sobre o consumo, o contrato pode precisar incluir um limite acima do qual a Autoridade Contratante será responsável pelo custo do serviço público, pois o Parceiro Privado terá um controle limitado sobre o comportamento dos usuários.&rdquo;</td></tr><tr id='g14'><td class='n'>[G14]</td><td><span class='p'>p. 2</span><br><span class='k small'>Riscos principais — Horários e realocação</span></td><td class='x'>&ldquo;Horários e realocação: Se, durante as obras, os escritórios precisarem ser parcialmente utilizados ou se for necessário por parte da Autoridade Contratante encontrar escritórios temporários alternativos, o programa de reabilitação do Parceiro Privado (e a ordem das obras) deverá ser obrigado a levar isso em consideração.&rdquo;</td></tr><tr id='g15'><td class='n'>[G15]</td><td><span class='p'>p. 24</span><br><span class='k small'>Risco de demanda</span></td><td class='x'>&ldquo;O risco de demanda raramente se aplica, uma vez que o Parceiro Privado normalmente será pago por ter disponibilizado o edifício de escritórios segundo uma determinada norma que não depende da demanda por instalações de escritórios.&rdquo;</td></tr><tr id='g16'><td class='n'>[G16]</td><td><span class='p'>p. 40</span><br><span class='k small'>Risco de rescisão antecipada</span></td><td class='x'>&ldquo;Força do acordo de pagamento da Autoridade Contratante — alocação típica: público, com participação privada na estruturação das garantias.&rdquo;</td></tr></tbody></table>
+</div></div>
+
+</main>
+
+<footer class="footer">
+  <span>CAGE-RS · SEFAZ-RS · GT-PPPs — Matriz de risco do CAFF × matriz de referência do GI Hub · PPP do CAFF</span>
+  <span id="footGen">Documento gerado em 18/09/2026</span>
+</footer>
+
+<script>
+(function(){
+  const KEY='cage_req_matriz_gihub_caff_v1'; let saveTimer=null, dirty=false;
+  const $=s=>document.querySelector(s); const doc=()=>document.getElementById('doc');
+  function status(t){ const el=$('#tbStatus'); if(el) el.innerHTML='<span class="dot"></span>'+t; }
+  window.setEdit=function(on){ document.body.classList.toggle('editing',!!on);
+    document.querySelectorAll('#doc .ed').forEach(e=>e.setAttribute('contenteditable',on?'true':'false'));
+    const chk=$('#chkEdit'); if(chk) chk.checked=!!on; status(on?'Modo edição ativo — alterações salvas automaticamente':'Pronto · Requerimento CAGE v1.0'); };
+  function getFields(){ const o={}; document.querySelectorAll('#doc [data-k]').forEach(i=>o[i.dataset.k]=i.value); return o; }
+  function setFields(o){ if(!o) return; document.querySelectorAll('#doc [data-k]').forEach(i=>{ if(o[i.dataset.k]!==undefined) i.value=o[i.dataset.k]; }); }
+  window.salvar=function(){ try{ localStorage.setItem(KEY,JSON.stringify({html:doc().innerHTML,fields:getFields(),ts:Date.now()})); dirty=false;
+      status('Rascunho salvo — '+new Date().toLocaleTimeString('pt-BR')); }catch(e){ status('Não foi possível salvar neste navegador'); } };
+  function agendar(){ dirty=true; clearTimeout(saveTimer); saveTimer=setTimeout(()=>salvar(),700); }
+  window.restaurar=function(){ if(!confirm('Descartar o rascunho salvo neste navegador e voltar ao texto original?')) return; try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); };
+  function carregar(){ try{ const raw=localStorage.getItem(KEY); if(!raw) return; const d=JSON.parse(raw); if(!d||!d.html) return;
+      doc().innerHTML=d.html; setFields(d.fields); const b=$('#draftBanner'); if(b){ b.hidden=false; $('#draftTs').textContent=new Date(d.ts).toLocaleString('pt-BR'); } }catch(e){} }
+  function espelhar(){ document.querySelectorAll('#doc [data-k]').forEach(i=>{ let m=i.nextElementSibling;
+      if(!m||!m.classList.contains('print-val')){ m=document.createElement('div'); m.className='print-val'; i.insertAdjacentElement('afterend',m); }
+      const v=(i.value||'').trim(); m.textContent=v||('('+(i.placeholder||'a preencher')+')'); m.classList.toggle('ph',!v); }); }
+  window.baixarHTML=function(){ const wasEdit=document.body.classList.contains('editing'); setEdit(false);
+    document.querySelectorAll('#doc input').forEach(i=>i.setAttribute('value',i.value));
+    const clone=document.documentElement.cloneNode(true); const chk=clone.querySelector('#chkEdit'); if(chk) chk.removeAttribute('checked');
+    clone.querySelector('body').classList.remove('editing'); const banner=clone.querySelector('#draftBanner'); if(banner) banner.setAttribute('hidden','');
+    const blob=new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='Requerimento_Matriz_Riscos_GIHub_CAFF_editado_'+new Date().toISOString().slice(0,10)+'.html';
+    document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },600); setEdit(wasEdit); status('Cópia editada gerada'); };
+  document.addEventListener('DOMContentLoaded',()=>{ carregar(); setEdit(false); espelhar();
+    const d=doc(); d.addEventListener('input',e=>{ if(e.target.dataset&&e.target.dataset.k) espelhar(); agendar(); });
+    d.addEventListener('change',e=>{ if(e.target.dataset&&e.target.dataset.k) espelhar(); agendar(); });
+    document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){ e.preventDefault(); salvar(); } });
+    window.addEventListener('beforeunload',e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
+    const fg=document.getElementById('footGen'); if(fg) fg.textContent='Documento gerado em '+new Date().toLocaleDateString('pt-BR'); });
+})();
+</script>
+
+</body>
+</html>
